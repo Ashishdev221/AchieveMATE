@@ -1,0 +1,9 @@
+.landingPageChild {
+  position: absolute;
+  top: 2996px;
+  left: 93px;
+  border-radius: var(--br-xs);
+  background-color: var(--color-whitesmoke-500);
+  width: 613px;
+  height: 80px;
+}

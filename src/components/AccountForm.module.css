@@ -1,0 +1,107 @@
+.createYourAccount {
+  position: absolute;
+  top: calc(50% - 282.5px);
+  left: 83px;
+  font-size: var(--font-size-5xl);
+  letter-spacing: 0.46px;
+  line-height: 36px;
+  font-weight: 500;
+}
+.frameChild,
+.frameInner,
+.frameItem,
+.frameTextfield {
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 64px;
+  left: 0;
+}
+.frameInner,
+.frameItem,
+.frameTextfield {
+  top: 137px;
+}
+.frameInner,
+.frameTextfield {
+  top: 210px;
+}
+.frameTextfield {
+  top: 283px;
+}
+.rectangleFormcontrollabel {
+  position: relative;
+}
+.termsConditions {
+  color: var(--color-darkblue-100);
+}
+.iHaveAcceptedContainer {
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  letter-spacing: 0.46px;
+  line-height: 36px;
+  color: inherit;
+}
+.rectangleParent {
+  position: absolute;
+  top: 360px;
+  left: 0;
+  width: 329px;
+  height: 36px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+  text-align: left;
+}
+.frameButton {
+  position: absolute;
+  top: 424px;
+  left: 0;
+}
+.lineIcon {
+  position: relative;
+  width: 179px;
+  height: 1px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.lineWrapper {
+  position: absolute;
+  top: 483px;
+  left: 0;
+  width: 391px;
+  height: 36px;
+  display: flex;
+  flex-direction: column;
+  padding: 16.000015258789062px 0;
+  box-sizing: border-box;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.loginHere {
+  color: var(--color-darkblue-200);
+}
+.alreadyHaveAnContainer {
+  cursor: pointer;
+  text-decoration: none;
+  position: absolute;
+  top: calc(50% + 246.5px);
+  left: 57px;
+  letter-spacing: 0.46px;
+  line-height: 36px;
+  color: inherit;
+}
+.createYourAccountParent {
+  position: absolute;
+  top: 231px;
+  left: 0;
+  width: 391px;
+  height: 565px;
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-gray-200);
+  font-family: var(--font-roboto);
+}

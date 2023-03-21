@@ -1,0 +1,67 @@
+.groupChild {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(146.87deg, #3d0ea9, #262c6e);
+  width: 1282px;
+  height: 832px;
+}
+.groupItem,
+.main091Icon {
+  position: absolute;
+  top: 8px;
+  left: 852px;
+}
+.main091Icon {
+  top: 0;
+  left: 0;
+  width: 284px;
+  height: 77px;
+  object-fit: cover;
+}
+.contactUs,
+.team {
+  position: absolute;
+  top: 20px;
+  left: 689px;
+  cursor: pointer;
+}
+.team {
+  left: 587px;
+}
+.groupParent {
+  position: absolute;
+  top: 40px;
+  left: 66px;
+  width: 1135px;
+  height: 77px;
+}
+.successfulAstronautGotFirstIcon {
+  position: absolute;
+  top: 19.1px;
+  left: 51.28px;
+  width: 456.49px;
+  height: 651.55px;
+  object-fit: cover;
+}
+.maskGroup {
+  position: absolute;
+  top: 0;
+  left: 600px;
+  width: 550px;
+  height: 653.56px;
+}
+.maskGroupParent,
+.rectangleParent {
+  position: absolute;
+  top: 178px;
+  left: 82px;
+  width: 1150px;
+  height: 653.56px;
+}
+.rectangleParent {
+  top: 0;
+  left: -2px;
+  width: 1282px;
+  height: 832px;
+}

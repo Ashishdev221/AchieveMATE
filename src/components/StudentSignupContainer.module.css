@@ -1,0 +1,59 @@
+.groupChild {
+  position: absolute;
+  top: 326px;
+  left: 0;
+}
+.joinTheCommunity {
+  margin: 0;
+}
+.achievers {
+  color: var(--color-orange);
+}
+.span {
+  color: var(--color-white);
+}
+.joinTheCommunityContainer {
+  position: absolute;
+  top: calc(50% - 133px);
+  left: calc(50% - 290px);
+  letter-spacing: 0.46px;
+  line-height: 80px;
+  font-weight: 700;
+}
+.anAchievementSharing {
+  position: absolute;
+  top: calc(50% + 59px);
+  left: 0;
+  font-size: var(--font-size-5xl);
+  letter-spacing: 0.46px;
+  line-height: 36px;
+  display: flex;
+  align-items: center;
+  width: 580px;
+  height: 74px;
+}
+.joinTheCommunityOfAchieverParent {
+  position: absolute;
+  top: calc(50% - 193px);
+  left: calc(50% - 290px);
+  width: 580px;
+  height: 266px;
+  text-align: left;
+  font-size: var(--font-size-45xl);
+  color: var(--color-white);
+  font-family: var(--font-roboto);
+}
+.groupParent,
+.groupWrapper {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 580px;
+  height: 386px;
+}
+.groupWrapper {
+  top: 0;
+  width: 592px;
+  height: 396px;
+  overflow: hidden;
+}

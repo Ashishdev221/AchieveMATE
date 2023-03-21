@@ -1,0 +1,226 @@
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.signUpPage1Child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(146.87deg, #3d0ea9, #262c6e);
+  width: 729px;
+  height: 832px;
+}
+.itsYour {
+  color: var(--color-white);
+}
+.achievement {
+  color: var(--color-orange);
+}
+.itsYourAchievement {
+  margin: 0;
+}
+.itsYourAchievementContainer {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  letter-spacing: 0.46px;
+  line-height: 72px;
+  font-weight: 700;
+  font-family: inherit;
+}
+.beProudOf {
+  position: relative;
+  font-size: var(--font-size-xl);
+  letter-spacing: 0.46px;
+  line-height: 36px;
+  display: flex;
+  align-items: center;
+  width: 444px;
+  height: 74px;
+  flex-shrink: 0;
+}
+.itsYourAchievementShowcasParent {
+  position: absolute;
+  top: 210px;
+  left: 100px;
+  width: 529px;
+  height: 246px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 28px;
+  opacity: 0;
+  text-align: left;
+  font-size: var(--font-size-33xl);
+  color: var(--color-white);
+  font-family: var(--font-roboto);
+}
+.itsYourAchievementShowcasParent.animate {
+  animation: 1s ease 0s 1 normal forwards slide-in-top;
+}
+.signUpPage1Item {
+  position: absolute;
+  top: 0;
+  left: 729px;
+}
+.logo011Icon {
+  position: relative;
+  width: 230px;
+  height: 186px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.anAchievementSharing {
+  position: relative;
+  letter-spacing: 0.46px;
+  line-height: 26px;
+  font-weight: 300;
+  display: inline-block;
+  margin-top: -9px;
+}
+.logo011Parent {
+  position: absolute;
+  top: 0;
+  left: 75px;
+  width: 230px;
+  height: 203px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  font-size: var(--font-size-xs);
+  color: var(--color-black);
+  font-family: var(--font-roboto);
+}
+.frameParent {
+  position: absolute;
+  top: 18px;
+  left: 809px;
+  width: 391px;
+  height: 796px;
+}
+.meetTheTeam {
+  position: relative;
+  letter-spacing: 0.46px;
+  line-height: 36px;
+}
+.frameChild {
+  position: relative;
+  width: 79px;
+  height: 1px;
+  flex-shrink: 0;
+  object-fit: cover;
+  margin-left: -75px;
+}
+.meetTheTeamParent {
+  position: absolute;
+  top: 576px;
+  left: 100px;
+  width: 196px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  padding: 0 4px 0 0;
+  box-sizing: border-box;
+  align-items: flex-end;
+  justify-content: flex-start;
+  text-align: left;
+  font-size: var(--font-size-9xl);
+  color: var(--color-orange);
+  font-family: var(--font-roboto);
+}
+.sourabhPurbia {
+  position: relative;
+  letter-spacing: 0.46px;
+  line-height: 16px;
+  font-weight: 700;
+}
+.sourabhPurbiaWrapper {
+  position: absolute;
+  top: 652px;
+  left: 100px;
+  border-radius: var(--br-5xs);
+  background-color: var(--color-whitesmoke-100);
+  box-shadow: 0 2px 12px rgba(25, 15, 85, 0.15);
+  width: 92px;
+  height: 112px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding-5xs) 0;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-black);
+  font-family: var(--font-roboto);
+}
+.ashishDevWrapper {
+  left: 208px;
+}
+.ashishDevWrapper,
+.kuldeepKataraWrapper,
+.pankajKumawatWrapper {
+  position: absolute;
+  top: 652px;
+  border-radius: var(--br-5xs);
+  background-color: var(--color-whitesmoke-100);
+  box-shadow: 0 2px 12px rgba(25, 15, 85, 0.15);
+  width: 92px;
+  height: 112px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding-5xs) 0;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-end;
+}
+.pankajKumawatWrapper {
+  left: 316px;
+  text-align: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-black);
+  font-family: var(--font-roboto);
+}
+.kuldeepKataraWrapper {
+  left: 424px;
+}
+.kahnavSukhwalWrapper,
+.kuldeepKataraWrapper,
+.signUpPage1 {
+  text-align: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-black);
+  font-family: var(--font-roboto);
+}
+.kahnavSukhwalWrapper {
+  position: absolute;
+  top: 652px;
+  left: 532px;
+  border-radius: var(--br-5xs);
+  background-color: var(--color-whitesmoke-100);
+  box-shadow: 0 2px 12px rgba(25, 15, 85, 0.15);
+  width: 92px;
+  height: 112px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding-5xs) 0;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-end;
+}
+.signUpPage1 {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 832px;
+  overflow: hidden;
+}

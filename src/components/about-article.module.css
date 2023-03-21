@@ -1,0 +1,33 @@
+.about {
+  font-weight: 700;
+}
+.about,
+.aboutUs,
+.team {
+  position: absolute;
+  top: 0;
+  left: 0;
+  letter-spacing: 0.46px;
+  line-height: 36px;
+}
+.team {
+  top: 46px;
+}
+.aboutParent,
+.aboutUsParent {
+  position: absolute;
+  top: 76px;
+  left: 0;
+  width: 102px;
+  height: 82px;
+  text-align: left;
+  font-size: var(--font-size-5xl);
+  color: var(--color-white);
+  font-family: var(--font-roboto);
+}
+.aboutParent {
+  top: 4752px;
+  left: 433px;
+  height: 158px;
+  font-size: var(--font-size-9xl);
+}

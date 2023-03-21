@@ -1,0 +1,43 @@
+.quickShare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  letter-spacing: 0.46px;
+  line-height: 36px;
+  font-weight: 600;
+}
+.quicklyShareYour {
+  margin: 0;
+}
+.quicklyShareYourContainer {
+  position: absolute;
+  top: 46px;
+  left: 0;
+  font-size: var(--font-size-xl);
+  letter-spacing: 0.46px;
+  line-height: 26px;
+  color: var(--color-gray-500);
+}
+.quickShareParent {
+  position: absolute;
+  top: 62px;
+  left: 35px;
+  width: 223px;
+  height: 124px;
+  text-align: left;
+  font-size: var(--font-size-9xl);
+  color: var(--color-darkblue-100);
+  font-family: var(--font-roboto);
+}
+.frameWrapper {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  border-radius: var(--br-xs);
+  background-color: var(--color-goldenrod);
+  box-shadow: 0 8px 24px #28147e;
+  border: 5px solid var(--color-white);
+  box-sizing: border-box;
+  width: 293px;
+  height: 221px;
+}

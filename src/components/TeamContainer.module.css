@@ -1,0 +1,38 @@
+.groupChild,
+.groupItem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-5xs);
+  background-color: var(--color-whitesmoke-100);
+  width: 92px;
+  height: 112px;
+}
+.groupItem {
+  border-radius: var(--br-5xs) var(--br-5xs) 0 0;
+  background-color: var(--color-white);
+  height: 64px;
+}
+.sourabh {
+  margin: 0;
+}
+.sourabhPurbia {
+  position: absolute;
+  top: 72px;
+  left: 22px;
+  letter-spacing: 0.46px;
+  line-height: 16px;
+  font-weight: 700;
+}
+.rectangleParent {
+  position: absolute;
+  top: 652px;
+  left: 100px;
+  box-shadow: 0 2px 12px rgba(25, 15, 85, 0.15);
+  width: 92px;
+  height: 112px;
+  text-align: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-black);
+  font-family: var(--font-roboto);
+}

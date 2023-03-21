@@ -1,0 +1,128 @@
+.groupChild,
+.groupItem {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  border-radius: var(--br-base);
+  background: linear-gradient(180deg, #ffd783, #ffba28);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+  border: 5px solid var(--color-white);
+  box-sizing: border-box;
+  width: 343.33px;
+  height: 154px;
+}
+.groupItem {
+  left: 773px;
+}
+.p {
+  margin: 0;
+}
+.courses1 {
+  margin: 0;
+  font-size: var(--font-size-5xl);
+}
+.courses {
+  position: absolute;
+  top: 40px;
+  left: 906px;
+  letter-spacing: 0.46px;
+  line-height: 32px;
+  font-weight: 700;
+}
+.groupInner {
+  position: absolute;
+  top: -5px;
+  left: 383px;
+  border-radius: var(--br-base);
+  background: linear-gradient(180deg, #ffd783, #ffba28);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+  border: 5px solid var(--color-white);
+  box-sizing: border-box;
+  width: 343.33px;
+  height: 154px;
+}
+.achievements {
+  position: absolute;
+  top: 40px;
+  left: 522px;
+  letter-spacing: 0.46px;
+  line-height: 32px;
+}
+.vectorIcon {
+  position: absolute;
+  height: 87.5%;
+  width: 83.33%;
+  top: 8.33%;
+  right: 4.17%;
+  bottom: 4.17%;
+  left: 12.5%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.fluentlearningApp24Filled,
+.vectorIcon1 {
+  position: absolute;
+  top: 28px;
+  left: 802px;
+  width: 84px;
+  height: 84px;
+  overflow: hidden;
+}
+.vectorIcon1 {
+  height: 83.33%;
+  width: 83.33%;
+  top: 8.33%;
+  right: 8.33%;
+  bottom: 8.33%;
+  left: 8.33%;
+  max-width: 100%;
+  max-height: 100%;
+}
+.mdiachievementVariant {
+  top: 27px;
+  left: 412px;
+  width: 90px;
+  height: 90px;
+}
+.mdiaccountStudent,
+.mdiachievementVariant,
+.vectorIcon2 {
+  position: absolute;
+  overflow: hidden;
+}
+.vectorIcon2 {
+  height: 75%;
+  width: 66.67%;
+  top: 8.33%;
+  right: 16.67%;
+  bottom: 16.67%;
+  left: 16.67%;
+  max-width: 100%;
+  max-height: 100%;
+}
+.mdiaccountStudent {
+  top: 27px;
+  left: 20px;
+  width: 94px;
+  height: 94px;
+}
+.achievers {
+  position: absolute;
+  top: 40px;
+  left: 134px;
+  letter-spacing: 0.46px;
+  line-height: 32px;
+  font-weight: 700;
+}
+.rectangleParent {
+  position: absolute;
+  top: 952px;
+  left: 85px;
+  width: 1111.33px;
+  height: 144px;
+  text-align: left;
+  font-size: var(--font-size-21xl);
+  color: var(--color-black);
+  font-family: var(--font-roboto);
+}

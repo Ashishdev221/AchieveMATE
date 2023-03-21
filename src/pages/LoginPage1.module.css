@@ -1,0 +1,106 @@
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.loginPage1Child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(146.87deg, #3d0ea9, #262c6e);
+  width: 729px;
+  height: 832px;
+}
+.itsYour {
+  color: var(--color-white);
+}
+.achievement {
+  color: var(--color-orange);
+}
+.itsYourAchievement {
+  margin: 0;
+}
+.beProudOf,
+.itsYourAchievementContainer {
+  position: absolute;
+  letter-spacing: 0.46px;
+  opacity: 0;
+}
+.itsYourAchievementContainer {
+  top: calc(50% - 123px);
+  left: calc(50% - 264.5px);
+  line-height: 72px;
+  font-weight: 700;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.beProudOf.animate,
+.itsYourAchievementContainer.animate {
+  animation: 1s ease 0s 1 normal forwards slide-in-top;
+}
+.beProudOf {
+  top: calc(50% + 49px);
+  left: 0;
+  font-size: var(--font-size-xl);
+  line-height: 36px;
+  display: flex;
+  align-items: center;
+  width: 444px;
+  height: 74px;
+}
+.itsYourAchievementShowcasParent {
+  position: absolute;
+  top: calc(50% - 206px);
+  left: calc(50% - 540px);
+  width: 529px;
+  height: 246px;
+  text-align: left;
+  font-size: var(--font-size-33xl);
+  color: var(--color-white);
+  font-family: var(--font-roboto);
+}
+.loginPage1Item {
+  position: absolute;
+  top: 0;
+  left: 729px;
+  background-color: #f5f5f5;
+  width: 551px;
+  height: 832px;
+}
+.meetTheTeam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  letter-spacing: 0.46px;
+  line-height: 36px;
+}
+.groupChild {
+  position: absolute;
+  top: 39px;
+  left: 117px;
+  width: 79px;
+  height: 1px;
+  object-fit: cover;
+}
+.meetTheTeamParent {
+  position: absolute;
+  top: 576px;
+  left: 100px;
+  width: 196px;
+  height: 40px;
+  text-align: left;
+  font-size: var(--font-size-9xl);
+  color: var(--color-orange);
+  font-family: var(--font-roboto);
+}
+.loginPage1 {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 832px;
+  overflow: hidden;
+}
