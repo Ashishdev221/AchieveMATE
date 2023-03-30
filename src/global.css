@@ -23,21 +23,29 @@ body {
 
   /* Colors */
   --color-gray-400: #fafafa;
-  --color-gray-100: #8a8a8a;
+  --color-gray-300: #8c8c8c;
+  --color-gray-600: #212121;
+  --color-gray-700: #181818;
   --color-gray-500: #0e0e0e;
   --color-gray-200: #0c0c0c;
   --color-white: #fff;
   --color-black: #000;
-  --color-orange: #ffba28;
   --color-midnightblue: #301573;
   --color-whitesmoke-300: #f9f9f9;
   --color-whitesmoke-100: #f8f8f8;
+  --color-whitesmoke-200: #f5f5f5;
   --color-whitesmoke-400: #f4f4f4;
-  --color-whitesmoke-500: #ececec;
+  --color-orange: #ffba28;
+  --color-silver: #b9b9b9;
   --color-goldenrod: #ffcb5e;
   --color-darkblue-100: #3d0ea9;
   --color-darkblue-200: #3c0fa7;
+  --color-indigo-100: #351a93;
   --color-indigo: #321d8c;
+  --color-gainsboro-100: #d9d9d9;
+  --color-dimgray: #707070;
+  --color-dimgray-100: #6c6c6c;
+  --color-slateblue: #033eb1;
 
   /* Gaps */
   --gap-base: 16px;

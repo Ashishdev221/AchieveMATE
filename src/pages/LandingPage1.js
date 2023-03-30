@@ -1,4 +1,4 @@
-import { TextField, Button } from "@mui/material";
+import { TextField, InputAdornment, Icon, Button } from "@mui/material";
 import TeacherLoginSection from "../components/TeacherLoginSection";
 import ContainerWrapper from "../components/ContainerWrapper";
 import QuickShareContainer from "../components/QuickShareContainer";
@@ -8,7 +8,7 @@ import styles from "./LandingPage1.module.css";
 
 const LandingPage1 = () => {
   return (
-    <div className={styles.landingPage}>
+    <main className={styles.landingPage}>
       <TeacherLoginSection />
       <ContainerWrapper />
       <article className={styles.dRenderAstronautWithQuestiParent}>
@@ -109,23 +109,35 @@ const LandingPage1 = () => {
         Get in touch with us for any queries or feedback. We would love to hear
         from you!
       </strong>
-      <article className={styles.landingPageInner}>
+      <article
+        className={styles.landingPageInner}
+        data-scroll-to="groupContainer1"
+      >
         <article className={styles.whatIsAchievemateWrapper}>
           <b className={styles.contactUs}>Contact Us</b>
         </article>
       </article>
       <RectangleComponent />
+      <div className={styles.email}>Email*</div>
       <TextField
-        className={styles.email}
+        className={styles.rectangleTextfield}
+        sx={{ width: 613 }}
         color="primary"
-        variant="standard"
+        variant="filled"
         type="text"
-        label="Email*"
+        label="Phone"
         size="medium"
         margin="none"
       />
-      <article className={styles.rectangleArticle} />
-      <article className={styles.landingPageChild1} />
+      <TextField
+        className={styles.landingPageChild1}
+        sx={{ width: 613 }}
+        color="primary"
+        variant="filled"
+        multiline
+        label="Message"
+        margin="none"
+      />
       <Button
         className={styles.groupButton}
         sx={{ width: 152 }}
@@ -138,37 +150,20 @@ const LandingPage1 = () => {
         <img className={styles.groupChild1} alt="" src="/vector-1.svg" />
         <img className={styles.groupChild2} alt="" src="/vector-2.svg" />
       </article>
-      <TextField
-        className={styles.phone}
-        color="primary"
-        variant="standard"
-        type="text"
-        label="Phone"
-        placeholder="Placeholder"
-        size="medium"
-        margin="none"
-      />
-      <TextField
-        className={styles.yourMessageHere}
-        color="primary"
-        variant="standard"
-        type="text"
-        label="Your message here*"
-        size="medium"
-        margin="none"
-      />
+      <div className={styles.phone}>Phone</div>
+      <div className={styles.yourMessageHere}>Your message here*</div>
       <article className={styles.mdimessageProcessing}>
         <img className={styles.vectorIcon1} alt="" src="/vector6.svg" />
       </article>
-      <article className={styles.phphoneFill}>
+      <div className={styles.phphoneFill}>
         <img className={styles.vectorIcon4} alt="" src="/vector7.svg" />
-      </article>
-      <article className={styles.mdiemail}>
+      </div>
+      <div className={styles.mdiemail}>
         <img className={styles.vectorIcon5} alt="" src="/vector8.svg" />
-      </article>
+      </div>
       <article className={styles.groupParent}>
         <article className={styles.rectangleParent1}>
-          <article className={styles.groupChild3} />
+          <article className={styles.rectangleArticle} />
           <article className={styles.mdiemail1}>
             <img className={styles.vectorIcon5} alt="" src="/vector9.svg" />
           </article>
@@ -180,7 +175,7 @@ const LandingPage1 = () => {
           </a>
         </article>
         <article className={styles.rectangleParent2}>
-          <article className={styles.groupChild4} />
+          <article className={styles.groupChild3} />
           <img
             className={styles.phphoneFillIcon}
             alt=""
@@ -196,7 +191,10 @@ const LandingPage1 = () => {
         <strong className={styles.whatIsAchievemate}>Get in Touch</strong>
       </article>
       <img className={styles.lineIcon} alt="" src="/line-5@2x.png" />
-      <article className={styles.landingPageInner1}>
+      <article
+        className={styles.landingPageInner1}
+        data-scroll-to="groupContainer"
+      >
         <article className={styles.whatIsAchievemateWrapper}>
           <strong className={styles.whatIsAchievemate}>Meet the Team</strong>
         </article>
@@ -269,7 +267,7 @@ const LandingPage1 = () => {
       </article>
       <article className={styles.groupParent2}>
         <Button
-          className={styles.groupChild5}
+          className={styles.groupChild4}
           sx={{ width: 267 }}
           variant="contained"
           color="primary"
@@ -283,7 +281,7 @@ const LandingPage1 = () => {
         </strong>
       </article>
       <img className={styles.landingPageChild7} alt="" src="/line-6@2x.png" />
-    </div>
+    </main>
   );
 };
 

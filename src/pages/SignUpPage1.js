@@ -34,7 +34,7 @@ const SignUpPage1 = () => {
   }, []);
 
   return (
-    <div className={styles.signUpPage1}>
+    <main className={styles.signUpPage1}>
       <main className={styles.signUpPage1Child} />
       <article
         className={styles.itsYourAchievementShowcasParent}
@@ -97,7 +97,7 @@ const SignUpPage1 = () => {
           <p className={styles.itsYourAchievement}>Sukhwal</p>
         </strong>
       </address>
-    </div>
+    </main>
   );
 };
 

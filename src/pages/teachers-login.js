@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import { TextField, FormControlLabel, Checkbox, Button } from "@mui/material";
-import { Link } from "react-router-dom";
-import styles from "./LoginPage1.module.css";
+import styles from "./teachers-login.module.css";
 
-const LoginPage1 = () => {
+const TeachersLogin = () => {
   useEffect(() => {
     const scrollAnimElements = document.querySelectorAll(
       "[data-animate-on-scroll]"
@@ -35,28 +34,26 @@ const LoginPage1 = () => {
   }, []);
 
   return (
-    <main className={styles.loginPage1}>
-      <main className={styles.loginPage1Child} />
-      <article className={styles.itsYourAchievementShowcasParent}>
+    <main className={styles.teachersLogin}>
+      <main className={styles.teachersLoginChild} />
+      <article className={styles.yourStudentsYourPrideParent}>
         <strong
-          className={styles.itsYourAchievementContainer}
+          className={styles.yourStudentsYourContainer}
           data-animate-on-scroll
         >
-          <p className={styles.itsYourAchievement}>
-            <span className={styles.itsYour}>{`It's Your `}</span>
-            <span className={styles.achievement}>Achievement</span>
-            <span>,</span>
-          </p>
-          <p className={styles.itsYourAchievement}>Showcase it.</p>
+          <p className={styles.yourStudents}>Your Students,</p>
+          <p className={styles.yourPride}>Your Pride</p>
         </strong>
-        <strong className={styles.beProudOf} data-animate-on-scroll>
-          Be proud of your achievements! Login now and start sharing your
-          achievements.
+        <strong className={styles.verifyYourStudents} data-animate-on-scroll>
+          Verify your students' achievements and acknowledge them. Every student
+          deserves to be recognized for their achievements.
         </strong>
       </article>
-      <main className={styles.loginPage1Item} />
-      <main className={styles.helloWelcomeBackParent}>
-        <strong className={styles.helloWelcome}>Hello ! Welcome back</strong>
+      <main className={styles.teachersLoginItem} />
+      <main className={styles.teachersDashboardParent}>
+        <strong className={styles.teachersDashboard}>
+          Teacher’s Dashboard
+        </strong>
         <article className={styles.logo011Parent}>
           <img className={styles.logo011Icon} alt="" src="/logo01-1@2x.png" />
           <strong className={styles.anAchievementSharing}>
@@ -64,7 +61,7 @@ const LoginPage1 = () => {
           </strong>
         </article>
         <TextField
-          className={styles.frameChild}
+          className={styles.groupChild}
           sx={{ width: 391 }}
           color="primary"
           variant="outlined"
@@ -74,7 +71,7 @@ const LoginPage1 = () => {
           margin="none"
         />
         <FormControlLabel
-          className={styles.frameItem}
+          className={styles.groupItem}
           label="Remember me"
           labelPlacement="end"
           control={<Checkbox color="primary" />}
@@ -83,7 +80,7 @@ const LoginPage1 = () => {
           <strong className={styles.forgotPassword}>Forgot Password?</strong>
         </article>
         <Button
-          className={styles.frameInner}
+          className={styles.groupInner}
           sx={{ width: 391 }}
           variant="contained"
           color="primary"
@@ -91,70 +88,66 @@ const LoginPage1 = () => {
         >
           Login
         </Button>
-        <div className={styles.lineWrapper}>
-          <img className={styles.lineIcon} alt="" src="/line-2@2x.png" />
-        </div>
         <TextField
-          className={styles.frameTextfield}
+          className={styles.groupTextfield}
           sx={{ width: 391 }}
           color="primary"
           variant="outlined"
           type="text"
-          label="Enrollment number"
+          label="Email Id"
           size="medium"
           margin="none"
         />
-        <Link className={styles.dontHaveAnContainer} to="/sign-up-page-1">
-          <span>{`Don’t have an account? `}</span>
-          <span className={styles.createAccount}>Create Account</span>
-        </Link>
+        <footer className={styles.thankYouForYourTimeEffoParent}>
+          <strong
+            className={styles.thankYouFor}
+          >{`Thank you for your time & effort`}</strong>
+          <article className={styles.mdicardsHeart}>
+            <img className={styles.vectorIcon} alt="" src="/vector12.svg" />
+          </article>
+        </footer>
       </main>
       <article className={styles.meetTheTeamParent}>
         <strong className={styles.meetTheTeam}>Meet the Team</strong>
-        <img className={styles.frameChild1} alt="" src="/line-4@2x.png" />
+        <img className={styles.lineIcon} alt="" src="/line-4@2x.png" />
       </article>
       <address className={styles.rectangleParent}>
         <article className={styles.rectangleArticle} />
-        <article className={styles.frameChild2} />
         <strong className={styles.sourabhPurbia}>
-          <p className={styles.itsYourAchievement}>Sourabh</p>
-          <p className={styles.itsYourAchievement}>Purbia</p>
+          <p className={styles.yourStudents}>Sourabh</p>
+          <p className={styles.yourStudents}>Purbia</p>
         </strong>
       </address>
       <address className={styles.rectangleGroup}>
         <article className={styles.rectangleArticle} />
-        <article className={styles.frameChild2} />
         <strong className={styles.ashishDev}>
-          <p className={styles.itsYourAchievement}>Ashish</p>
-          <p className={styles.itsYourAchievement}>Dev</p>
+          <p className={styles.yourStudents}>Ashish</p>
+          <p className={styles.yourStudents}>Dev</p>
         </strong>
       </address>
       <address className={styles.rectangleContainer}>
         <article className={styles.rectangleArticle} />
-        <article className={styles.frameChild2} />
         <strong className={styles.pankajKumawat}>
-          <p className={styles.itsYourAchievement}>Pankaj</p>
-          <p className={styles.itsYourAchievement}>Kumawat</p>
+          <p className={styles.yourStudents}>Pankaj</p>
+          <p className={styles.yourStudents}>Kumawat</p>
         </strong>
       </address>
-      <address className={styles.frameAddress}>
+      <address className={styles.groupAddress}>
         <article className={styles.rectangleArticle} />
-        <article className={styles.frameChild2} />
         <strong className={styles.kuldeepKatara}>
-          <p className={styles.itsYourAchievement}>Kuldeep</p>
-          <p className={styles.itsYourAchievement}>Katara</p>
+          <p className={styles.yourStudents}>Kuldeep</p>
+          <p className={styles.yourStudents}>Katara</p>
         </strong>
       </address>
       <address className={styles.rectangleParent1}>
         <article className={styles.rectangleArticle} />
-        <article className={styles.frameChild2} />
         <strong className={styles.sourabhPurbia}>
-          <p className={styles.itsYourAchievement}>Kahnav</p>
-          <p className={styles.itsYourAchievement}>Sukhwal</p>
+          <p className={styles.yourStudents}>Kahnav</p>
+          <p className={styles.yourStudents}>Sukhwal</p>
         </strong>
       </address>
     </main>
   );
 };
 
-export default LoginPage1;
+export default TeachersLogin;

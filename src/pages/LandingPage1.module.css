@@ -310,31 +310,34 @@
   height: 100px;
 }
 .email {
-  border: 0;
-  background-color: transparent;
   position: absolute;
   top: 3018px;
   left: 185px;
+  font-size: var(--font-size-9xl);
+  letter-spacing: 0.46px;
+  line-height: 36px;
+  font-weight: 500;
+  color: var(--color-silver);
+  text-align: left;
+  display: none;
 }
-.landingPageChild1,
-.rectangleArticle {
+.rectangleTextfield {
+  border: 0;
+  background-color: transparent;
   position: absolute;
   top: 3096px;
   left: 93px;
-  border-radius: var(--br-xs);
-  background-color: var(--color-whitesmoke-500);
-  width: 613px;
-  height: 80px;
 }
+.groupButton,
+.groupChild1,
 .landingPageChild1 {
+  position: absolute;
   top: 3196px;
-  height: 190px;
+  left: 93px;
 }
 .groupButton,
 .groupChild1 {
-  position: absolute;
   top: 3421px;
-  left: 93px;
 }
 .groupChild1 {
   top: -11.16px;
@@ -358,28 +361,42 @@
   transform: rotate(-42.28deg);
   transform-origin: 0 0;
 }
-.phone,
-.yourMessageHere {
-  border: 0;
-  background-color: transparent;
+.phone {
   position: absolute;
   top: 3118px;
   left: 185px;
-}
-.yourMessageHere {
-  top: 3216px;
-  mix-blend-mode: multiply;
+  font-size: var(--font-size-9xl);
+  letter-spacing: 0.46px;
+  line-height: 36px;
+  font-weight: 500;
+  color: var(--color-silver);
+  text-align: left;
+  display: none;
 }
 .mdimessageProcessing,
-.vectorIcon4 {
+.yourMessageHere {
   position: absolute;
   top: 3216px;
+  display: none;
+}
+.yourMessageHere {
+  left: 185px;
+  font-size: var(--font-size-9xl);
+  letter-spacing: 0.46px;
+  line-height: 36px;
+  font-weight: 500;
+  color: var(--color-silver);
+  text-align: left;
+  mix-blend-mode: multiply;
+}
+.mdimessageProcessing {
   left: 125px;
   width: 40px;
   height: 40px;
   overflow: hidden;
 }
 .vectorIcon4 {
+  position: absolute;
   height: 78.12%;
   width: 78.12%;
   top: 9.38%;
@@ -387,6 +404,7 @@
   bottom: 12.5%;
   left: 12.5%;
   max-width: 100%;
+  overflow: hidden;
   max-height: 100%;
 }
 .phphoneFill {
@@ -394,6 +412,7 @@
   left: 125px;
   width: 40px;
   height: 40px;
+  display: none;
 }
 .mdiemail,
 .phphoneFill,
@@ -416,8 +435,9 @@
   left: 125px;
   width: 40px;
   height: 40px;
+  display: none;
 }
-.groupChild3 {
+.rectangleArticle {
   position: absolute;
   top: 0;
   left: 108px;
@@ -475,7 +495,7 @@
   color: var(--color-orange);
   font-family: var(--font-roboto);
 }
-.groupChild4 {
+.groupChild3 {
   position: absolute;
   top: 0;
   left: 68px;
@@ -795,7 +815,7 @@
   width: 282px;
   height: 93px;
 }
-.groupChild5 {
+.groupChild4 {
   position: absolute;
   top: 112px;
   left: 0;

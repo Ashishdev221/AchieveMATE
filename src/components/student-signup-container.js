@@ -1,6 +1,6 @@
-import { useMemo } from "react";
+import { useMemo, useEffect } from "react";
 import { Button } from "@mui/material";
-import styles from "./StudentSignupContainer.module.css";
+import styles from "./student-signup-container.module.css";
 
 const StudentSignupContainer = ({ ofAchieversTop, ofAchieversLeft }) => {
   const frameArticleStyle = useMemo(() => {
@@ -9,6 +9,36 @@ const StudentSignupContainer = ({ ofAchieversTop, ofAchieversLeft }) => {
       left: ofAchieversLeft,
     };
   }, [ofAchieversTop, ofAchieversLeft]);
+
+  useEffect(() => {
+    const scrollAnimElements = document.querySelectorAll(
+      "[data-animate-on-scroll]"
+    );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting || entry.intersectionRatio > 0) {
+            const targetElement = entry.target;
+            targetElement.classList.add(styles.animate);
+            observer.unobserve(targetElement);
+          }
+        }
+      },
+      {
+        threshold: 0.15,
+      }
+    );
+
+    for (let i = 0; i < scrollAnimElements.length; i++) {
+      observer.observe(scrollAnimElements[i]);
+    }
+
+    return () => {
+      for (let i = 0; i < scrollAnimElements.length; i++) {
+        observer.unobserve(scrollAnimElements[i]);
+      }
+    };
+  }, []);
 
   return (
     <article className={styles.groupWrapper} style={frameArticleStyle}>
@@ -19,11 +49,13 @@ const StudentSignupContainer = ({ ofAchieversTop, ofAchieversLeft }) => {
           variant="contained"
           color="primary"
           size="large"
-          href="/login-page-1"
         >
           Join as a Student
         </Button>
-        <article className={styles.joinTheCommunityOfAchieverParent}>
+        <article
+          className={styles.joinTheCommunityOfAchieverParent}
+          data-animate-on-scroll
+        >
           <strong className={styles.joinTheCommunityContainer}>
             <p className={styles.joinTheCommunity}>Join the community</p>
             <p className={styles.joinTheCommunity}>

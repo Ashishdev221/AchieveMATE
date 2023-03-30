@@ -8,7 +8,7 @@
     opacity: 1;
   }
 }
-.loginPage1Child {
+.teachersLoginChild {
   position: absolute;
   top: 0;
   left: 0;
@@ -16,54 +16,51 @@
   width: 729px;
   height: 832px;
 }
-.itsYour {
-  color: var(--color-white);
-}
-.achievement {
-  color: var(--color-orange);
-}
-.itsYourAchievement {
+.yourStudents {
   margin: 0;
 }
-.beProudOf,
-.itsYourAchievementContainer {
+.yourPride {
+  margin: 0;
+  color: var(--color-orange);
+}
+.verifyYourStudents,
+.yourStudentsYourContainer {
   position: absolute;
   letter-spacing: 0.46px;
   opacity: 0;
 }
-.itsYourAchievementContainer {
-  top: calc(50% - 123px);
-  left: calc(50% - 264.5px);
+.yourStudentsYourContainer {
+  top: calc(50% - 140px);
+  left: calc(50% - 222px);
   line-height: 72px;
   font-weight: 700;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
-.beProudOf.animate,
-.itsYourAchievementContainer.animate {
+.verifyYourStudents.animate,
+.yourStudentsYourContainer.animate {
   animation: 1s ease 0s 1 normal forwards slide-in-top;
 }
-.beProudOf {
-  top: calc(50% + 49px);
+.verifyYourStudents {
+  top: calc(50% + 32px);
   left: 0;
   font-size: var(--font-size-xl);
   line-height: 36px;
   display: flex;
   align-items: center;
   width: 444px;
-  height: 74px;
 }
-.itsYourAchievementShowcasParent {
+.yourStudentsYourPrideParent {
   position: absolute;
-  top: 210px;
-  left: 100px;
-  width: 529px;
-  height: 246px;
+  top: calc(50% - 206px);
+  left: calc(50% - 540px);
+  width: 444px;
+  height: 280px;
   text-align: left;
   font-size: var(--font-size-33xl);
   color: var(--color-white);
   font-family: var(--font-roboto);
 }
-.loginPage1Item {
+.teachersLoginItem {
   position: absolute;
   top: 0;
   left: 729px;
@@ -71,10 +68,10 @@
   width: 551px;
   height: 832px;
 }
-.helloWelcome {
+.teachersDashboard {
   position: absolute;
-  top: calc(50% - 101px);
-  left: 75px;
+  top: calc(50% - 309px);
+  left: 79px;
   letter-spacing: 0.46px;
   line-height: 36px;
   font-weight: 500;
@@ -97,7 +94,7 @@
 }
 .logo011Parent {
   position: absolute;
-  top: 0;
+  top: 64px;
   left: 81px;
   width: 230px;
   height: 203px;
@@ -106,29 +103,27 @@
   color: var(--color-black);
   font-family: var(--font-roboto);
 }
-.frameChild,
-.frameItem {
-  position: absolute;
-  left: 0;
-}
-.frameChild {
+.groupChild {
   border: 0;
   background-color: transparent;
+  position: absolute;
   top: 368px;
+  left: 0;
 }
-.frameItem {
-  top: 441px;
+.forgotPassword,
+.groupItem {
+  position: absolute;
+  top: calc(50% + 132px);
+  left: 0;
 }
 .forgotPassword {
-  position: absolute;
   top: calc(50% - 18px);
-  left: 0;
   letter-spacing: 0.46px;
   line-height: 36px;
 }
 .forgotPasswordWrapper {
   position: absolute;
-  top: 441px;
+  top: calc(50% + 132px);
   left: 255px;
   width: 136px;
   height: 36px;
@@ -137,58 +132,64 @@
   color: var(--color-darkblue-100);
   font-family: var(--font-roboto);
 }
-.frameInner,
-.lineIcon {
+.groupInner,
+.groupTextfield {
   position: absolute;
   top: 505px;
   left: 0;
 }
-.lineIcon {
-  top: 19px;
-  left: 212px;
-  width: 179px;
-  height: 1px;
-  object-fit: cover;
-}
-.lineWrapper {
-  position: absolute;
-  top: 582px;
-  left: 0;
-  width: 391px;
-  height: 36px;
-}
-.frameTextfield {
+.groupTextfield {
   border: 0;
   background-color: transparent;
-  position: absolute;
   top: 295px;
-  left: 0;
 }
-.createAccount {
-  color: var(--color-darkblue-200);
-}
-.dontHaveAnContainer {
-  cursor: pointer;
-  text-decoration: none;
+.thankYouFor {
   position: absolute;
-  top: calc(50% + 296px);
-  left: 48px;
-  font-size: var(--font-size-base);
+  top: calc(50% - 18px);
+  left: 0;
   letter-spacing: 0.46px;
   line-height: 36px;
-  text-align: left;
-  color: inherit;
+  font-weight: 500;
 }
-.helloWelcomeBackParent {
+.mdicardsHeart,
+.vectorIcon {
   position: absolute;
-  top: 84px;
-  left: 809px;
-  width: 391px;
-  height: 664px;
+  overflow: hidden;
+}
+.vectorIcon {
+  height: 76.46%;
+  width: 83.33%;
+  top: 12.5%;
+  right: 8.33%;
+  bottom: 11.04%;
+  left: 8.33%;
+  max-width: 100%;
+  max-height: 100%;
+}
+.mdicardsHeart {
+  top: 6px;
+  left: 308px;
+  width: 24px;
+  height: 24px;
+}
+.teachersDashboardParent,
+.thankYouForYourTimeEffoParent {
+  position: absolute;
+  top: calc(50% + 273px);
+  left: 30px;
+  width: 332px;
+  height: 36px;
   text-align: center;
-  font-size: var(--font-size-5xl);
+  font-size: var(--font-size-xl);
   color: var(--color-gray-200);
   font-family: var(--font-roboto);
+}
+.teachersDashboardParent {
+  top: calc(50% - 309px);
+  left: 809px;
+  width: 391px;
+  height: 618px;
+  font-size: var(--font-size-5xl);
 }
 .meetTheTeam {
   position: absolute;
@@ -197,7 +198,7 @@
   letter-spacing: 0.46px;
   line-height: 36px;
 }
-.frameChild1 {
+.lineIcon {
   position: absolute;
   top: 39px;
   left: 117px;
@@ -216,7 +217,6 @@
   color: var(--color-orange);
   font-family: var(--font-roboto);
 }
-.frameChild2,
 .rectangleArticle {
   position: absolute;
   top: 0;
@@ -225,11 +225,6 @@
   background-color: var(--color-whitesmoke-100);
   width: 92px;
   height: 112px;
-}
-.frameChild2 {
-  border-radius: var(--br-5xs) var(--br-5xs) 0 0;
-  background-color: var(--color-white);
-  height: 64px;
 }
 .sourabhPurbia {
   position: absolute;
@@ -299,7 +294,7 @@
   line-height: 16px;
   font-weight: 700;
 }
-.frameAddress,
+.groupAddress,
 .rectangleParent1 {
   position: absolute;
   top: 652px;
@@ -315,7 +310,7 @@
 .rectangleParent1 {
   left: 532px;
 }
-.loginPage1 {
+.teachersLogin {
   position: relative;
   background-color: var(--color-white);
   width: 100%;

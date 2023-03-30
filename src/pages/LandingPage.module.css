@@ -1,90 +1,112 @@
-.sourabh {
-  margin: 0;
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
-.ashishDev,
-.kanhavSukhwal,
-.kuldeepKatara,
-.pankajKumawat,
-.sourabhPurbia {
+.homePageNewUserChild,
+.homePageNewUserInner,
+.homePageNewUserItem,
+.rectangleSection {
   position: absolute;
-  top: 4472px;
-  left: 140px;
-  letter-spacing: 0.46px;
-  line-height: 32px;
+  top: 197px;
+  left: 80px;
+  border-radius: var(--br-base);
+  background-color: var(--color-white);
+  border: 0.5px solid var(--color-dimgray);
+  box-sizing: border-box;
+  width: 311px;
+  height: 528px;
 }
-.ashishDev,
-.kanhavSukhwal,
-.kuldeepKatara,
-.pankajKumawat {
-  left: 376px;
+.homePageNewUserInner,
+.homePageNewUserItem,
+.rectangleSection {
+  top: 765px;
+  height: 608px;
 }
-.kanhavSukhwal,
-.kuldeepKatara,
-.pankajKumawat {
-  left: 588px;
+.homePageNewUserInner,
+.rectangleSection {
+  top: 1413px;
 }
-.kanhavSukhwal,
-.kuldeepKatara {
-  left: 823px;
+.rectangleSection {
+  top: 484px;
+  left: 431px;
+  width: 769px;
+  height: 116px;
 }
-.kanhavSukhwal {
-  left: 1048px;
-}
-.landingPageChild {
-  position: absolute;
-  top: 4686px;
-  left: 0;
-  background: linear-gradient(97.18deg, #3c10a5, #282973);
-  width: 1280px;
-  height: 509px;
-}
-.about,
-.team {
+.groupChild,
+.homePageNewUserChild1 {
   position: absolute;
   top: 0;
+  width: 1280px;
+}
+.homePageNewUserChild1 {
+  left: 1px;
+  background-color: var(--color-white);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  height: 157px;
+}
+.groupChild {
   left: 0;
+  background: linear-gradient(97.18deg, #3c10a5, #282973);
+  height: 509px;
+}
+.about {
+  top: 0;
   letter-spacing: 0.46px;
   line-height: 36px;
 }
+.about,
+.aboutUsParent,
+.team {
+  position: absolute;
+  left: 0;
+}
 .team {
   top: 46px;
+  letter-spacing: 0.46px;
+  line-height: 36px;
 }
-.aboutParent,
 .aboutUsParent {
-  position: absolute;
   top: 76px;
-  left: 0;
   width: 102px;
   height: 82px;
-  font-size: var(--font-size-5xl);
-}
-.aboutParent {
-  top: 4752px;
-  left: 433px;
-  height: 158px;
   text-align: left;
-  font-size: var(--font-size-9xl);
+  font-size: var(--font-size-5xl);
   color: var(--color-white);
+  font-family: var(--font-roboto);
 }
-.faqsParent,
-.supportParent {
+.aboutParent,
+.faqsParent {
   position: absolute;
+  top: 66px;
+  left: 433px;
+  width: 102px;
+  height: 158px;
+}
+.faqsParent {
   top: 76px;
   left: 0;
   width: 122px;
   height: 82px;
-  font-size: var(--font-size-5xl);
-}
-.supportParent {
-  top: 4752px;
-  left: 657px;
-  height: 158px;
   text-align: left;
-  font-size: var(--font-size-9xl);
+  font-size: var(--font-size-5xl);
   color: var(--color-white);
+  font-family: var(--font-roboto);
+}
+.main101Icon,
+.supportParent {
+  position: absolute;
+  top: 66px;
+  left: 657px;
+  width: 122px;
+  height: 158px;
 }
 .main101Icon {
-  position: absolute;
   top: 0;
   left: 0;
   width: 250px;
@@ -101,13 +123,14 @@
 }
 .main101Parent {
   position: absolute;
-  top: 4726px;
+  top: 40px;
   left: 61px;
   width: 250px;
   height: 216px;
   text-align: left;
   font-size: var(--font-size-xs);
   color: var(--color-white);
+  font-family: var(--font-roboto);
 }
 .achievemateCopyright,
 .div {
@@ -121,7 +144,37 @@
 .div {
   left: 202px;
 }
-.tablercopyrightIcon {
+.vectorIcon,
+.vectorIcon1 {
+  position: absolute;
+  height: 107.41%;
+  width: 107.41%;
+  top: -3.7%;
+  right: -3.7%;
+  bottom: -3.7%;
+  left: -3.7%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vectorIcon1 {
+  height: 40.75%;
+  width: 35.19%;
+  top: 29.63%;
+  right: 35.19%;
+  bottom: 29.63%;
+  left: 29.62%;
+}
+.group {
+  position: absolute;
+  height: 75%;
+  width: 75%;
+  top: 12.5%;
+  right: 12.5%;
+  bottom: 12.5%;
+  left: 12.5%;
+}
+.tablercopyright {
   position: absolute;
   top: 4px;
   left: 177px;
@@ -182,55 +235,795 @@
   left: 17px;
   width: 248px;
   height: 57px;
+  text-align: left;
   font-size: var(--font-size-xl);
+  color: var(--color-white);
+  font-family: var(--font-roboto);
 }
 .groupParent {
-  top: 5022px;
+  top: 336px;
   left: 499px;
   width: 282px;
   height: 93px;
-  text-align: left;
   font-size: var(--font-size-base);
-  color: var(--color-white);
 }
-.groupChild {
+.groupItem {
   position: absolute;
   top: 112px;
-  left: 0;
+  left: 20px;
 }
-.joinTheCommunityContainer {
-  position: absolute;
-  top: 0;
-  left: 4px;
-  letter-spacing: 0.46px;
-  line-height: 36px;
+.referYourFriend {
+  margin: 0;
 }
 .groupDiv {
   position: absolute;
-  top: 4752px;
-  left: 933px;
-  width: 267px;
+  top: 66px;
+  left: 901px;
+  width: 225px;
   height: 172px;
+  text-align: center;
+}
+.groupInner {
+  position: absolute;
+  top: 295px;
+  left: 80px;
+  width: 1120px;
+  height: 1px;
+  object-fit: cover;
+}
+.rectangleParent {
+  position: absolute;
+  top: 3855px;
+  left: 0;
+  width: 1280px;
+  height: 509px;
+  text-align: left;
   font-size: var(--font-size-9xl);
   color: var(--color-white);
+  font-family: var(--font-roboto);
 }
-.landingPageItem {
+.icbaselineNotificationsIcon,
+.ictwotoneSearchIcon {
   position: absolute;
-  top: 4981.5px;
+  top: 14px;
+  left: 771px;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+}
+.icbaselineNotificationsIcon {
+  left: 855px;
+}
+.main021Icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 283.16px;
+  height: 77px;
+  object-fit: cover;
+}
+.groupButton {
+  position: absolute;
+  top: 8px;
+  left: 939px;
+}
+.ictwotoneSearchParent {
+  position: absolute;
+  top: 40px;
+  left: 66px;
+  width: 1135px;
+  height: 77px;
+}
+.ellipseIcon,
+.maskGroupIcon {
+  position: absolute;
+  top: 235px;
+  left: 163px;
+  width: 145px;
+  height: 145px;
+}
+.maskGroupIcon {
+  top: 245px;
+  left: 173px;
+  width: 125px;
+  height: 125px;
+  object-fit: cover;
+}
+.sourabhPurbia {
+  cursor: pointer;
+  position: absolute;
+  top: 394px;
+  left: 135px;
+  letter-spacing: 0.46px;
+  line-height: 52px;
+  font-weight: 700;
+}
+.uploadYourAchievement {
+  position: absolute;
+  top: 525px;
+  left: 547px;
+  letter-spacing: 0.46px;
+}
+.achieversLeaderboard {
+  top: 797px;
+  left: 154px;
+  line-height: 36px;
+}
+.achievements,
+.achieversLeaderboard,
+.exploreCourses {
+  position: absolute;
+  letter-spacing: 0.46px;
+  text-align: center;
+}
+.exploreCourses {
+  top: 1445px;
+  left: 130px;
+  line-height: 36px;
+}
+.achievements {
+  cursor: pointer;
+  top: 447px;
+  left: 161px;
+  font-size: var(--font-size-xl);
+}
+.groupInput,
+.homePageNewUserChild2 {
+  position: absolute;
+  top: 625px;
+  left: 119px;
+}
+.groupInput {
+  top: 512px;
+  left: 973px;
+  width: 199px;
+  height: 60px;
+}
+.homePageNewUserChild3 {
+  position: absolute;
+  top: 1273px;
+  left: 152px;
+}
+.homePageNewUserChild4,
+.lineDiv {
+  position: absolute;
+  top: 1921px;
+  left: 152px;
+}
+.lineDiv {
+  top: 485.5px;
   left: 79.5px;
-  border-top: 1px solid var(--color-white);
+  border-top: 1px solid #ddd;
   box-sizing: border-box;
-  width: 1121px;
+  width: 312px;
   height: 1px;
 }
-.landingPage {
-  position: relative;
-  background-color: var(--color-gray-400);
-  width: 100%;
-  height: 5195px;
+.gameIconsgraduateCap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
   overflow: hidden;
+}
+.computerScienceAnd {
+  position: absolute;
+  top: 3px;
+  left: 48px;
+  letter-spacing: 0.46px;
+  display: flex;
+  align-items: center;
+  width: 171px;
+}
+.gameIconsgraduateCapParent {
+  position: absolute;
+  top: 502px;
+  left: 104px;
+  width: 219px;
+  height: 49px;
+  font-size: var(--font-size-xl);
+}
+.uiscalenderIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 26px;
+  height: 26px;
+  overflow: hidden;
+}
+.ivYear {
+  cursor: pointer;
+  position: absolute;
+  top: 2px;
+  left: 45px;
+  letter-spacing: 0.46px;
+}
+.uiscalenderParent {
+  position: absolute;
+  top: 567px;
+  left: 107px;
+  width: 111px;
+  height: 26px;
+  font-size: var(--font-size-xl);
+}
+.maskGroupIcon1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+.achievements1 {
+  cursor: pointer;
+  position: absolute;
+  top: 23px;
+  left: 0;
+  font-size: var(--font-size-xs);
+  text-align: left;
+}
+.sourabhPurbiaParent {
+  position: absolute;
+  top: 11px;
+  left: 72px;
+  width: 111px;
+  height: 37px;
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-black);
+  font-family: var(--font-roboto);
+}
+.icon {
+  position: absolute;
+  top: 5px;
+  left: 232px;
+  width: 39px;
+  height: 50px;
+  object-fit: cover;
+}
+.icon1,
+.maskGroupParent {
+  position: absolute;
+  top: 901px;
+  left: 100px;
+  width: 271px;
+  height: 60px;
+}
+.icon1 {
+  top: 5px;
+  left: 232px;
+  width: 38.62px;
+  height: 50px;
+  object-fit: cover;
+}
+.maskGroupContainer,
+.maskGroupGroup {
+  position: absolute;
+  top: 971px;
+  left: 100px;
+  width: 270.62px;
+  height: 60px;
+}
+.maskGroupContainer {
+  top: 1041px;
+}
+.b {
+  position: absolute;
+  top: 16px;
+  left: 241px;
+}
+.maskGroupParent1 {
+  position: absolute;
+  top: 1111px;
+  left: 100px;
+  width: 255px;
+  height: 60px;
   text-align: center;
   font-size: var(--font-size-5xl);
+}
+.maskGroupIcon5,
+.rectangleArticle {
+  position: absolute;
+  top: 0;
+  height: 60px;
+}
+.rectangleArticle {
+  left: 0;
+  background-color: #37169a;
+  width: 311px;
+}
+.maskGroupIcon5 {
+  left: 20px;
+  width: 60px;
+  object-fit: cover;
+}
+.b1 {
+  position: absolute;
+  top: 16px;
+  left: 254px;
+}
+.achievements5,
+.sourabhPurbia5 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.achievements5 {
+  top: 23px;
+  font-size: var(--font-size-xs);
+  text-align: left;
+}
+.rectangleGroup,
+.sourabhPurbiaParent1 {
+  position: absolute;
+  top: 11px;
+  left: 92px;
+  width: 111px;
+  height: 37px;
+  font-size: var(--font-size-base);
+  color: var(--color-whitesmoke-400);
+}
+.rectangleGroup {
+  top: 1181px;
+  left: 80px;
+  width: 311px;
+  height: 60px;
+  text-align: center;
+  font-size: var(--font-size-5xl);
+  color: var(--color-white);
+}
+.passportPic2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 68px;
+  height: 62px;
+  object-fit: cover;
+}
+.groupChild1,
+.maskGroup {
+  position: absolute;
+  top: 512px;
+  left: 459px;
+  width: 60px;
+  height: 60px;
+}
+.groupChild1 {
+  top: 0;
+  left: 0;
+  border-radius: var(--br-base);
+  background-color: var(--color-white);
+  border: 0.5px solid var(--color-dimgray);
+  box-sizing: border-box;
+  width: 769px;
+  height: 1005px;
+}
+.icroundAccessTimeFilledIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+}
+.posted1dayAgo {
+  position: absolute;
+  top: 1px;
+  left: 20px;
+}
+.groupWrapper,
+.icroundAccessTimeFilledParent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 110px;
+  height: 16px;
+}
+.groupWrapper {
+  top: 42px;
+  left: 71px;
+  text-align: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-700);
+  font-family: var(--font-roboto);
+}
+.maskGroup1,
+.passportPic21 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.passportPic21 {
+  width: 69px;
+  height: 63px;
+  object-fit: cover;
+}
+.maskGroup1 {
+  width: 60px;
+  height: 60px;
+}
+.sourabhPurbiaParent2 {
+  position: absolute;
+  top: 1px;
+  left: 72px;
+  width: 111px;
+  height: 37px;
+}
+.groupParent1,
+.mdidotsHorizontal {
+  position: absolute;
+  top: 12px;
+  left: 677px;
+}
+.groupParent1 {
+  top: 28px;
+  left: 28px;
+  width: 713px;
+  height: 60px;
+  text-align: center;
+}
+.rectangleIcon {
+  position: absolute;
+  top: 184px;
+  left: 0;
+  width: 769px;
+  height: 615px;
+  object-fit: cover;
+}
+.groupChild2 {
+  position: absolute;
+  top: 827px;
+  left: 561px;
+}
+.groupChild3,
+.loremIpsumIs,
+.titleHere {
+  position: absolute;
+  top: 827px;
+  left: 28px;
+}
+.loremIpsumIs,
+.titleHere {
+  cursor: pointer;
+  top: 901px;
+  letter-spacing: 0.46px;
+  display: flex;
+  align-items: center;
+  width: 713px;
+}
+.titleHere {
+  top: 116px;
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+}
+.frameButton,
+.univerityOfArts {
+  position: absolute;
+  top: 826px;
+  left: 239px;
+}
+.univerityOfArts {
+  cursor: pointer;
+  top: 1px;
+  left: 28px;
+  letter-spacing: 0.46px;
+}
+.mdibookEducationIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+}
+.univerityOfArtsCaliforniaParent {
+  position: absolute;
+  top: 149px;
+  left: 28px;
+  width: 231px;
+  height: 20px;
+  text-align: left;
+  font-size: var(--font-size-base);
+  color: var(--color-black);
+  font-family: var(--font-roboto);
+}
+.ca201935685sp {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 28px;
+  letter-spacing: 0.46px;
+}
+.phcertificateFillParent {
+  position: absolute;
+  top: 150px;
+  left: 287px;
+  width: 170px;
+  height: 20px;
+}
+.certificateLink {
+  position: absolute;
+  top: 0;
+  left: 28px;
+  letter-spacing: 0.46px;
+}
+.mdilinkBoxVariantOutlineParent {
+  text-decoration: none;
+  position: absolute;
+  top: 149px;
+  left: 483px;
+  width: 143px;
+  height: 20px;
+  color: var(--color-slateblue);
+}
+.rectangleContainer {
+  position: absolute;
+  top: 640px;
+  left: 431px;
+  width: 769px;
+  height: 1005px;
+  text-align: left;
+  font-size: var(--font-size-base);
+  color: var(--color-black);
+  font-family: var(--font-roboto);
+}
+.groupFrame {
+  position: absolute;
+  top: 42px;
+  left: 71px;
+  width: 110px;
+  height: 16px;
+}
+.sourabhPurbiaParent3 {
+  position: absolute;
+  top: 1px;
+  left: 72px;
+  width: 111px;
+  height: 37px;
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-black);
+  font-family: var(--font-roboto);
+}
+.mdidotsHorizontalIcon {
+  position: absolute;
+  top: 12px;
+  left: 677px;
+  width: 36px;
+  height: 36px;
+  overflow: hidden;
+}
+.groupParent2 {
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  width: 713px;
+  height: 60px;
+  text-align: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-700);
+}
+.mdilinkBoxVariantOutlineGroup {
+  position: absolute;
+  top: 149px;
+  left: 485px;
+  width: 143px;
+  height: 20px;
+  color: var(--color-slateblue);
+}
+.rectangleParent1 {
+  position: absolute;
+  top: 1685px;
+  left: 431px;
+  width: 769px;
+  height: 1005px;
+  font-size: var(--font-size-base);
+}
+.groupParent3 {
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  width: 713px;
+  height: 60px;
+}
+.mdilinkBoxVariantOutlineContainer {
+  position: absolute;
+  top: 149px;
+  left: 483px;
+  width: 143px;
+  height: 20px;
+  color: var(--color-slateblue);
+}
+.rectangleParent2 {
+  position: absolute;
+  top: 2730px;
+  left: 431px;
+  width: 769px;
+  height: 1005px;
+  font-size: var(--font-size-base);
+}
+.rectangleDiv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-base);
+  background: linear-gradient(95.82deg, #3d0ea9, #321d8c);
+  width: 769.13px;
+  height: 247px;
+}
+.groupChild14,
+.groupChild15 {
+  position: absolute;
+  top: 129.78px;
+  left: 0;
+}
+.groupChild15 {
+  top: 130px;
+  left: 169.39px;
+}
+.showcaseYour {
+  color: var(--color-white);
+}
+.showcaseYourFirstContainer {
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 202.75px);
+  letter-spacing: 0.46px;
+  line-height: 52px;
+  font-weight: 700;
+  display: inline-block;
+  width: 405.49px;
+  height: 109.78px;
+}
+.showcaseYourFirstAchivementWrapper {
+  position: absolute;
+  bottom: 64.22px;
+  left: calc(50% - 221.19px);
+  width: 405.49px;
+  height: 109.78px;
+  opacity: 0;
+  text-align: left;
+  font-size: var(--font-size-21xl);
+  color: var(--color-orange);
+  font-family: var(--font-roboto);
+}
+.showcaseYourFirstAchivementWrapper.animate {
+  animation: 1s ease 0s 1 normal forwards slide-in-top;
+}
+.groupParent4,
+.maskGroupIcon8 {
+  position: absolute;
+  top: 36px;
+  left: 60.61px;
+  width: 442.39px;
+  height: 174px;
+}
+.maskGroupIcon8 {
+  top: 14.41px;
+  left: 486px;
+  width: 222.3px;
+  height: 232.59px;
+}
+.frameDiv,
+.rectangleParent3 {
+  position: absolute;
+  top: 3px;
+  left: 1px;
+  width: 769.13px;
+  height: 247px;
+}
+.frameDiv {
+  top: 194px;
+  left: 430px;
+  width: 771px;
+  height: 253px;
+  overflow: hidden;
+}
+.coursesAvailable,
+.webDevelopment {
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+}
+.webDevelopment {
+  top: 0;
+  font-weight: 700;
+}
+.coursesAvailable {
+  top: 23px;
+  font-size: var(--font-size-xs);
+}
+.webDevelopmentParent {
+  position: absolute;
+  top: 12px;
+  left: 72px;
+  width: 131px;
+  height: 37px;
+  text-align: left;
+  font-size: var(--font-size-base);
+  color: var(--color-black);
+  font-family: var(--font-roboto);
+}
+.maskGroupParent2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 203px;
+  height: 60px;
+}
+.materialSymbolsexpandMoreIcon {
+  position: absolute;
+  top: 18px;
+  left: 247px;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+}
+.groupParent5 {
+  position: absolute;
+  top: 1513px;
+  left: 100px;
+  width: 271px;
+  height: 60px;
+}
+.groupParent6,
+.groupParent7,
+.groupParent8,
+.groupParent9,
+.lineIcon {
+  position: absolute;
+  top: 1593px;
+  left: 100px;
+  width: 271px;
+  height: 60px;
+}
+.groupParent7,
+.groupParent8,
+.groupParent9,
+.lineIcon {
+  top: 1673px;
+}
+.groupParent8,
+.groupParent9,
+.lineIcon {
+  top: 1753px;
+}
+.groupParent9,
+.lineIcon {
+  top: 1833px;
+}
+.lineIcon {
+  top: 1582px;
+  left: 80px;
+  width: 311px;
+  height: 1px;
+  object-fit: cover;
+}
+.homePageNewUserChild5,
+.homePageNewUserChild6,
+.homePageNewUserChild7 {
+  position: absolute;
+  top: 1662px;
+  left: 80px;
+  width: 311px;
+  height: 1px;
+  object-fit: cover;
+}
+.homePageNewUserChild6,
+.homePageNewUserChild7 {
+  top: 1742px;
+}
+.homePageNewUserChild7 {
+  top: 1822px;
+}
+.homePageNewUser {
+  position: relative;
+  background-color: #f6f6f6;
+  width: 100%;
+  height: 4364px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-9xl);
   color: var(--color-black);
   font-family: var(--font-roboto);
 }

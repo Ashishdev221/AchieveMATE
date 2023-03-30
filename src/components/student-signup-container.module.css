@@ -1,3 +1,13 @@
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 .groupChild {
   position: absolute;
   top: 326px;
@@ -38,10 +48,14 @@
   left: calc(50% - 290px);
   width: 580px;
   height: 266px;
+  opacity: 0;
   text-align: left;
   font-size: var(--font-size-45xl);
   color: var(--color-white);
   font-family: var(--font-roboto);
+}
+.joinTheCommunityOfAchieverParent.animate {
+  animation: 1s ease 0s 1 normal forwards slide-in-top;
 }
 .groupParent,
 .groupWrapper {
@@ -52,7 +66,7 @@
   height: 386px;
 }
 .groupWrapper {
-  top: 0;
+  top: 106px;
   width: 592px;
   height: 396px;
   overflow: hidden;

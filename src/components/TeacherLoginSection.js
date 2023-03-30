@@ -1,18 +1,18 @@
 import { useCallback } from "react";
 import { Button } from "@mui/material";
-import StudentSignupContainer from "./StudentSignupContainer";
+import StudentSignupContainer from "./student-signup-container";
 import styles from "./TeacherLoginSection.module.css";
 
 const TeacherLoginSection = () => {
   const onContactUsClick = useCallback(() => {
-    const anchor = document.querySelector("[data-scroll-to='contactUs']");
+    const anchor = document.querySelector("[data-scroll-to='groupContainer1']");
     if (anchor) {
       anchor.scrollIntoView({ block: "start", behavior: "smooth" });
     }
   }, []);
 
   const onTeamClick = useCallback(() => {
-    const anchor = document.querySelector("[data-scroll-to='team']");
+    const anchor = document.querySelector("[data-scroll-to='groupContainer']");
     if (anchor) {
       anchor.scrollIntoView({ block: "center", behavior: "smooth" });
     }
@@ -36,7 +36,6 @@ const TeacherLoginSection = () => {
           variant="text"
           color="primary"
           size="large"
-          data-scroll-to="contactUs"
           onClick={onContactUsClick}
         >
           Contact Us
@@ -46,7 +45,6 @@ const TeacherLoginSection = () => {
           variant="text"
           color="primary"
           size="large"
-          data-scroll-to="team"
           onClick={onTeamClick}
         >
           Team
@@ -60,7 +58,7 @@ const TeacherLoginSection = () => {
             src="/successfulastronautgotfirstprizetrophy3drendering-1@2x.png"
           />
         </article>
-        <StudentSignupContainer ofAchieversTop="106px" ofAchieversLeft="0px" />
+        <StudentSignupContainer />
       </article>
     </main>
   );
