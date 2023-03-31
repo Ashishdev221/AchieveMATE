@@ -1,0 +1,117 @@
+.mdicloseBox {
+  position: absolute;
+  top: 2.25rem;
+  left: 35.25rem;
+  cursor: pointer;
+}
+.preview {
+  position: absolute;
+  top: 6.5rem;
+  left: 15.44rem;
+  letter-spacing: 0.46px;
+}
+.groupChild,
+.groupItem {
+  top: 0;
+  background-color: var(--color-indigo-100);
+  width: 9.5rem;
+}
+.groupChild {
+  position: absolute;
+  left: 0;
+  height: 0.63rem;
+}
+.groupItem {
+  left: 20.25rem;
+}
+.groupInner,
+.groupItem,
+.rectangleParent {
+  position: absolute;
+  height: 0.63rem;
+}
+.groupInner {
+  top: 0;
+  left: 10.13rem;
+  background-color: var(--color-indigo-100);
+  width: 9.5rem;
+}
+.rectangleParent {
+  top: 10.69rem;
+  left: 5.13rem;
+  width: 29.75rem;
+}
+.upload3Child,
+.upload3Item {
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 60rem;
+  left: 2.5rem;
+}
+.upload3Item {
+  top: 65.25rem;
+}
+.groupButton {
+  position: absolute;
+  top: 0;
+  left: 10.63rem;
+}
+.groupChild1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.groupParent {
+  position: absolute;
+  top: 78.5rem;
+  left: 10.56rem;
+  width: 18.75rem;
+  height: 2.75rem;
+}
+.upload3Inner {
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 70.5rem;
+  left: 2.5rem;
+}
+.rectangleIcon {
+  position: absolute;
+  top: 13.81rem;
+  left: 2.56rem;
+  border-radius: var(--br-5xs);
+  width: 34.94rem;
+  height: 27.95rem;
+  object-fit: cover;
+}
+.groupTextfield,
+.upload3Child1,
+.upload3Child2 {
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 44.25rem;
+  left: 2.5rem;
+}
+.upload3Child1,
+.upload3Child2 {
+  top: 49.5rem;
+}
+.upload3Child2 {
+  top: 54.75rem;
+  left: 2.44rem;
+}
+.upload3 {
+  position: relative;
+  background-color: var(--color-white);
+  width: 40rem;
+  height: 83.75rem;
+  overflow: hidden;
+  max-width: 100%;
+  max-height: 100%;
+  text-align: left;
+  font-size: var(--font-size-21xl);
+  color: var(--color-black);
+  font-family: var(--font-roboto);
+}
