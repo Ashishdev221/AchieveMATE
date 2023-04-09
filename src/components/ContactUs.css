@@ -1,0 +1,34 @@
+.contact_us {
+  padding-left: 81px;
+}
+
+.contact_us_head {
+  font-family: var(--font-roboto);
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 80px;
+  letter-spacing: 0.46px;
+  color: #301573;
+}
+
+.contact_us_para {
+  font-family: var(--font-roboto);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 48px;
+  letter-spacing: 0.46px;
+}
+
+.contact_us_img {
+  width: 397px;
+  height: 762px;
+}
+
+input {
+  background-color: #ECECEC;
+  height: 40px;
+  width: 613px;
+  border: 0.5px solid #c0c0c0;
+  border-radius: 12px;
+  
+}
