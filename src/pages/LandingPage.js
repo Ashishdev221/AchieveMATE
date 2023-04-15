@@ -1,27 +1,54 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "./LandingPage.css";
 import CounterCard from "../components/CounterCard";
 import ContactUs from "../components/ContactUs";
+import Button from "../components/Button";
 function LandingPage() {
   return (
     <div className="landing_page">
       {/* <Header /> */}
-      <div className="hero_section flex-container">
-        <div className="hero_section_left">
-          <h1 className="hero_section_heading">
-            Join the community of <span className="yellow_col">Achievers</span>.
-          </h1>
-          <p className="hero_section_para">
-            An Achievement sharing portal for College of Technology and
-            Engineering students.
-          </p>
+      <div className="hero_section">
+        <div className="header flex-container">
+          <Link to="/">
+            <img
+              className="header_logo"
+              src="/main09-1@2x.png"
+              alt="Achievemate"
+            />
+          </Link>
+          <Link>
+            <div className="header_option">
+              <span className="header_optionLineOne">Team</span>
+            </div>
+          </Link>
+          <Link>
+            <div className="header_option">
+              <span className="header_optionLineOne">Contact Us</span>
+            </div>
+          </Link>
+          <Button  name="Login as a Teacher"/>
         </div>
-        <img
-          src="/successfulastronautgotfirstprizetrophy3drendering-1@2x.png"
-          alt=""
-        />
+        <div className="flex-container">
+          <div className="hero_section_left">
+            <h1 className="hero_section_heading">
+              Join the community of{" "}
+              <span className="yellow_col">Achievers</span>.
+            </h1>
+            <p className="hero_section_para">
+              An Achievement sharing portal for College of Technology and
+              Engineering students.
+            </p>
+            <Button name="Join as a Student" className="hero_button" />
+          </div>
+          <img
+            className="hero_img"
+            src="/successfulastronautgotfirstprizetrophy3drendering-1@2x.png"
+            alt=""
+          />
+        </div>
       </div>
       <div className="about">
         <div className="counter flex-container">

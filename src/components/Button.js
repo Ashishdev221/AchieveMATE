@@ -1,10 +1,10 @@
 import React from 'react'
 import "./Button.css";
 
-function Button() {
+function Button(props) {
   return (
-    <div className='button'>
-        <a href="">Join as a Student</a>
+    <div className= {'button ' +props.className}>
+        <a href="">{props.name}</a>
     </div>
   )
 }
