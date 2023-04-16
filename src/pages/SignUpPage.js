@@ -1,12 +1,11 @@
 import React from "react";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
-import "./LoginPage.css";
+import "./SignUpPage.css";
 import TeamCard from "../components/TeamCard";
 import { Icon } from "@iconify/react";
 import { Button, Form, Input, Checkbox, Divider } from "antd";
 
-const LoginPage = () => {
+const SignUpPage = () => {
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
@@ -41,9 +40,9 @@ const LoginPage = () => {
       <div className="rightside">
         <div>
           <img className="rightside_logo" src="/logo01-1@2x.png" alt="" />
-          <h1 className="rightside_heading">Hello ! Welcome back</h1>
+          <h1 className="rightside_heading">Create Your Account</h1>
         </div>
-        <div className="mt-5 w-60">
+        <div className="mt-2 w-60">
           <Form
             form={form}
             name="student_login"
@@ -51,6 +50,21 @@ const LoginPage = () => {
             onFinish={onFinish}
             // initialValues={}
           >
+            <Form.Item
+              name="name"
+              rules={[
+                {
+                  required: true,
+                  message: " Please input your name",
+                },
+              ]}
+            >
+              <Input
+                prefix={<Icon icon="mdi:account" color="#2d2380" />}
+                placeholder=" Enter Your Name"
+                size="large"
+              />
+            </Form.Item>
             <Form.Item
               name="enrollment"
               rules={[
@@ -62,7 +76,7 @@ const LoginPage = () => {
             >
               <Input
                 prefix={<Icon icon="mdi:card-bulleted" color="#2d2380" />}
-                placeholder="Enrollment Number"
+                placeholder=" Enrollment Number"
                 size="large"
               />
             </Form.Item>
@@ -78,17 +92,54 @@ const LoginPage = () => {
               <Input
                 prefix={<Icon icon="mdi:password" color="2D2380" />}
                 type="password"
-                placeholder="Password"
+                placeholder=" Password"
+                hasFeedback
               />
             </Form.Item>
-            <Form.Item>
-              <Form.Item name="remember" valuePropName="checked" noStyle>
-                <Checkbox>Remember me</Checkbox>
-              </Form.Item>
-
-              <a className="login-form-forgot" href="">
-                Forgot password
-              </a>
+            <Form.Item
+              name="confirm"
+              dependencies={["password"]}
+              hasFeedback
+              rules={[
+                {
+                  required: true,
+                  message: "Please confirm your password!",
+                },
+                ({ getFieldValue }) => ({
+                  validator(_, value) {
+                    if (!value || getFieldValue("password") === value) {
+                      return Promise.resolve();
+                    }
+                    return Promise.reject(
+                      new Error(
+                        "The two passwords that you entered do not match!"
+                      )
+                    );
+                  },
+                }),
+              ]}
+            >
+              <Input.Password
+                prefix={<Icon icon="mdi:password" color="2D2380" />}
+                placeholder=" Confirm Password"
+              />
+            </Form.Item>
+            <Form.Item
+              name="agreement"
+              valuePropName="checked"
+              rules={[
+                {
+                  validator: (_, value) =>
+                    value
+                      ? Promise.resolve()
+                      : Promise.reject(new Error("Should accept agreement")),
+                },
+              ]}
+              // {...tailFormItemLayout}
+            >
+              <Checkbox>
+                I have read the <a href="">agreement</a>
+              </Checkbox>
             </Form.Item>
 
             <Form.Item>
@@ -98,13 +149,13 @@ const LoginPage = () => {
                 className="login-form-button"
                 size="large"
               >
-                Log in
+                Sign Up
               </Button>
             </Form.Item>
           </Form>
           <hr></hr>
           <p className="m-4 text-center">
-            Don't have an account? <a href="/signup">Create Account</a>
+            Already have an account? <a href="/login">Login Here</a>
           </p>
         </div>
       </div>
@@ -112,4 +163,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignUpPage;

@@ -11,13 +11,16 @@ import Popover4 from "./pages/Popover4";
 import UserDashboard from "./pages/UserDashboard";
 import TeacherDashboard from "./pages/TeacherDashboard";
 import MyDashboard from "./pages/MyDashboard";
+import SignUpPage from "./pages/SignUpPage";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
+          <Route path="/" element={[<LandingPage />]} />
           <Route path="/login" element={[<LoginPage />]} />
+          <Route path="/Signup" element={[<SignUpPage />]} />
           <Route path="/comp" element={[<Components />]} />
           <Route path="/home-page" element={[<HomePage />]} />
           <Route path="/teacher-dashboard" element={[<TeacherDashboard />]} />
