@@ -12,6 +12,7 @@ import UserDashboard from "./pages/UserDashboard";
 import TeacherDashboard from "./pages/TeacherDashboard";
 import MyDashboard from "./pages/MyDashboard";
 import SignUpPage from "./pages/SignUpPage";
+import LoginTeacher from "./pages/LoginTeacher"
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={[<LandingPage />]} />
           <Route path="/login" element={[<LoginPage />]} />
+          <Route path="/loginTeacher" element={[<LoginTeacher />]} />
           <Route path="/Signup" element={[<SignUpPage />]} />
           <Route path="/comp" element={[<Components />]} />
           <Route path="/home-page" element={[<HomePage />]} />
