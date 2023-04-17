@@ -26,10 +26,10 @@ function Footer() {
           </a>
         </div>
         <div className="join_us">
-          <h4 className="footer_heading">
+          <h4 className="footer_heading join_community">
             Join the community <br /> of Achievers
           </h4>
-          <Button />
+          <Button name="Join as a Student" />
         </div>
       </div>
       <hr />
