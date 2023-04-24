@@ -1,0 +1,59 @@
+.achievers {
+  background: white;
+  border: 0.5px solid #707070;
+  border-radius: 16px;
+}
+
+.achievers_heading {
+  text-align: center;
+  font-family: var(--font-roboto);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 36px;
+  letter-spacing: 0.46px;
+  margin: 25px;
+}
+
+.achievers_btn {
+  margin: 30px auto;
+}
+
+.explore_coin {
+  background: #37169a;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 32px 26px;
+}
+
+.explore_coin_heading {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  letter-spacing: 0.46px;
+  color: #f5f5f5;
+}
+
+.coins {
+  background: #f3f3f3;
+  border-radius: 8px;
+  width: 134px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.explore_coin_para {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.46px;
+  color: #ffba28;
+  margin-top: 12px;
+}

@@ -1,10 +1,10 @@
 import React from 'react'
 import "./Button.css";
 
-function Button(props) {
+function Button({label,id,className }) {
   return (
-    <div className= {'button ' +props.className}>
-        <a href="">{props.name}</a>
+    <div className={className?className:'button'} id={id?id:''}>
+        <a href="">{label}</a>
     </div>
   )
 }

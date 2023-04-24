@@ -2,8 +2,9 @@
   background: #ffffff;
   border: 0.5px solid #707070;
   border-radius: 16px;
-  width: 769px;
-  height: 1005px;
+  /* width: 769px; */
+  /* height: 1005px; */
+  margin: 40px 0;
 }
 
 .post_title {
@@ -15,8 +16,8 @@
 }
 
 .post_img {
-  width: 769px;
-  height: 615px;
+  width: 100%;
+  /* height: 615px; */
 }
 
 .post_des {
@@ -28,9 +29,11 @@
   letter-spacing: 0.46px;
 }
 
-/* .MuiButton-root {
-  border-radius: 8px;
-  background-color: #E7E7E7;
-  border: 0;
-  color: #070707;
-} */
+.post_info {
+  margin: 28px 28px 0 28px;
+}
+
+.post_bottom {
+  margin: 28px 28px 0 28px;
+
+}

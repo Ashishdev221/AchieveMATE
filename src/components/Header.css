@@ -19,3 +19,19 @@
 .flex-container {
     display: flex;
 } */
+
+.home_header_logo {
+  height: 77px;
+  width: 283px;
+}
+
+.home_header {
+  background-color: transparent;
+}
+
+.nav-item {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 0.46px;
+}

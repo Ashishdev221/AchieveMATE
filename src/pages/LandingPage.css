@@ -129,9 +129,9 @@ hr {
 }
 
 .hero_section_left {
-  width: 580px;
+  /* width: 580px; */
   padding-top: 106px;
-  padding-left: 82px;
+  /* padding-left: 82px; */
 }
 
 .hero_button {
@@ -154,4 +154,8 @@ hr {
   font-weight: 700;
   line-height: 36px;
   letter-spacing: 0.46px;
+}
+
+.hero_section_main {
+  justify-content: space-around;
 }

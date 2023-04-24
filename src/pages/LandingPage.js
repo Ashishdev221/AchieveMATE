@@ -9,9 +9,9 @@ import Button from "../components/Button";
 function LandingPage() {
   return (
     <div className="landing_page">
-      {/* <Header /> */}
       <div className="hero_section">
-        <div className="header flex-container">
+      <Header />
+        {/* <div className="header flex-container">
           <Link to="/">
             <img
               className="header_logo"
@@ -30,18 +30,17 @@ function LandingPage() {
             </div>
           </Link>
           <Button  name="Login as a Teacher"/>
-        </div>
-        <div className="flex-container">
+        </div> */}
+        <div className="flex-container hero_section_main">
           <div className="hero_section_left">
             <h1 className="hero_section_heading">
-              Join the community of{" "}
-              <span className="yellow_col">Achievers</span>.
+              Join the community <br /> of <span className="yellow_col">Achievers</span>.
             </h1>
             <p className="hero_section_para">
-              An Achievement sharing portal for College of Technology and
+              An Achievement sharing portal for College of <br /> Technology and
               Engineering students.
             </p>
-            <Button name="Join as a Student" className="hero_button" />
+            <Button label="Join as a Student" className="hero_button button" />
           </div>
           <img
             className="hero_img"
@@ -83,8 +82,8 @@ function LandingPage() {
       <div className="get_in_touch">
         <div className="get_in_touch_heading">Get in Touch</div>
         <div className="flex-container get_in_touch_container">
-          <div>
-            <div className="get_in_touch_img">
+          <div className="d-flex align-items-center flex-column">
+            <div className="get_in_touch_img mb-3">
               <img src="/vector9.svg" alt="" />
             </div>
             <div>
@@ -93,8 +92,8 @@ function LandingPage() {
             </div>
           </div>
           <hr />
-          <div>
-            <div className="get_in_touch_img">
+          <div className="d-flex align-items-center flex-column">
+            <div className="get_in_touch_img mb-3">
               <img src="/vector9.svg" alt="" />
             </div>
             <div>
