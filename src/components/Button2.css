@@ -1,0 +1,28 @@
+.button-style {
+  font-family: var(--font-roboto);
+  font-size: 16px;
+  font-weight: 500;
+  width: fit-content;
+  height: 35px;
+  letter-spacing: 0.46px;
+  background-color: #ffba28;
+  border-radius: 8px;
+  text-align: center;
+  padding: 8px 30px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.recheck-btn-style{
+    background-color: #3D0EA9 !important;
+    color: white;
+  } 
+
+.recheck-btn-style p{
+    color: white;
+}
+
+.cancel-btn-style{
+    background-color: white;
+    border: 1px solid black;
+}
+  

@@ -10,6 +10,7 @@ import Popover3 from "./pages/Popover3";
 import Popover4 from "./pages/Popover4";
 import UserDashboard from "./pages/UserDashboard";
 import TeacherDashboard from "./pages/TeacherDashboard";
+import MyDashboard from "./pages/MyDashboard";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/popover3" element={[<Popover3></Popover3>]} />
           <Route path="/popover4" element={[<Popover4></Popover4>]} />
           <Route path="/" element={[<LandingPage />]} />
+          <Route path="/myDash" element={[<MyDashboard />]} />
         </Routes>
       </div>
     </Router>
