@@ -1,0 +1,38 @@
+.expand-collapse {
+  border: 1px solid #ccc;
+  margin: 10px;
+}
+
+.expand-collapse-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+.expand-collapse-button {
+  font-size: 1.5em;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.expand-collapse-content {
+  display: block;
+  padding: 10px;
+}
+
+.title-style {
+  width: fit-content;
+  height: 17px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0.46px;
+  color: #2d2d2d;
+}

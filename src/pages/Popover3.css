@@ -1,0 +1,114 @@
+.popover-container3 {
+    width: 500px;
+    height:800px;
+    background: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    position: relative;
+     margin: auto; 
+    text-align: center;
+}
+
+.popover-header3 {
+    position: absolute;
+    width: 476px;
+    height: 47px;
+    top: 30px;
+    /* left: 60px; */
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    margin: 0px;
+    line-height: 47px;
+    letter-spacing: 0.46px;
+    color: #000000;
+}
+
+.flex-container3 {
+    display: flex;
+    position: absolute;
+    left: 70px;
+    width: 70%;
+    top: 90px;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.popover-rectangle3 {
+    width: 90px;
+    height: 5px;
+}
+
+.blue-rectangle3 {
+    background-color: #351A93;
+    ;
+}
+
+.grey-rectangle3 {
+    background-color: #D9D9D9;
+    ;
+}
+
+.flex-container-column3 {
+    position: absolute;
+    left: 23px;
+    top: 300px;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    justify-content: space-between;
+    height: 54%;
+    /* height: 'fit-content'; */
+}
+
+.input-container3{
+    background-color: white;
+    width: 450px;
+    padding-left: 10px;
+    /* text-align: center; */
+    height: 40px;
+    border: 1px solid #212121;
+    border-radius: 8px;
+}
+
+.dragger-container3 {
+    position: absolute;
+    width: 450px;
+    height: 200px;
+    left: 25px;
+    top: 370px;
+    border-width: 1px 1px 1px 1px;
+    border-style: dashed;
+    border-color: #212121;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+}
+.margin-0px3{
+    margin: 5px;
+}
+.margin-auto3{
+    margin: auto;
+}
+.button-container3{
+   display: flex;
+   position: absolute;
+   top:750px;
+   justify-content: space-between;
+   left: 120px;
+   width: 50%;
+}
+.cross-icon3{
+    position: absolute;
+    margin: 10px;
+    right: 0px;
+}
+.icon-position{
+    position: absolute;
+    left:150px;
+    top: 85px;
+}

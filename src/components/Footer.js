@@ -29,10 +29,10 @@ function Footer() {
           <h4 className="footer_heading join_community">
             Join the community <br /> of Achievers
           </h4>
-          <Button name="Join as a Student" />
+          <Button label="Join as a Student" />
         </div>
       </div>
-      <hr />
+      <hr className="text-light" />
       <div className="copyright">
         <p className="copyright_heading">Made with Love <img src="/vector12.svg" alt="" /> <br /> For CTAEians by CTAEians</p>
         <p className="copyright_para">AchieveMate Copyright © 2023-2024</p>
