@@ -1,0 +1,64 @@
+.title {
+  width: 176px;
+  height: 14px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.46px;
+  color: #000000;
+  margin-bottom: 25px;
+}
+
+.horizontal-button-grp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+table {
+  border-collapse: collapse; /* merge cell borders */
+  width: 100%; /* set the desired table width */
+  margin: auto;
+}
+
+th,
+td {
+  border-bottom: 1px solid #c7c7c7; /* set the desired border style */
+  border-top: 1px solid #c7c7c7;
+  padding: 8px; /* set the desired cell padding */
+  text-align: center; /* set the desired text alignment */
+}
+
+.check-box {
+  box-sizing: border-box;
+
+  width: 24px;
+  height: 24px;
+
+  background: #eaeaea;
+  border: 0.25px solid #9d9d9d;
+  border-radius: 4px;
+}
+
+.btn2 {
+  width: 214px;
+  height: 50px;
+  text-align: center;
+  background: #ffba28;
+  border-radius: 8px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.checkbox-style {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border: 0.25px solid #9d9d9d;
+  border-radius: 4px;
+}
