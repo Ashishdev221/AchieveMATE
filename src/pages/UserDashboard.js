@@ -5,7 +5,7 @@ import Post from "../components/Post";
 import Achievers from "../components/Achievers";
 import ExploreCourse from "../components/ExploreCourse";
 import Footer from "../components/Footer";
-import MyDashboard from "./MyDashboard";
+import MyDashboard from "../components/MyDashboard";
 
 function UserDashboard() {
   return (
