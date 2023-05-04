@@ -15,9 +15,28 @@ const registerUser = asyncHandler( async (req, res) => {
     }).save();
     return res.status(201).send({ message: "User created successfully" });
   } catch (error) {
-    //   return res.status(500).send({ message: "Internal Server Error" });
-    return error
+    return res.status(500).send({ message: "Internal Server Error" });
   }
 });
 
-module.exports = { registerUser };
+const authUser = asyncHandler( async (req, res) => {
+  const {password,enrollment } = req.body;
+  const user = await User.findOne({ enrollment });
+  
+  if (!user) {
+    return res.status(401).send({ message: 'Invalid username or password' });
+  }
+  
+  const isMatch = await user.comparePassword(password);
+  
+  if (!isMatch) {
+    return res.status(401).send({ message: 'Invalid username or password' });
+  }
+  else{
+    res.status(200).send({message:'user logged in' });
+  }
+  
+});
+
+module.exports = { registerUser,authUser };
+

@@ -12,7 +12,7 @@ const SignUpPage = () => {
   const onFinish = async (values) => {
     const {name, enrollment, password, ...rest} = values
     try {
-      axios.post("http://127.0.0.1:5000/api/users/register", {name, enrollment, password }).then((res) => {
+      axios.post("http://127.0.0.1:5000/api/users", {name, enrollment, password }).then((res) => {
         console.log("HEre in post")
         console.log(res);
       });

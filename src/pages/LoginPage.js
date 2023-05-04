@@ -3,14 +3,27 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./LoginPage.css";
 import TeamCard from "../components/TeamCard";
-import { Icon } from "@iconify/react";
+import { Icon } from "@iconify/react";  
+import axios from "axios";
 import { Button, Form, Input, Checkbox, Divider } from "antd";
 
 const LoginPage = () => {
   const [form] = Form.useForm();
 
-  const onFinish = (values) => {
-    console.log("Finish:", values);
+  // const onFinish = (values) => {
+  //   console.log("Finish:", values);
+  // };
+
+  const onFinish = async (values) => {
+    const {enrollment, password} = values
+    try {
+      axios.post("http://127.0.0.1:5000/api/users/login", {enrollment, password }).then((res) => {
+        console.log("HEre in post")
+        console.log(res);
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

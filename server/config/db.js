@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-const mongoURI = 'mongodb+srv://achievematectae:B0AzjEcH5IUWTHep@cluster0.nu2jgni.mongodb.net/test'; 
+const mongoURI = 'mongodb+srv://kanhavsukhwal:Eq84prTQ3m4dN2lc@cluster1.qxudhuk.mongodb.net/test'; 
+
 
   module.exports = () => {
     const connectionParams = {
