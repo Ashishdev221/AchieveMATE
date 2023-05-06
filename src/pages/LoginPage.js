@@ -15,7 +15,7 @@ const LoginPage = () => {
 
   return (
     <div className="loginpage flex-container">
-      <div className="leftside">
+      <div className="leftside d-flex flex-column justify-content-center">
         <div className="leftside_info">
           <h1 className="leftside_heading">
             It's Your <span className="yellow_col">Achievement</span>,<br></br>{" "}
@@ -38,7 +38,7 @@ const LoginPage = () => {
           </div>
         </div>
       </div>
-      <div className="rightside">
+      <div className="rightside" style={{height: "100vh"}}>
         <div>
           <img className="rightside_logo" src="/logo01-1@2x.png" alt="" />
           <h1 className="rightside_heading">Hello ! Welcome back</h1>

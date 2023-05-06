@@ -41,7 +41,7 @@ function LandingPage() {
               An Achievement sharing portal for College of <br /> Technology and
               Engineering students.
             </p>
-            <Button label="Join as a Student" className="hero_button button" />
+            <Button label="Join as a Student" className="hero_button button" url="/signup"/>
           </div>
           <img
             className="hero_img"

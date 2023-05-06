@@ -24,7 +24,7 @@
 
 .leftside_info {
   padding-left: 100px;
-  padding-top: 210px;
+  /* padding-top: 210px; */
 }
 
 .yellow_col {
@@ -68,7 +68,7 @@
 
 .rightside_logo {
   width: 230px;
-  height: 186px;
+  height: 175px;
 }
 
 .rightside_heading {

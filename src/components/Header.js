@@ -23,14 +23,14 @@ function Header() {
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link link-light">
+              <a href="#contact-us" class="nav-link link-light">
                 Contact Us
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <Button label="Login as a Teacher" />
-              </a>
+              {/* <a href="#" class="nav-link"> */}
+                <Button label="Login as a Teacher" url="/loginTeacher"/>
+              {/* </a> */}
             </li>
           </ul>
         </header>

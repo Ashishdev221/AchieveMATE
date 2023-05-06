@@ -13,8 +13,8 @@ function ContactUs() {
   };
 
   return (
-    <div className="contact_us flex-container row">
-      <div className="col-6">
+    <div className="contact_us flex-container row" id="contact-us">
+      <div className="col-7">
         <h1 className="contact_us_head">Contact Us</h1>
         <p className="contact_us_para">
           Get in touch with us for any queries or feedback. <br /> We would love
@@ -100,7 +100,7 @@ function ContactUs() {
       </div>
       <div
         style={{ display: "flex", justifyContent: "center" }}
-        className="col-6"
+        className="col-5"
       >
         <img
           className="contact_us_img"

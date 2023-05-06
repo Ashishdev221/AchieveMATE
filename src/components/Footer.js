@@ -21,7 +21,7 @@ function Footer() {
           <a className="footer_element" href="">
             FAQs
           </a>
-          <a className="footer_element" href="">
+          <a className="footer_element" href="#contact-us">
             Contact Us
           </a>
         </div>
@@ -29,7 +29,7 @@ function Footer() {
           <h4 className="footer_heading join_community">
             Join the community <br /> of Achievers
           </h4>
-          <Button label="Join as a Student" />
+          <Button label="Join as a Student" url="/signup"/>
         </div>
       </div>
       <hr className="text-light" />

@@ -8,8 +8,8 @@ function WhyAchieve() {
       <h1 className="why_achieve_heading">Why AchieveMATE?</h1>
       <div className="d-flex justify-content-around">
         <div>
-          <WhyAchieveCard />
-          <WhyAchieveCard />
+          <WhyAchieveCard heading={"Safe & Secure"} para={"Secure and reliable Achievement sharing platform for students."}/>
+          <WhyAchieveCard heading={"Easy to use"} para={"User-friendly interface to showcase and manage your certificates."}/>
         </div>
         <img
           className="why_achieve_img"
@@ -17,8 +17,8 @@ function WhyAchieve() {
           alt=""
         />
         <div>
-          <WhyAchieveCard />
-          <WhyAchieveCard />
+        <WhyAchieveCard heading={"Quick Share"} para={"Quickly share your achievements with your peers and employers."}/>
+        <WhyAchieveCard heading={"One-stop Solution"} para={"Accomplish, store, and share your achievements at one place."}/>
         </div>
       </div>
     </div>
