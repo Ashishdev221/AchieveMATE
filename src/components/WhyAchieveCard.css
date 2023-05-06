@@ -1,0 +1,29 @@
+.why_achieve_card {
+  background: #ffcb5e;
+  border: 5px solid #ffffff;
+  box-shadow: 0px 8px 24px #28147e;
+  border-radius: 12px;
+  width: 274px;
+  height: 221px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 60px;
+}
+
+.why_achieve_card_heading {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 36px;
+  letter-spacing: 0.46px;
+  color: #3d0ea9;
+}
+
+.why_achieve_card_para {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: 0.46px;
+  color: #0e0e0e;
+}

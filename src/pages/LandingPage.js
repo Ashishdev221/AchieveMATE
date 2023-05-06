@@ -6,6 +6,7 @@ import "./LandingPage.css";
 import CounterCard from "../components/CounterCard";
 import ContactUs from "../components/ContactUs";
 import Button from "../components/Button";
+import WhyAchieve from "../components/WhyAchieve";
 function LandingPage() {
   return (
     <div className="landing_page">
@@ -75,6 +76,9 @@ function LandingPage() {
             />
           </div>
         </div>
+      </div>
+      <div>
+        <WhyAchieve />
       </div>
       <div>
         <ContactUs />

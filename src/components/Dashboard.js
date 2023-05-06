@@ -7,6 +7,8 @@ import Box from "@mui/material/Box";
 import "./Dashboard.css";
 import Table from "./Table";
 import Setting from "./Setting";
+import TeacherTable from "./TeacherTable";
+import PendingRequest from "./PendingRequest";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -72,7 +74,8 @@ export default function Dashboard() {
           Item One
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <Table />
+          {/* <TeacherTable /> */}
+          <PendingRequest />
         </TabPanel>
         <TabPanel value={value} index={2}>
           <Setting />

@@ -22,30 +22,29 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import "./Table.css";
 
-function createData(name, calories, fat, carbs, protein) {
+function createData(name, calories, fat) {
   return {
     name,
     calories,
     fat,
-    carbs,
-    protein,
+    
   };
 }
 
 const rows = [
-  createData('A', 305, 3.7, 67, 4.3),
-  createData('L', 452, 25.0, 51, 4.9),
-  createData('H', 262, 16.0, 24, 6.0),
-  createData('D', 159, 6.0, 24, 4.0),
-  createData('E', 356, 16.0, 49, 3.9),
-  createData('J', 408, 3.2, 87, 6.5),
-  createData('W', 237, 9.0, 37, 4.3),
-  createData('T', 375, 0.0, 94, 0.0),
-  createData('U', 518, 26.0, 65, 7.0),
-  createData('I', 392, 0.2, 98, 0.0),
-  createData('Y', 318, 0, 81, 2.0),
-  createData('N', 360, 19.0, 9, 37.0),
-  createData('M', 437, 18.0, 63, 4.0),
+  createData('A', 305),
+  createData('L', 452),
+  createData('H', 262),
+  createData('D', 159),
+  createData('E', 356),
+  createData('J', 408),
+  createData('W', 237),
+  createData('T', 375),
+  createData('U', 518),
+  createData('I', 392),
+  createData('Y', 318),
+  createData('N', 360),
+  createData('M', 437),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -85,31 +84,19 @@ const headCells = [
     id: 'name',
     numeric: false,
     disablePadding: true,
-    label: 'Title',
+    label: 'Students Name',
   },
   {
     id: 'calories',
     numeric: true,
     disablePadding: false,
-    label: 'Calories',
+    label: 'Acheivements',
   },
   {
     id: 'fat',
     numeric: true,
     disablePadding: false,
-    label: 'Fat (g)',
-  },
-  {
-    id: 'carbs',
-    numeric: true,
-    disablePadding: false,
-    label: 'Carbs (g)',
-  },
-  {
-    id: 'protein',
-    numeric: true,
-    disablePadding: false,
-    label: 'Protein (g)',
+    label: <button type="button" class="btn btn-warning">Export</button>,
   },
 ];
 
@@ -224,7 +211,7 @@ EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
 };
 
-export default function EnhancedTable() {
+export default function TeacherTable() {
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
   const [selected, setSelected] = React.useState([]);
@@ -347,9 +334,7 @@ export default function EnhancedTable() {
                       {row.name}
                     </TableCell>
                     <TableCell align="right">{row.calories}</TableCell>
-                    <TableCell align="right">{row.fat}</TableCell>
-                    <TableCell align="right">{row.carbs}</TableCell>
-                    <TableCell align="right">{row.protein}</TableCell>
+                    <TableCell align="right"><button type="button" class="btn btn-outline-dark btn-sm">View</button></TableCell>
                   </TableRow>
                 );
               })}
