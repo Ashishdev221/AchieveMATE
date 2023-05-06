@@ -7,7 +7,8 @@ import HomePage from "./pages/HomePage";
 import UserDashboard from "./pages/UserDashboard";
 import TeacherDashboard from "./pages/TeacherDashboard";
 import SignUpPage from "./pages/SignUpPage";
-import LoginTeacher from "./pages/LoginTeacher"
+import LoginTeacher from "./pages/LoginTeacher";
+import AchievementPreview from "./components/AchievementPreview";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/home-page" element={[<HomePage />]} />
           <Route path="/teacher-dashboard" element={[<TeacherDashboard />]} />
           <Route path="/user-dashboard" element={[<UserDashboard />]} />
+          <Route path="/achieve-preview" element={[<AchievementPreview />]} />
         </Routes>
       </div>
     </Router>

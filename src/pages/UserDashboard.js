@@ -14,7 +14,7 @@ function UserDashboard() {
       <div className="contaier">
         <div className="row">
           <div className="col-8 mx-5">
-          <MyDashboard></MyDashboard>
+          <MyDashboard />
           </div>
           <div className="col-3">
            

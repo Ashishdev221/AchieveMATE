@@ -71,10 +71,10 @@ export default function Dashboard() {
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          Item One
+          <TeacherTable />
+          {/* Item One */}
         </TabPanel>
         <TabPanel value={value} index={1}>
-          {/* <TeacherTable /> */}
           <PendingRequest />
         </TabPanel>
         <TabPanel value={value} index={2}>

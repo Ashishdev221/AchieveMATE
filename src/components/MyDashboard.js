@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import "./MyDashboard.css";
 import Button from "../components/Button";
 // import "bootstrap/dist/css/bootstrap.min.css";
-import { IconButton} from "@mui/material";
+import { IconButton } from "@mui/material";
 import AchievementsTable from "./AchievementsTable";
 import ExpandCollapse from "./ExpandCollapse";
 import ToggleButton from "../components/ToggleButton";
+import PersonalInfo from "./PersonalInfo";
 
 function MyDashboard() {
   let [linkNumber, setLinkNumber] = useState(0);
@@ -43,6 +44,11 @@ function MyDashboard() {
             </div>
           </nav>
           <div className="hline mt-3"></div>
+          {linkNumber === 1 && (
+            <section id="achievement">
+              <PersonalInfo />
+            </section>
+          )}
           {linkNumber === 2 && (
             <section id="achievement">
               <AchievementsTable></AchievementsTable>
@@ -54,25 +60,24 @@ function MyDashboard() {
                 <p>Hi</p>
               </ExpandCollapse>
               <ExpandCollapse title="Notification">
-                <div className='flex'>
-              <div className="d-flex justify-content-between">
-                  <h5>Post reaction and appreciations notifications</h5>
-                  <ToggleButton></ToggleButton>
+                <div className="flex">
+                  <div className="d-flex justify-content-between">
+                    <h5>Post reaction and appreciations notifications</h5>
+                    <ToggleButton></ToggleButton>
+                  </div>
+                  <div className="d-flex justify-content-between">
+                    <h5>Other’s post notification</h5>
+                    <ToggleButton></ToggleButton>
+                  </div>
+                  <div className="d-flex justify-content-between">
+                    <h5>My post status notification</h5>
+                    <ToggleButton></ToggleButton>
+                  </div>
+                  <div className="d-flex justify-content-between">
+                    <h5>Messages notification</h5>
+                    <ToggleButton></ToggleButton>
+                  </div>
                 </div>
-                <div className="d-flex justify-content-between">
-                  <h5>Other’s post notification</h5>
-                  <ToggleButton></ToggleButton>
-                </div>
-                <div className="d-flex justify-content-between">
-                  <h5>My post status notification</h5>
-                  <ToggleButton></ToggleButton>
-                </div>
-                <div className="d-flex justify-content-between">
-                  <h5>Messages notification</h5>
-                  <ToggleButton></ToggleButton>
-                </div>
-                </div>
-               
               </ExpandCollapse>
               <ExpandCollapse title="Help & Support">
                 <div className="d-flex justify-content-between">
