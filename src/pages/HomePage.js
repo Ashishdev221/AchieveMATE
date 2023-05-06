@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import "./HomePage.css";
 import Profile from "../components/Profile";
 import Post from "../components/Post";
@@ -9,8 +9,27 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import HeaderWhite from "../components/HeaderWhite";
 import ExploreCourse from "../components/ExploreCourse";
+import ParentComponent from "./ParentComponent";
 
 function HomePage() {
+  //maintaining state for the three popovers
+  const [popover1Visible, setPopover1Visible] = useState(false);
+  const [popover2Visible, setPopover2Visible] = useState(false);
+  const [popover3Visible, setPopover3Visible] = useState(false);
+
+  const handlePopover1ButtonClick = () => {
+    setPopover1Visible(false);
+    setPopover2Visible(true);
+  };
+
+  const handlePopover2ButtonClick = () => {
+    setPopover2Visible(false);
+    setPopover3Visible(true);
+  };
+
+  const handlePopover3ButtonClick = () => {
+    setPopover3Visible(false);
+  };
   return (
     <div className="home_page">
       <HeaderWhite />
@@ -48,6 +67,10 @@ function HomePage() {
               />
               <h1 className="upload_heading">Upload Your Achievement</h1>
               <Button label="Upload" />
+              <button onClick={() => setPopover1Visible(!popover1Visible)}>Upload</button>
+              {popover1Visible && (
+               <ParentComponent></ParentComponent>
+              )}
             </div>
             <Post />
           </div>

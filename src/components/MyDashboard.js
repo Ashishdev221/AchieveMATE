@@ -7,9 +7,27 @@ import AchievementsTable from "./AchievementsTable";
 import ExpandCollapse from "./ExpandCollapse";
 import ToggleButton from "../components/ToggleButton";
 import PersonalInfo from "./PersonalInfo";
+import FormLabel from "@mui/material/FormLabel";
+import FormControl from "@mui/material/FormControl";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormHelperText from "@mui/material/FormHelperText";
+import Switch from "@mui/material/Switch";
 
 function MyDashboard() {
+  const [isChecked, setIsChecked] = useState(false);
   let [linkNumber, setLinkNumber] = useState(0);
+
+  const handleToggle = () => {
+    setIsChecked(!isChecked);
+  };
+
+  const handleChange = (event) => {
+    setState({
+      ...state,
+      [event.target.name]: event.target.checked,
+    });
+  };
   return (
     <>
       <div class="card custom-card-styling">
@@ -71,7 +89,7 @@ function MyDashboard() {
                   </div>
                   <div className="d-flex justify-content-between">
                     <h5>My post status notification</h5>
-                    <ToggleButton></ToggleButton>
+                   <ToggleButton></ToggleButton>
                   </div>
                   <div className="d-flex justify-content-between">
                     <h5>Messages notification</h5>

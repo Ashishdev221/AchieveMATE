@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import './ToggleButton.css';
+import FormLabel from "@mui/material/FormLabel";
+import FormControl from "@mui/material/FormControl";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormHelperText from "@mui/material/FormHelperText";
+import Switch from "@mui/material/Switch";
 
 function ToggleButton() {
   const [isChecked, setIsChecked] = useState(false);
@@ -9,12 +14,16 @@ function ToggleButton() {
   };
 
   return (
-    <label className="switch">
-      <input type="checkbox" onChange={handleToggle} checked={isChecked} />
-      <span className="slider"></span>
-      <span className="on-label">ON</span>
-      <span className="off-label">OFF</span>
-    </label>
+    <FormControlLabel
+    control={
+      <Switch
+        checked={isChecked}
+        onChange={handleToggle}
+        name="switch1"
+      />
+    }
+    label={isChecked ? "ON" : "OFF"}
+  />
   );
 }
 
