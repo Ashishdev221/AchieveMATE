@@ -4,12 +4,21 @@ import "./SignUpPage.css";
 import TeamCard from "../components/TeamCard";
 import { Icon } from "@iconify/react";
 import { Button, Form, Input, Checkbox, Divider } from "antd";
+import axios from "axios";
 
 const SignUpPage = () => {
   const [form] = Form.useForm();
 
-  const onFinish = (values) => {
-    console.log("Finish:", values);
+  const onFinish = async (values) => {
+    const {name, enrollment, password, ...rest} = values
+    try {
+      axios.post("http://127.0.0.1:5000/api/users", {name, enrollment, password }).then((res) => {
+        console.log("HEre in post")
+        console.log(res);
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
