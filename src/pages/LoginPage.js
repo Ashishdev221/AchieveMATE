@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 import TeamCard from "../components/TeamCard";
 import { Icon } from "@iconify/react";  
@@ -9,10 +9,7 @@ import { Button, Form, Input, Checkbox, Divider } from "antd";
 
 const LoginPage = () => {
   const [form] = Form.useForm();
-
-  // const onFinish = (values) => {
-  //   console.log("Finish:", values);
-  // };
+  const navigate = useNavigate();
 
   const onFinish = async (values) => {
     const {enrollment, password} = values
@@ -20,6 +17,9 @@ const LoginPage = () => {
       axios.post("http://127.0.0.1:5000/api/users/login", {enrollment, password }).then((res) => {
         console.log("HEre in post")
         console.log(res);
+        if(res.status === 200) {
+          navigate("/home-page");
+        }
       });
     } catch (error) {
       console.log(error);

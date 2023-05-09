@@ -2,12 +2,13 @@ import React from "react";
 import "./Profile.css";
 import { Icon } from "@iconify/react";
 import Button from "./Button";
-function Profile() {
+
+function Profile({userData}) {
   return (
     <div className="profile flex-container">
       <div className="profile_top">
-        <img className="profile_img" src="/mask-group@2x.png" alt="" />
-        <h3 className="profile_name">Sourabh Purbia</h3>
+        <img className="profile_img" src={userData.img} alt="jhonny bhaiya" />
+        <h3 className="profile_name">{userData.name}</h3>
         <p className="profile_para">0 Achievements</p>
       </div>
       <div className="profile_bottom">

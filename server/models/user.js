@@ -1,11 +1,16 @@
 const mongoose = require("mongoose");
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 
 const userSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
     password: { type: String, required: true },
     enrollment: { type: String, required: true, unique: true },
+    email: { type: String, unique: true },
+    img: { type: String, default: "" },
+    branch: { type: String, default: "CSE" },
+    class: { type: String, default: "BTECH 4th Year" },
+    achievement_count: { type: Number, default: 0 },
   },
   { timestamps: true }
 );

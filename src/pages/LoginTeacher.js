@@ -56,7 +56,7 @@ const LoginTeacher = () => {
               rules={[
                 {
                   required: true,
-                  message: "Please input your Enrollment number!",
+                  message: "Please input your Email!",
                 },
               ]}
             >

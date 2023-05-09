@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import "./HomePage.css";
 import Profile from "../components/Profile";
 import Post from "../components/Post";
@@ -10,12 +10,14 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import HeaderWhite from "../components/HeaderWhite";
 import ExploreCourse from "../components/ExploreCourse";
 import ParentComponent from "./ParentComponent";
+import axios from "axios";
 
 function HomePage() {
   //maintaining state for the three popovers
   const [popover1Visible, setPopover1Visible] = useState(false);
   const [popover2Visible, setPopover2Visible] = useState(false);
   const [popover3Visible, setPopover3Visible] = useState(false);
+  const [userData, setUserData] = useState({});
 
   const handlePopover1ButtonClick = () => {
     setPopover1Visible(false);
@@ -30,13 +32,31 @@ function HomePage() {
   const handlePopover3ButtonClick = () => {
     setPopover3Visible(false);
   };
+
+  useEffect(() => {
+    const enrollement = 250 
+    try {
+      axios.get(`http://127.0.0.1:5000/api/users/getUser/${enrollement}`).then((res) => {
+        console.log("HEre in post");
+        console.log(res);
+        if (res.status === 200) {
+          // navigate("/home-page");
+          console.log("here0---");
+          setUserData({ name: res.data.name, img: res.data.img });
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
   return (
     <div className="home_page">
       <HeaderWhite />
       <div className="container">
         <div className="row">
           <div className="col-3">
-            <Profile />
+            <Profile userData={userData} />
             <Achievers />
             <ExploreCourse />
           </div>
@@ -67,10 +87,10 @@ function HomePage() {
               />
               <h1 className="upload_heading">Upload Your Achievement</h1>
               <Button label="Upload" />
-              <button onClick={() => setPopover1Visible(!popover1Visible)}>Upload</button>
-              {popover1Visible && (
-               <ParentComponent></ParentComponent>
-              )}
+              <button onClick={() => setPopover1Visible(!popover1Visible)}>
+                Upload
+              </button>
+              {popover1Visible && <ParentComponent></ParentComponent>}
             </div>
             <Post />
           </div>
