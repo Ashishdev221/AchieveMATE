@@ -34,7 +34,7 @@ function HomePage() {
   };
 
   useEffect(() => {
-    const enrollement = 250 
+    const enrollement = 169
     try {
       axios.get(`http://127.0.0.1:5000/api/users/getUser/${enrollement}`).then((res) => {
         console.log("HEre in post");
@@ -42,7 +42,7 @@ function HomePage() {
         if (res.status === 200) {
           // navigate("/home-page");
           console.log("here0---");
-          setUserData({ name: res.data.name, img: res.data.img });
+          setUserData({ name: res.data.name, img: res.data.img, branch: res.data.branch, class: res.data.class });
         }
       });
     } catch (error) {
@@ -82,7 +82,8 @@ function HomePage() {
             <div className="upload flex-container">
               <img
                 className="home_page_img"
-                src="/passport-pic-2@2x.png"
+                // src="/passport-pic-2@2x.png"
+                src={userData.img}
                 alt=""
               />
               <h1 className="upload_heading">Upload Your Achievement</h1>

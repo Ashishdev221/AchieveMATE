@@ -14,11 +14,11 @@ function Profile({userData}) {
       <div className="profile_bottom">
         <div className="flex-container">
           <Icon icon="game-icons:graduate-cap" width="32" height="32" />
-          <p className="profile_para">Computer Science <br /> and engineering</p>
+          <p className="profile_para">{userData.branch}</p>
         </div>
         <div className="flex-container">
           <Icon icon="uis:calender" width="26" height="26" />
-          <p className="profile_para">B.Tech, 4th Year</p>
+          <p className="profile_para">{userData.class}</p>
         </div>
         <Button label="My Dashboard"/>
       </div>
