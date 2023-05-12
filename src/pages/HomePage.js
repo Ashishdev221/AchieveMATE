@@ -18,6 +18,7 @@ function HomePage() {
   const [popover2Visible, setPopover2Visible] = useState(false);
   const [popover3Visible, setPopover3Visible] = useState(false);
   const [userData, setUserData] = useState({});
+  const [achievements, setAchievements] = useState({});
 
   const handlePopover1ButtonClick = () => {
     setPopover1Visible(false);
@@ -37,62 +38,26 @@ function HomePage() {
     const fetchUserDataAndAchievements = async () => {
       try {
         const enrollement = 169;
-  
+
         const [userDataResponse, achievementsResponse] = await Promise.all([
           axios.get(`http://127.0.0.1:5000/api/users/getUser/${enrollement}`),
-          axios.get(`http://127.0.0.1:5000/api/achievements/all`)
+          axios.get(`http://127.0.0.1:5000/api/achievements/all`),
         ]);
-  
+
         const userData = userDataResponse.data;
         const achievements = achievementsResponse.data;
-  
-        console.log("User data:", userData);
-        console.log("Achievements:", achievements);
-  
+
         setUserData({ name: userData.name, img: userData.img });
         setAchievements(achievements);
       } catch (error) {
         console.error(error);
         // Handle error here
       }
+      // console.log(achievements);
     };
-  
+
     fetchUserDataAndAchievements();
   }, []);
-  
-
-  // useEffect(() => {
-  //   const enrollement = 169;
-  //   try {
-  //     axios
-  //       .get(`http://127.0.0.1:5000/api/users/getUser/${enrollement}`)
-  //       .then((res) => {
-  //         console.log("HEre in post");
-  //         console.log(res);
-  //         if (res.status === 200) {
-  //           // navigate("/home-page");
-  //           console.log("here0---");
-  //           setUserData({ name: res.data.name, img: res.data.img });
-  //         }
-  //       });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, []);
-
-  // useEffect(async () => {
-  //   try {
-  //     const response = await axios.get(`http://127.0.0.1:5000/api/achievements/all`);
-  //     const achievements = response.data;
-  //     console.log(achievements)
-  //     // return achievements;
-  //   } catch (error) {
-  //     console.error(error);
-  //     //throw new Error("Failed to retrieve achievements.");
-  //   }
-  // }, []);
-
-  // post api call
 
   const enrollmentNumber = 169; // replace with actual enrollment number
 
@@ -165,7 +130,20 @@ function HomePage() {
               </button>
               {popover1Visible && <ParentComponent></ParentComponent>}
             </div>
-            <Post />
+            {achievements.length > 0 ? (
+              achievements.map((achievement) => (
+                <Post
+                  title={achievement.title}
+                  university={achievement.university}
+                  certificateNo={achievement.certificate_number}
+                  link={achievement.certificate_link}
+                  description={achievement.description}
+                  img={achievement.img}
+                />
+              ))
+            ) : (
+              <p>Loading...</p>
+            )}
           </div>
         </div>
       </div>

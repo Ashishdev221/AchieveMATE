@@ -1,5 +1,5 @@
 const { registerUser, authUser, getUserInfo } = require("../controllers/user");
-const {addAchievement,getAchievements} = require("../controllers/Achievement")
+const {addAchievement,getAchievements} = require("../controllers/achievement")
 
 const router = require("express").Router();
 
