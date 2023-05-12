@@ -1,9 +1,9 @@
 import React from "react";
 import "./Button.css";
 
-function Button({ label, id, className, url }) {
+function Button({ label, id, className, url,onClick }) {
   return (
-    <div className={className ? className : "button"} id={id ? id : ""}>
+    <div className={className ? className : "button"} id={id ? id : ""} onClick={onClick}>
       <a href={url}>{label}</a>
     </div>
   );
