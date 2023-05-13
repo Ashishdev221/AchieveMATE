@@ -4,11 +4,13 @@ import "./Post.css";
 import Button from "@mui/material/Button";
 import { Icon } from "@iconify/react";
 import ShareIcon from "@mui/icons-material/Share";
-
+import LeaderboardCard from "./LeaderboardCard";
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 function Post() {
   return (
     <div className="post">
       <div className="post_info">
+      <LeaderboardCard icon={<MoreHorizIcon fontSize="large"/>}/>
         <h3 className="post_title">
           Title Here - Title of the Certificate (Character Limit - 56)
         </h3>
