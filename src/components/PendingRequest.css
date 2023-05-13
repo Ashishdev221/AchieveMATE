@@ -1,0 +1,13 @@
+/* #TablePagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  text-align: center;
+}
+#TablePagination > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: '90px';
+} */

@@ -65,17 +65,17 @@ export default function Dashboard() {
             onChange={handleChange}
             aria-label="basic tabs example"
           >
-            <Tab label="Personal Info" {...a11yProps(0)} />
-            <Tab label="Achievements" {...a11yProps(1)} />
+            <Tab label="Pending Requests" {...a11yProps(0)} />
+            <Tab label="Analytics" {...a11yProps(1)} />
             <Tab label="Settings" {...a11yProps(2)} />
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          <TeacherTable />
+        <PendingRequest/>
           {/* Item One */}
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <PendingRequest />
+          <TeacherTable />
         </TabPanel>
         <TabPanel value={value} index={2}>
           <Setting />

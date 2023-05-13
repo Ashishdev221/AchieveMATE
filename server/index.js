@@ -2,6 +2,7 @@ const express = require('express');
 const connection = require("./config/db");
 const userRoutes = require("./routes_student/user")
 const achievementsRoutes = require("./routes_student/achievement")
+const teacherRoutes = require("./routes_student/teacher")
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const User = require("./models/user")
@@ -18,6 +19,7 @@ app.use(bodyParser.json());
 
 app.use("/api/users", userRoutes);
 app.use("/api/achievements", achievementsRoutes);
+app.use("/api/teachers", teacherRoutes);
 
 const port = 5000;
 app.listen(port, () => {
