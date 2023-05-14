@@ -1,16 +1,31 @@
 import React from "react";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./LoginTeacher.css";
 import TeamCard from "../components/TeamCard";
 import { Icon } from "@iconify/react";
 import { Button, Form, Input, Checkbox, Divider } from "antd";
+import axios from "axios";
 
 const LoginTeacher = () => {
   const [form] = Form.useForm();
+  const navigate = useNavigate()
 
   const onFinish = (values) => {
-    console.log("Finish:", values);
+    const { email, password } = values;
+    try {
+      axios
+        .post("http://127.0.0.1:5000/api/teachers/login", { email, password })
+        .then((res) => {
+          console.log("HEre in post");
+          console.log(res);
+          if (res.status === 200) {
+            navigate("/teacher-dashboard");
+          }
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -18,8 +33,8 @@ const LoginTeacher = () => {
       <div className="leftside d-flex flex-column justify-content-center">
         <div className="leftside_info">
           <h1 className="leftside_heading">
-            Your Students <br></br>  <span className="yellow_col">Your Pride</span>,
-            
+            Your Students <br></br>{" "}
+            <span className="yellow_col">Your Pride</span>,
           </h1>
           <p className="leftside_para">
             Verify your students' achievements and acknowledge them. Every
@@ -38,7 +53,7 @@ const LoginTeacher = () => {
           </div>
         </div>
       </div>
-      <div className="rightside" style={{height: "100vh"}}>
+      <div className="rightside" style={{ height: "100vh" }}>
         <div>
           <img className="rightside_logo" src="/logo01-1@2x.png" alt="" />
           <h1 className="rightside_heading">Teachers Dashboard</h1>
@@ -52,7 +67,7 @@ const LoginTeacher = () => {
             // initialValues={}
           >
             <Form.Item
-              name="enrollment"
+              name="email"
               rules={[
                 {
                   required: true,

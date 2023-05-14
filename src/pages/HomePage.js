@@ -59,6 +59,8 @@ function HomePage() {
     fetchUserDataAndAchievements();
   }, []);
 
+  console.log(achievements);
+
   const enrollmentNumber = 169; // replace with actual enrollment number
 
   const requestBody = {
