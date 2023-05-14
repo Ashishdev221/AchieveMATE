@@ -40,10 +40,7 @@ function Post(props) {
       <img
         className="post_img"
         src={
-          props.img ===
-          "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/certificate-of-appreciation-design-template-7289b7fef37b1bda2dc3527df90bfe87_screen.jpg?ts=1631442106"
-            ? props.img
-            : "https://sertifier.com/blog/wp-content/uploads/2020/10/certificate-text-samples.jpg"
+          props.img
         }
         alt="posts"
       />

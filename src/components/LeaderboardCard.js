@@ -15,7 +15,7 @@ function LeaderboardCard(props) {
         {/* <p className="leaderboardCard_para">Posted 4 days ago</p>  */}
       </div>
       {props.badgeImage && <img className="home_page_img" src={props.badgeImage} alt="" />}
-       <p>{props.image}</p>
+       <p>{props.icon}</p>
     </div>
   );
 }
