@@ -33,21 +33,120 @@ function createData(name, calories, fat) {
   };
 }
 
+let achievement = [];
 const rows = [
-  createData("A", 305),
-  createData("L", 452),
-  createData("H", 262),
-  createData("D", 159),
-  createData("E", 356),
-  createData("J", 408),
-  createData("W", 237),
-  createData("T", 375),
-  createData("U", 518),
-  createData("I", 392),
-  createData("Y", 318),
-  createData("N", 360),
-  createData("M", 437),
+  {
+    name: "Kuldeep Katara",
+    title: "Example Achievement",
+    id: "645dcd55dc447bdccb499b3c",
+  },
+  {
+    name: "Kuldeep Katara",
+    title: "Example Achievement 2",
+    id: "645dcd55dc447bdccb499b3e",
+  },
+  {
+    name: "Kuldeep Katara",
+    title: "Example Achievement 3",
+    id: "645ddb597617cacc48c8747e",
+  },
+  {
+    name: "Kuldeep Katara",
+    title: "Example Achievement 4",
+    id: "645dcfe3233963a2b52a9d37",
+  },
+  {
+    name: "Kuldeep Katara",
+    title: "Example Achievement",
+    id: "645e78ed75c9d61f200b983d",
+  },
+  {
+    name: "Kuldeep Katara",
+    title: "Example Achievement",
+    id: "645e78ee75c9d61f200b983f",
+  },
+  {
+    name: "Kuldeep Katara",
+    title: "Example Achievement",
+    id: "645e78ef75c9d61f200b9841",
+  },
+  {
+    name: "Kuldeep Katara",
+    title: "Example Achievement",
+    id: "645e78ef75c9d61f200b9843",
+  },
+  {
+    name: "Kuldeep Katara",
+    title: "Example Achievement",
+    id: "645e796475c9d61f200b984b",
+  },
+  {
+    name: "Kuldeep Katara",
+    title: "Example Achievement",
+    id: "645e862f473775702fb7d636",
+  },
+  {
+    name: "Kuldeep Katara",
+    title: "Example Achievement",
+    id: "645f32d8473775702fb7d64b",
+  },
+  {
+    name: "Kuldeep Katara",
+    title: "Example Achievement",
+    id: "645f3430473775702fb7d677",
+  },
+  {
+    name: "Kuldeep Katara",
+    title: "Example Achievement",
+    id: "645f3433473775702fb7d679",
+  },
+  {
+    name: "Kuldeep Katara",
+    title: "Example Achievement",
+    id: "645f3435473775702fb7d67b",
+  },
+  {
+    name: "Kuldeep Katara",
+    title: "Example Achievement",
+    id: "645f347d473775702fb7d67d",
+  },
+  {
+    name: "Kuldeep Katara",
+    title: "Example Achievement",
+    id: "645f3482473775702fb7d67f",
+  },
+  {
+    name: "Kuldeep Katara",
+    title: "Example Achievement",
+    id: "645f349c473775702fb7d681",
+  },
+  {
+    name: "Kuldeep Katara",
+    title: "Example Achievement",
+    id: "645f349c473775702fb7d681",
+  },
+  {
+    name: "Kuldeep Katara",
+    title: "Example Achievement",
+    id: "645f349c473775702fb7d681",
+  },
+  
 ];
+// const rows = [
+//   createData("A", 305),
+//   createData("L", 452),
+//   createData("H", 262),
+//   createData("D", 159),
+//   createData("E", 356),
+//   createData("J", 408),
+//   createData("W", 237),
+//   createData("T", 375),
+//   createData("U", 518),
+//   createData("I", 392),
+//   createData("Y", 318),
+//   createData("N", 360),
+//   createData("M", 437),
+// ];
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -201,7 +300,7 @@ function EnhancedTableToolbar(props) {
           id="tableTitle"
           component="div"
         >
-          Nutrition
+          Achievement Table
         </Typography>
       )}
 
@@ -231,12 +330,15 @@ export default function TeacherTable() {
   const [orderBy, setOrderBy] = React.useState("calories");
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
+  const [isFunctionCalled,setIsFunctionCalled] = useState(false);
+  
   //   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-
+  
   const [achievements, setAchievements] = useState([]);
 
   useEffect(() => {
+    console.log('inside use effect')
     const fetchUserDataAndAchievements = async () => {
       try {
         const [achievementsResponse] = await Promise.all([
@@ -252,11 +354,11 @@ export default function TeacherTable() {
     };
 
     fetchUserDataAndAchievements();
-  }, []);
+  }, [isFunctionCalled]);
 
   console.log("inside pending", achievements);
 
-  const newArray = achievements.map((item) => {
+  const newArray = achievements.filter(item => item.status === "pending").map((item) => {
     return {
       name: item.user.name,
       title: item.title,
@@ -264,11 +366,39 @@ export default function TeacherTable() {
     };
   });
 
-  const changeStatus = (id) => {
-    console.log("change id", id);
-  };
+  const updatedAchievements = achievements.filter((item)=>item.status==='pending')
 
-  console.log(newArray);
+  const changeStatus = (event) => {
+    let arr = event.target.id.toString().split('-')
+    let id = arr[2]
+    let status = arr[0]
+  
+    setIsFunctionCalled(!isFunctionCalled)
+    axios.put(`http://127.0.0.1:5000/api/achievements/${id}`, { status })
+      .then(response => {
+        const achievement = response.data
+        console.log(`Achievement ${achievement._id} status updated to ${achievement.status}`)
+        window.location.reload()
+        // setAchievements(prevState => {
+        //   // Map over previous state and update the achievement with matching ID
+        //   return prevState.map(a => {
+        //     if (a._id === achievement._id) {
+        //       return achievement;
+        //     } else {
+        //       return a;
+        //     }
+        //   });
+        // });
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  
+    console.log("change id", event.target.id);
+  };
+  
+
+  console.log(updatedAchievements,'updated');
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
@@ -278,19 +408,19 @@ export default function TeacherTable() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelected = rows.map((n) => n.name);
+      const newSelected = newArray.map((n) => n.id);
       setSelected(newSelected);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event, name) => {
-    const selectedIndex = selected.indexOf(name);
+  const handleClick = (event, id) => {
+    const selectedIndex = selected.indexOf(id);
     let newSelected = [];
 
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
+      newSelected = newSelected.concat(selected, id);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -322,7 +452,7 @@ export default function TeacherTable() {
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - newArray.length) : 0;
 
   const visibleRows = React.useMemo(
     () =>
@@ -348,26 +478,27 @@ export default function TeacherTable() {
             orderBy={orderBy}
             onSelectAllClick={handleSelectAllClick}
             onRequestSort={handleRequestSort}
-            rowCount={rows.length}
+            rowCount={newArray.length}
           />
           <TableBody>
             {visibleRows.map((row, index) => {
-              const isItemSelected = isSelected(row.name);
+              const isItemSelected = isSelected(row.id);
               const labelId = `enhanced-table-checkbox-${index}`;
 
               return (
+                
                 <TableRow
                   hover
-                  onClick={(event) => handleClick(event, row.name)}
                   role="checkbox"
                   aria-checked={isItemSelected}
                   tabIndex={-1}
-                  key={row.name}
+                  key={row.id}
                   selected={isItemSelected}
                   sx={{ cursor: "pointer" }}
                 >
                   <TableCell padding="checkbox">
                     <Checkbox
+                      onClick={(event) => handleClick(event, row.id)}
                       color="primary"
                       checked={isItemSelected}
                       inputProps={{
@@ -395,9 +526,9 @@ export default function TeacherTable() {
                     <button
                       type="button"
                       class="btn btn-warning btn-sm"
-                      id= {row.id}
+                      id={`accepted-btn-${row.id}`}
                       style={{ margin: "3px" }}
-                    // onclick={changeStatus(row.id)}
+                      onClick={changeStatus}
                     >
                       {" "}
                       <CheckCircleIcon />
@@ -407,6 +538,8 @@ export default function TeacherTable() {
                       type="button"
                       class="btn btn-danger btn-sm"
                       style={{ margin: "3px" }}
+                      id={`rejected-btn-${row.id}`}
+                      onClick={changeStatus}
                     >
                       {" "}
                       <CancelIcon />
@@ -431,7 +564,7 @@ export default function TeacherTable() {
       <TablePagination
         rowsPerPageOptions={[5, 10, 25]}
         component="div"
-        count={rows.length}
+        count={newArray.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}

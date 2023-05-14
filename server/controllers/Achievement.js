@@ -3,7 +3,6 @@ const User = require("../models/user");
 const Achievement = require("../models/achievement");
 const asyncHandler = require("express-async-handler");
 
-
 const addAchievement = asyncHandler(async (req, res) => {
   const enrollmentNumber = req.params.enrollmentNumber;
   const {
@@ -18,7 +17,7 @@ const addAchievement = asyncHandler(async (req, res) => {
     description,
     status,
   } = req.body;
-  
+
   try {
     // Create a new achievement object using the data from the request
     const achievement = new Achievement({
@@ -33,10 +32,10 @@ const addAchievement = asyncHandler(async (req, res) => {
       description,
       status,
     });
-  
+
     // Save the achievement to the database
     await achievement.save();
-  
+
     // Return a success response
     res.status(200).json({
       message: "Achievement created successfully",
@@ -62,4 +61,29 @@ const getAchievements = asyncHandler(async (req, res) => {
     res.status(500).json({ message: "Server Error" });
   }
 });
-module.exports = { addAchievement, getAchievements };
+
+const updateAchievementStatus = asyncHandler(async (req, res) => {
+  try {
+    const achievement = await Achievement.findById(req.params.id);
+
+    if (!achievement) {
+      return res.status(404).json({ error: "Achievement not found" });
+    }
+
+    const { status } = req.body;
+    if (!status || !["accepted", "rejected", "pending"].includes(status)) {
+      return res.status(400).json({ error: "Invalid status" });
+    }
+
+    achievement.status = status;
+    await achievement.save();
+
+    return res.json(achievement);
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+
+module.exports = { addAchievement, getAchievements, updateAchievementStatus };
