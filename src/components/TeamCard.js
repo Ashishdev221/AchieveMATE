@@ -1,12 +1,12 @@
 import React from 'react'
 import "./TeamCard.css";
 
-function TeamCard() {
+function TeamCard(props) {
   return (
     <div className='team_card'>
-      <img className='team_img' src="./passport-pic-2@2x.png" alt="" />
+      <img className='team_img' src={props.img} alt="" />
       <div className='team_name'>
-        Ashish <br /> Dev
+        {props.firstName} <br /> {props.lastName}
       </div>
     </div>
   )

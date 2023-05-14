@@ -43,11 +43,11 @@ const LoginPage = () => {
           <h3 className="team_heading">Meet the Team</h3>
           <hr className="hr_login" />
           <div className="flex-container team_cards">
-            <TeamCard />
-            <TeamCard />
-            <TeamCard />
-            <TeamCard />
-            <TeamCard />
+            <TeamCard firstName = "Sourabh" lastName = "Purbia"  img = "./passport-pic-2@2x.png"/>
+            <TeamCard firstName = "Ashish" lastName = "Dev" img = "./ashish2.png"/>
+            <TeamCard firstName = "Pankaj" lastName = "Kumawat" img = "./pankaj2.png"/>
+            <TeamCard firstName = "Kanhav" lastName = "Sukhwal" img = "./kanhav2.png"/>
+            <TeamCard firstName = "Kuldeep" lastName = "Katara" img = "./kuldeep.jpeg"/>
           </div>
         </div>
       </div>
