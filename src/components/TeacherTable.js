@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React,{useEffect,useState} from 'react';
 import PropTypes from 'prop-types';
 import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -21,6 +21,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import "./Table.css";
+import axios from "axios";
 
 function createData(name, calories, fat) {
   return {
@@ -186,7 +187,7 @@ function EnhancedTableToolbar(props) {
           id="tableTitle"
           component="div"
         >
-          Nutrition
+          Analytics Table
         </Typography>
       )}
 
@@ -218,6 +219,39 @@ export default function TeacherTable() {
   const [page, setPage] = React.useState(0);
 //   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [achievements, setAchievements] = useState([]);
+
+  useEffect(() => {
+    console.log('inside use effect')
+    const fetchUserDataAndAchievements = async () => {
+      try {
+        const [achievementsResponse] = await Promise.all([
+          axios.get(`http://127.0.0.1:5000/api/achievements/all`),
+        ]);
+
+        const achievements = achievementsResponse.data;
+        setAchievements(achievements);
+      } catch (error) {
+        console.error(error);
+        // Handle error here
+      }
+    };
+
+    fetchUserDataAndAchievements();
+  }, []);
+
+  console.log("inside pending", achievements);
+
+  const newArray = achievements.filter(item => item.status === "accepted").map((item) => {
+    return {
+      name: item.user.name,
+      title: item.title,
+      id: item._id,
+    };
+  });
+
+
+  console.log('in analytics',newArray)
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -227,7 +261,7 @@ export default function TeacherTable() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelected = rows.map((n) => n.name);
+      const newSelected = newArray.map((n) => n.id);
       setSelected(newSelected);
       return;
     }
@@ -271,11 +305,11 @@ export default function TeacherTable() {
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - newArray.length) : 0;
 
   const visibleRows = React.useMemo(
     () =>
-      stableSort(rows, getComparator(order, orderBy)).slice(
+      stableSort(newArray, getComparator(order, orderBy)).slice(
         page * rowsPerPage,
         page * rowsPerPage + rowsPerPage,
       ),
@@ -302,13 +336,13 @@ export default function TeacherTable() {
             />
             <TableBody>
               {visibleRows.map((row, index) => {
-                const isItemSelected = isSelected(row.name);
+                const isItemSelected = isSelected(row.id);
                 const labelId = `enhanced-table-checkbox-${index}`;
 
                 return (
                   <TableRow
                     hover
-                    onClick={(event) => handleClick(event, row.name)}
+                    onClick={(event) => handleClick(event, row.id)}
                     role="checkbox"
                     aria-checked={isItemSelected}
                     tabIndex={-1}
@@ -333,7 +367,7 @@ export default function TeacherTable() {
                     >
                       {row.name}
                     </TableCell>
-                    <TableCell align="right">{row.calories}</TableCell>
+                    <TableCell align="right">{10}</TableCell>
                     <TableCell align="right"><button type="button" class="btn btn-outline-dark btn-sm">View</button></TableCell>
                   </TableRow>
                 );
@@ -353,7 +387,7 @@ export default function TeacherTable() {
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
-          count={rows.length}
+          count={newArray.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}

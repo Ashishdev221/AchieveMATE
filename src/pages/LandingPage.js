@@ -7,6 +7,7 @@ import CounterCard from "../components/CounterCard";
 import ContactUs from "../components/ContactUs";
 import Button from "../components/Button";
 import WhyAchieve from "../components/WhyAchieve";
+import TeamCard from "../components/TeamCard"
 function LandingPage() {
   return (
     <div className="landing_page">
@@ -52,9 +53,9 @@ function LandingPage() {
       </div>
       <div className="about">
         <div className="counter flex-container">
-          <CounterCard />
-          <CounterCard />
-          <CounterCard />
+          <CounterCard image={'/vector2.svg'} title={'Achievers'} count={'3,000'}/>
+          <CounterCard image={'/achievement.svg'} title={'Achievements'} count={'5,000'}/>
+          <CounterCard image={'/courses.svg'} title={'Courses'} count={'350'}/>
         </div>
         <div className="about_info flex-container">
           <div className="about_left">
@@ -107,6 +108,18 @@ function LandingPage() {
           </div>
         </div>
       </div>
+      {/* <div className="meet_the_team">
+          <h3 className="team_heading">Meet the Team</h3>
+          <hr className="hr_login" />
+          <div className="flex-container team_cards">
+            <TeamCard />
+            <TeamCard />
+            <TeamCard />
+            <TeamCard />
+            <TeamCard />
+          </div>
+        </div> */}
+     
       <Footer />
     </div>
   );
