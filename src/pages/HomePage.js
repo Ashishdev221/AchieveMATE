@@ -19,36 +19,26 @@ function HomePage() {
   const [popover3Visible, setPopover3Visible] = useState(false);
   const [userData, setUserData] = useState({});
   const [achievements, setAchievements] = useState({});
-
-  const handlePopover1ButtonClick = () => {
-    setPopover1Visible(false);
-    setPopover2Visible(true);
-  };
-
-  const handlePopover2ButtonClick = () => {
-    setPopover2Visible(false);
-    setPopover3Visible(true);
-  };
-
-  const handlePopover3ButtonClick = () => {
-    setPopover3Visible(false);
-  };
+  const [leaderBoard, setLeaderBoard] = useState({});
 
   useEffect(() => {
     const fetchUserDataAndAchievements = async () => {
       try {
         const enrollement = 169;
 
-        const [userDataResponse, achievementsResponse] = await Promise.all([
+        const [userDataResponse, achievementsResponse,leaderBoardResponse] = await Promise.all([
           axios.get(`http://127.0.0.1:5000/api/users/getUser/${enrollement}`),
           axios.get(`http://127.0.0.1:5000/api/achievements/all`),
+          axios.get(`http://127.0.0.1:5000/api/achievements/leaderBoard`),
         ]);
 
         const userData = userDataResponse.data;
         const achievements = achievementsResponse.data;
+        const leaderBoard = leaderBoardResponse.data;
 
         setUserData({ name: userData.name, img: userData.img });
         setAchievements(achievements);
+        setLeaderBoard(leaderBoard)
       } catch (error) {
         console.error(error);
         // Handle error here
@@ -59,7 +49,7 @@ function HomePage() {
     fetchUserDataAndAchievements();
   }, []);
 
-  console.log(achievements);
+  console.log(leaderBoard,achievements,userData);
 
   const enrollmentNumber = 169; // replace with actual enrollment number
 
@@ -95,9 +85,9 @@ function HomePage() {
       <div className="container">
         <div className="row">
           <div className="col-3">
-            <Profile userData={userData} />
-            <Achievers />
-            <ExploreCourse />
+            <Profile userData={userData} count={leaderBoard.achievements}/>
+            <Achievers leaderBoardData = {leaderBoard.achievements===undefined?[]:leaderBoard.achievements}/>
+            <ExploreCourse leaderBoardData = {leaderBoard.achievements===undefined?[]:leaderBoard.achievements}/>
           </div>
           <div className="col-8">
             <div className="home_page_banner flex-container">

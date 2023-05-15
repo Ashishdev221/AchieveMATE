@@ -85,5 +85,40 @@ const updateAchievementStatus = asyncHandler(async (req, res) => {
   }
 });
 
+const getAchievementLeaderBoard = asyncHandler(async (req, res) => {
+  try {
+    const achievements = await Achievement.aggregate([
+      {
+        $group: {
+          _id: "$user",
+          count: { $sum: 1 },
+        },
+      },
+      {
+        $lookup: {
+          from: "users",
+          localField: "_id",
+          foreignField: "_id",
+          as: "user",
+        },
+      },
+      {
+        $project: {
+          _id: 0,
+          user: { $arrayElemAt: ["$user", 0] },
+          count: 1,
+        },
+      },
+      {
+        $sort: { "user.enrollment": 1 },
+      },
+    ]);
 
-module.exports = { addAchievement, getAchievements, updateAchievementStatus };
+    res.status(200).json({ achievements });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({ msg: "Server Error" });
+  }
+});
+
+module.exports = { addAchievement, getAchievements,updateAchievementStatus, getAchievementLeaderBoard };

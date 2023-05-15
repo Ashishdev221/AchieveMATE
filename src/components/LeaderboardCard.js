@@ -1,15 +1,19 @@
 import React from "react";
 import "./LeaderboardCard.css";
 
-function LeaderboardCard() {
+function LeaderboardCard(props) {
   return (
     <div className="leaderboardCard container flex-container">
-      <img className="home_page_img" src="/passport-pic-2@2x.png" alt="" />
+      <img
+        className="home_page_img"
+        src={props.image ? props.image : "/passport-pic-2@2x.png"}
+        alt=""
+      />
       <div className="leaderboardCard_info container">
-        <h4 className="leaderboardCard_heading">Sourabh Purbia</h4>
-        <p className="leaderboardCard_para">100 Achievements</p>
+        <h4 className="leaderboardCard_heading">{props.name}</h4>
+        <p className="leaderboardCard_para">{props.count} Achievements</p>
       </div>
-      <img className="home_page_img" src="1-1@2x.png" alt="" />
+      <img className="home_page_img" src={props.badgeImage} alt="" />
       {/* <p>4</p> */}
     </div>
   );

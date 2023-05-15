@@ -4,6 +4,7 @@ import { Icon } from "@iconify/react";
 import Button from "./Button";
 
 function Profile({userData}) {
+  console.log(userData)
   return (
     <div className="profile flex-container">
       <div className="profile_top">
