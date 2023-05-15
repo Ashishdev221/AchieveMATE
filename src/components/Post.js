@@ -42,6 +42,8 @@ function Post(props) {
         src={
           props.img
         }
+        width={'100px'}
+        height={'400px'}
         alt="posts"
       />
       <div className="post_bottom">
