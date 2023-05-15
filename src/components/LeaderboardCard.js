@@ -12,9 +12,10 @@ function LeaderboardCard(props) {
       <div className="leaderboardCard_info container">
         <h4 className="leaderboardCard_heading">{props.name}</h4>
         <p className="leaderboardCard_para">{props.count} Achievements</p>
+        {/* <p className="leaderboardCard_para">Posted 4 days ago</p>  */}
       </div>
-      <img className="home_page_img" src={props.badgeImage} alt="" />
-      {/* <p>4</p> */}
+      {props.badgeImage && <img className="home_page_img" src={props.badgeImage} alt="" />}
+       <p>{props.image}</p>
     </div>
   );
 }

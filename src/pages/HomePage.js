@@ -132,6 +132,7 @@ function HomePage() {
                   link={achievement.certificate_link}
                   description={achievement.description}
                   img={achievement.img}
+                  user={achievement.user}
                 />
               ))
             ) : (

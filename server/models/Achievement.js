@@ -25,6 +25,24 @@ const achievementSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+achievementSchema.pre('save', async function(next) {
+  const achievement = this;
+  try {
+    // Find the user associated with this achievement
+    const user = await User.findById(achievement.user);
+
+    // Increment the achievement count of the user
+    user.achievement_count += 1;
+
+    // Save the updated user object
+    await user.save();
+
+    next();
+  } catch (err) {
+    next(err);
+  }
+});
+
 
 const Achievement = mongoose.model("achievement", achievementSchema);
 

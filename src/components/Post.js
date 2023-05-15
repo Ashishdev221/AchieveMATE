@@ -5,15 +5,18 @@ import Button from "@mui/material/Button";
 import { Icon } from "@iconify/react";
 import ShareIcon from "@mui/icons-material/Share";
 import LeaderboardCard from "./LeaderboardCard";
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 function Post(props) {
   return (
     <div className="post">
       <div className="post_info">
-      <LeaderboardCard icon={<MoreHorizIcon fontSize="large"/>}/>
-        <h3 className="post_title">
-          {props.title}
-        </h3>
+        <LeaderboardCard
+          count={props.user.achievement_count}
+          name={props.user.name}
+          image={props.user.img}
+          icon={<MoreHorizIcon fontSize="large" />}
+        />
+        <h3 className="post_title">{props.title}</h3>
         <div
           className="post_sub_info flex-container"
           style={{ justifyContent: "space-between" }}
