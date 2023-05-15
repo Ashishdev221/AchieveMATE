@@ -1,17 +1,21 @@
 import { Icon } from "@iconify/react";
 import { Col, Form, Row, Input, Typography } from "antd";
-import React from "react";
+import React, { useContext } from "react";
 import "./PersonalInfo.css";
+import UserContext from "../contexts/UserContext";
 
 const PersonalInfo = () => {
-  const data = {
-    name: "Kuldeep Katara",
-    enrollment: "2019/CTAE/187",
-    phone: "+91 8619898257",
-    email: "kuldeep.katara@gmail.com",
-    branch: "Computer Science And Engineering",
-    class: "B.Tech 4th year",
-  };
+  const { userInformation } = useContext(UserContext);
+  // const data = {
+  //   name: "Kuldeep Katara",
+  //   enrollment: "2019/CTAE/187",
+  //   phone: "+91 8619898257",
+  //   email: "kuldeep.katara@gmail.com",
+  //   branch: "Computer Science And Engineering",
+  //   class: "B.Tech 4th year",
+  // };
+
+  const data = {...userInformation}
 
   return (
     <div className="my-5">

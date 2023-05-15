@@ -53,7 +53,9 @@ const addAchievement = asyncHandler(async (req, res) => {
 
 const getAchievements = asyncHandler(async (req, res) => {
   try {
-    const achievements = await Achievement.find().populate("user");
+    const achievements = await Achievement.find({ status: "accepted" })
+      .sort({ createdAt: -1 })
+      .populate("user");
     res.status(200).json(achievements);
   } catch (error) {
     console.error(error);
@@ -120,4 +122,9 @@ const getAchievementLeaderBoard = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { addAchievement, getAchievements,updateAchievementStatus, getAchievementLeaderBoard };
+module.exports = {
+  addAchievement,
+  getAchievements,
+  updateAchievementStatus,
+  getAchievementLeaderBoard,
+};

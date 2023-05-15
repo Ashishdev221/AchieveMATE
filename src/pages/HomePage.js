@@ -134,7 +134,7 @@ function HomePage() {
                     />
                   ))
                 ) : (
-                  <p>Loading...</p>
+                  <p style={{textAlign: "center"}}>No Posts Found</p>
                 )}
               </div>
             </div>
