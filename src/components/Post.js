@@ -6,6 +6,7 @@ import { Icon } from "@iconify/react";
 import ShareIcon from "@mui/icons-material/Share";
 import LeaderboardCard from "./LeaderboardCard";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 function Post(props) {
   return (
     <div className="post">
@@ -39,16 +40,20 @@ function Post(props) {
       </div>
       <img
         className="post_img"
-        src={
-          props.img
-        }
-        width={'100px'}
-        height={'400px'}
+        src={props.img}
+        width={"100px"}
+        height={"400px"}
         alt="posts"
       />
       <div className="post_bottom">
+        <Button variant="outlined" startIcon={<ThumbUpOffAltIcon />}>
+          Appreciate
+        </Button>
         <Button variant="outlined" startIcon={<ShareIcon />}>
           Share
+        </Button>
+        <Button variant="contained">
+          Ask for help
         </Button>
         <p className="post_des">{props.description}</p>
       </div>

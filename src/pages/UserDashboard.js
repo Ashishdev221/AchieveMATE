@@ -19,7 +19,7 @@ function UserDashboard() {
           <div className="col-3">
            
             <Achievers leaderBoardData={[]}/>
-            <ExploreCourse leaderBoardData={[]}/>
+             <ExploreCourse leaderBoardData={[]}/> 
           </div>
         </div>
       </div>

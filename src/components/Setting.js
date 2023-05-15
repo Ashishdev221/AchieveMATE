@@ -172,7 +172,7 @@ export default function CustomizedAccordions() {
         </AccordionDetails>
       </Accordion>
       <Typography sx={{ fontWeight: 600, fontSize: `24px`, color: "#EC0707", paddingLeft: '40px' }}>
-        <LogoutIcon /> Logout
+        <LogoutIcon /> <a href="/">Logout</a>
       </Typography>
       {/* <Accordion
         expanded={expanded === "panel4"}

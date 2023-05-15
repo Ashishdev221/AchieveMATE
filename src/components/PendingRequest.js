@@ -130,7 +130,6 @@ const rows = [
     title: "Example Achievement",
     id: "645f349c473775702fb7d681",
   },
-  
 ];
 // const rows = [
 //   createData("A", 305),
@@ -330,15 +329,15 @@ export default function TeacherTable() {
   const [orderBy, setOrderBy] = React.useState("calories");
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
-  const [isFunctionCalled,setIsFunctionCalled] = useState(false);
-  
+  const [isFunctionCalled, setIsFunctionCalled] = useState(false);
+
   //   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  
+
   const [achievements, setAchievements] = useState([]);
 
   useEffect(() => {
-    console.log('inside use effect')
+    console.log("inside use effect");
     const fetchUserDataAndAchievements = async () => {
       try {
         const [achievementsResponse] = await Promise.all([
@@ -358,27 +357,34 @@ export default function TeacherTable() {
 
   console.log("inside pending", achievements);
 
-  const newArray = achievements.filter(item => item.status === "pending").map((item) => {
-    return {
-      name: item.user.name,
-      title: item.title,
-      id: item._id,
-    };
-  });
+  const newArray = achievements
+    .filter((item) => item.status === "pending")
+    .map((item) => {
+      return {
+        name: item.user.name,
+        title: item.title,
+        id: item._id,
+      };
+    });
 
-  const updatedAchievements = achievements.filter((item)=>item.status==='pending')
+  const updatedAchievements = achievements.filter(
+    (item) => item.status === "pending"
+  );
 
   const changeStatus = (event) => {
-    let arr = event.target.id.toString().split('-')
-    let id = arr[2]
-    let status = arr[0]
-  
-    setIsFunctionCalled(!isFunctionCalled)
-    axios.put(`http://127.0.0.1:5000/api/achievements/${id}`, { status })
-      .then(response => {
-        const achievement = response.data
-        console.log(`Achievement ${achievement._id} status updated to ${achievement.status}`)
-        window.location.reload()
+    let arr = event.target.id.toString().split("-");
+    let id = arr[2];
+    let status = arr[0];
+
+    setIsFunctionCalled(!isFunctionCalled);
+    axios
+      .put(`http://127.0.0.1:5000/api/achievements/${id}`, { status })
+      .then((response) => {
+        const achievement = response.data;
+        console.log(
+          `Achievement ${achievement._id} status updated to ${achievement.status}`
+        );
+        window.location.reload();
         // setAchievements(prevState => {
         //   // Map over previous state and update the achievement with matching ID
         //   return prevState.map(a => {
@@ -390,15 +396,14 @@ export default function TeacherTable() {
         //   });
         // });
       })
-      .catch(err => {
-        console.error(err)
-      })
-  
+      .catch((err) => {
+        console.error(err);
+      });
+
     console.log("change id", event.target.id);
   };
-  
 
-  console.log(updatedAchievements,'updated');
+  console.log(updatedAchievements, "updated");
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
@@ -462,7 +467,20 @@ export default function TeacherTable() {
       ),
     [order, orderBy, page, rowsPerPage]
   );
-
+  // if (newArray.length === 0) {
+  //   return (
+  //     <Box
+  //       sx={{
+  //         display: "flex",
+  //         justifyContent: "center",
+  //         alignItems: "center",
+  //         height: "100vh",
+  //       }}
+  //     >
+  //       <h2>No data found</h2>
+  //     </Box>
+  //   );
+  // }
   return (
     <Box sx={{ width: "100%" }}>
       <EnhancedTableToolbar numSelected={selected.length} />
@@ -486,7 +504,6 @@ export default function TeacherTable() {
               const labelId = `enhanced-table-checkbox-${index}`;
 
               return (
-                
                 <TableRow
                   hover
                   role="checkbox"

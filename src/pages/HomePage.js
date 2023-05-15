@@ -80,7 +80,7 @@ function HomePage() {
                       ? []
                       : leaderBoard.achievements
                   }
-                />
+                /> 
               </div>
               <div className="col-8">
                 <div className="home_page_banner flex-container">
@@ -96,12 +96,12 @@ function HomePage() {
                     >
                       Upload now
                     </button>
-                    <button
+                    {/* <button
                       type="button"
                       class="btn btn-outline-warning banner_button"
                     >
                       Explore Courses
-                    </button>
+                    </button> */}
                   </div>
                   <img className="banner_img" src="/mask-group1.svg" alt="" />
                 </div>
@@ -118,7 +118,7 @@ function HomePage() {
                     class="btn btn-warning banner_button"
                     onClick={showModalUpload}
                   >
-                    Upload now
+                    Choose file
                   </button>
                 </div>
                 {achievements.length > 0 ? (

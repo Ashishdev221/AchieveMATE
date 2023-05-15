@@ -22,7 +22,7 @@ function TeacherHeader() {
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="/loginTeacher" class="nav-link">
                 <Button label="Logout"/>
               </a>
             </li>
