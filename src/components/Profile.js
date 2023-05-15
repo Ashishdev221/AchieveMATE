@@ -8,7 +8,7 @@ function Profile({userData}) {
   return (
     <div className="profile flex-container">
       <div className="profile_top">
-        <img className="profile_img" src={userData.img} alt="jhonny bhaiya" />
+        <img className="profile_img" src={userData.img} alt="profile" />
         <h3 className="profile_name">{userData.name}</h3>
         <p className="profile_para">0 Achievements</p>
       </div>

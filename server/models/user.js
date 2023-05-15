@@ -7,7 +7,11 @@ const userSchema = new mongoose.Schema(
     password: { type: String, required: true },
     enrollment: { type: String, required: true, unique: true },
     email: { type: String, unique: true },
-    img: { type: String, default: "" },
+    img: {
+      type: String,
+      default:
+        "https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png",
+    },
     branch: { type: String, default: "CSE" },
     class: { type: String, default: "BTECH 4th Year" },
     achievement_count: { type: Number, default: 0 },
