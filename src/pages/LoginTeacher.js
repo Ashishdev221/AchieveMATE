@@ -6,8 +6,11 @@ import TeamCard from "../components/TeamCard";
 import { Icon } from "@iconify/react";
 import { Button, Form, Input, Checkbox, Divider } from "antd";
 import axios from "axios";
+import { useContext } from "react";
+import UserContext from "../contexts/UserContext";
 
 const LoginTeacher = () => {
+  const { setUserInformation } = useContext(UserContext);
   const [form] = Form.useForm();
   const navigate = useNavigate()
 
@@ -20,6 +23,13 @@ const LoginTeacher = () => {
           console.log("HEre in post");
           console.log(res);
           if (res.status === 200) {
+            const user = {
+              role: "teacher",
+              ...res.data,
+            };
+            console.log(user)
+            setUserInformation(user);
+            localStorage.setItem('userInformation', JSON.stringify(user));
             navigate("/teacher-dashboard");
           }
         });

@@ -10,10 +10,16 @@ const registerUser = asyncHandler(async (req, res) => {
         .status(409)
         .send({ message: "User with given enrollment already Exist!" });
 
-    await new User({
+    const newUser = await new User({
       ...req.body,
     }).save();
-    return res.status(201).send({ message: "User created successfully" });
+    return res.status(201).send({
+      id: newUser._id,
+      name: newUser.name,
+      enrollment: newUser.enrollment,
+      img: newUser.img,
+      message: "User created successfully",
+    });
   } catch (error) {
     return res.status(500).send({ message: "Internal Server Error" });
   }
@@ -32,7 +38,15 @@ const authUser = asyncHandler(async (req, res) => {
   if (!isMatch) {
     return res.status(401).send({ message: "Invalid username or password" });
   } else {
-    res.status(200).send({ message: "user logged in" });
+    res.status(200).send({
+      id: user._id,
+      name: user.name,
+      enrollment: user.enrollment,
+      class: user.class,
+      branch: user.branch,
+      img: user.img,
+      message: "user logged in",
+    });
   }
 });
 

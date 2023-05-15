@@ -1,21 +1,47 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useEffect } from "react";
 import "./SignUpPage.css";
 import TeamCard from "../components/TeamCard";
 import { Icon } from "@iconify/react";
 import { Button, Form, Input, Checkbox, Divider } from "antd";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import UserContext from "../contexts/UserContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUpPage = () => {
+  const { setUserInformation } = useContext(UserContext);
   const [form] = Form.useForm();
+  const navigate = useNavigate();
 
   const onFinish = async (values) => {
-    const {name, enrollment, password, ...rest} = values
+    const { name, enrollment, password } = values;
     try {
-      axios.post("http://127.0.0.1:5000/api/users", {name, enrollment, password }).then((res) => {
-        console.log("HEre in post")
-        console.log(res);
-      });
+      axios
+        .post("http://127.0.0.1:5000/api/users", { name, enrollment, password })
+        .then((res) => {
+          console.log(res);
+          if (res.status === 201) {
+            const user = {
+              role: "student",
+              ...res.data,
+            };
+
+            setUserInformation(user);
+            navigate("/home-page");
+            // toast.success("Successfully signed up", {
+            //   position: "top-center",
+            //   autoClose: 2000,
+            //   hideProgressBar: false,
+            //   closeOnClick: true,
+            //   pauseOnHover: true,
+            //   draggable: true,
+            //   progress: undefined,
+            //   theme: "light",
+            // });
+          }
+        });
     } catch (error) {
       console.log(error);
     }

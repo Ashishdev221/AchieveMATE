@@ -54,7 +54,6 @@ const addAchievement = asyncHandler(async (req, res) => {
 const getAchievements = asyncHandler(async (req, res) => {
   try {
     const achievements = await Achievement.find().populate("user");
-    console.log(achievements);
     res.status(200).json(achievements);
   } catch (error) {
     console.error(error);

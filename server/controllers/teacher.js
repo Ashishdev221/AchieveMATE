@@ -15,8 +15,17 @@ const authUser = asyncHandler(async (req, res) => {
   if (!isMatch) {
     return res.status(401).send({ message: "Invalid username or password" });
   } else {
-    res.status(200).send({ message: "user logged in" });
+    res.status(200).send({
+      _id: teacher._id,
+      name: teacher.name,
+      department: teacher.department,
+      email: teacher.email,
+      designation: teacher.designation,
+      category: teacher.category,
+
+      message: "user logged in",
+    });
   }
 });
 
-module.exports = {authUser};
+module.exports = { authUser };

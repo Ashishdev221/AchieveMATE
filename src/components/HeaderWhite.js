@@ -1,13 +1,13 @@
-import React from 'react'
+import React from "react";
 import "./HeaderWhite.css";
-import SearchIcon from '@mui/icons-material/Search';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+import SearchIcon from "@mui/icons-material/Search";
+import NotificationsIcon from "@mui/icons-material/Notifications";
 import Button from "../components/Button";
 
-function HeaderWhite() {
+function HeaderWhite({showModalUpload}) {
   return (
     <div>
-        <div class="home_header container">
+      <div class="home_header container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
           <a
             href="/"
@@ -28,15 +28,15 @@ function HeaderWhite() {
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <Button label="Upload"/>
+              <a class="nav-link">
+                <Button label="Upload" onClick={showModalUpload} />
               </a>
             </li>
           </ul>
         </header>
       </div>
     </div>
-  )
+  );
 }
 
-export default HeaderWhite
+export default HeaderWhite;

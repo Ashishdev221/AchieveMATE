@@ -1,26 +1,36 @@
 import React from "react";
-import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 import TeamCard from "../components/TeamCard";
-import { Icon } from "@iconify/react";  
+import { Icon } from "@iconify/react";
 import axios from "axios";
 import { Button, Form, Input, Checkbox, Divider } from "antd";
+import { useContext } from "react";
+import UserContext from "../contexts/UserContext";
 
 const LoginPage = () => {
+  const { setUserInformation } = useContext(UserContext);
   const [form] = Form.useForm();
   const navigate = useNavigate();
 
   const onFinish = async (values) => {
-    const {enrollment, password} = values
+    const { enrollment, password } = values;
     try {
-      axios.post("http://127.0.0.1:5000/api/users/login", {enrollment, password }).then((res) => {
-        console.log("HEre in post")
-        console.log(res);
-        if(res.status === 200) {
-          navigate("/home-page");
-        }
-      });
+      axios
+        .post("http://127.0.0.1:5000/api/users/login", { enrollment, password })
+        .then((res) => {
+          console.log(res);
+          if (res.status === 200) {
+            const user = {
+              role: "student",
+              ...res.data,
+            };
+            console.log(user)
+            setUserInformation(user);
+            localStorage.setItem('userInformation', JSON.stringify(user));
+            navigate("/home-page");
+          }
+        });
     } catch (error) {
       console.log(error);
     }
@@ -51,7 +61,7 @@ const LoginPage = () => {
           </div>
         </div>
       </div>
-      <div className="rightside" style={{height: "100vh"}}>
+      <div className="rightside" style={{ height: "100vh" }}>
         <div>
           <img className="rightside_logo" src="/logo01-1@2x.png" alt="" />
           <h1 className="rightside_heading">Hello ! Welcome back</h1>
