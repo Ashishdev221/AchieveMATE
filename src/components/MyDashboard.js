@@ -1,116 +1,96 @@
-import React, { useState } from "react";
-import "./MyDashboard.css";
-import Button from "../components/Button";
-// import "bootstrap/dist/css/bootstrap.min.css";
-import { IconButton } from "@mui/material";
-import AchievementsTable from "./AchievementsTable";
-import ExpandCollapse from "./ExpandCollapse";
-import ToggleButton from "../components/ToggleButton";
+import * as React from "react";
+import PropTypes from "prop-types";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import "./Dashboard.css";
+import Table from "./Table";
+import Setting from "./Setting";
+import TeacherTable from "./TeacherTable";
+import PendingRequest from "./PendingRequest";
 import PersonalInfo from "./PersonalInfo";
-import FormLabel from "@mui/material/FormLabel";
-import FormControl from "@mui/material/FormControl";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormHelperText from "@mui/material/FormHelperText";
-import Switch from "@mui/material/Switch";
+import UserTable from "./UserTable";
 
-function MyDashboard() {
-  const [isChecked, setIsChecked] = useState(false);
-  let [linkNumber, setLinkNumber] = useState(0);
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
 
-  const handleToggle = () => {
-    setIsChecked(!isChecked);
-  };
-
-  const handleChange = (event) => {
-    setState({
-      ...state,
-      [event.target.name]: event.target.checked,
-    });
-  };
   return (
-    <>
-      <div class="card custom-card-styling">
-        <div class="card-body">
-          <div class="d-flex p-2">
-            <div className="back-btn p-2">
-              <img src="/backBtn.svg" width={"20px"} height={"20px"} />
-            </div>
-            <h3 className="mx-4">My Dashboard</h3>
-          </div>
-          <nav class="navbar navbar-expand-lg" style={{ width: "100%" }}>
-            <div class="container-fluid">
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item" onClick={() => setLinkNumber(1)}>
-                    <a class="nav-link active" aria-current="page" href="#">
-                      Personal Info
-                    </a>
-                  </li>
-                  <li class="nav-item" onClick={() => setLinkNumber(2)}>
-                    <a class="nav-link" href="#achievement">
-                      Achievements
-                    </a>
-                  </li>
-                  <li class="nav-item" onClick={() => setLinkNumber(3)}>
-                    <a class="nav-link" href="#">
-                      Settings
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-          <div className="hline mt-3"></div>
-          {linkNumber === 1 && (
-            <section id="achievement">
-              <PersonalInfo />
-            </section>
-          )}
-          {linkNumber === 2 && (
-            <section id="achievement">
-              <AchievementsTable></AchievementsTable>
-            </section>
-          )}
-          {linkNumber === 3 && (
-            <section id="achievement">
-              <ExpandCollapse title="Login & Security">
-                <p>Hi</p>
-              </ExpandCollapse>
-              <ExpandCollapse title="Notification">
-                <div className="flex">
-                  <div className="d-flex justify-content-between">
-                    <h5>Post reaction and appreciations notifications</h5>
-                    <ToggleButton></ToggleButton>
-                  </div>
-                  <div className="d-flex justify-content-between">
-                    <h5>Other’s post notification</h5>
-                    <ToggleButton></ToggleButton>
-                  </div>
-                  <div className="d-flex justify-content-between">
-                    <h5>My post status notification</h5>
-                   <ToggleButton></ToggleButton>
-                  </div>
-                  <div className="d-flex justify-content-between">
-                    <h5>Messages notification</h5>
-                    <ToggleButton></ToggleButton>
-                  </div>
-                </div>
-              </ExpandCollapse>
-              <ExpandCollapse title="Help & Support">
-                <div className="d-flex justify-content-between">
-                  <p>If you have any query, reach out to us on email</p>
-                  <Button className="button-style" label="Email">
-                    Hi there
-                  </Button>
-                </div>
-              </ExpandCollapse>
-            </section>
-          )}
-        </div>
-      </div>
-    </>
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 1 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
   );
 }
 
-export default MyDashboard;
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
+  };
+}
+
+export default function MyDashboard() {
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <div className="dashboard">
+      <Box sx={{ width: "100%" }}>
+        <div class="d-flex p-2">
+          <div className=" p-2">
+            <img src="/backBtn.svg" width={"20px"} height={"20px"} />
+          </div>
+          <h3 className="mx-4">My Dashboard</h3>
+        </div>
+        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            aria-label="basic tabs example"
+          >
+            <Tab label="Personal Info" {...a11yProps(0)} />
+            <Tab label="Achievements" {...a11yProps(1)} />
+            <Tab label="Settings" {...a11yProps(2)} />
+            {/* <Tab label="Settings" {...a11yProps(3)} /> */}
+          </Tabs>
+        </Box>
+        <TabPanel value={value} index={0}>
+        <PersonalInfo />
+          {/* <PendingRequest /> */}
+          {/* Item One */}
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          {/* <PendingRequest /> */}
+          <UserTable />
+          {/* Item One */}
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          {/* <TeacherTable /> */}
+          <Setting />
+        </TabPanel>
+        {/* <TabPanel value={value} index={3}>
+          <Setting />
+        </TabPanel> */}
+      </Box>
+    </div>
+  );
+}

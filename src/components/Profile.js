@@ -21,7 +21,7 @@ function Profile({userData}) {
           <Icon icon="uis:calender" width="26" height="26" />
           <p className="profile_para">{userData.class}</p>
         </div>
-        <Button label="My Dashboard"/>
+        <Button label="My Dashboard" url="./user-dashboard"/>
       </div>
     </div>
   );

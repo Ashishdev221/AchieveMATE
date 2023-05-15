@@ -100,11 +100,19 @@ export default function CustomizedAccordions() {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography> <Input
-                prefix={<Icon icon="mdi:password" color="2D2380" />}
-                type="password"
-                placeholder="Password"
-              /><Button className={'button-style'} label={'change password'} style={{marginLeft:'50%',marginTop:'30px'}}></Button></Typography>
+          <Typography>
+            {" "}
+            <Input
+              prefix={<Icon icon="mdi:password" color="2D2380" />}
+              type="password"
+              placeholder="Password"
+            />
+            <Button
+              className={"button-style"}
+              label={"change password"}
+              style={{ marginLeft: "50%", marginTop: "30px" }}
+            ></Button>
+          </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion
@@ -151,14 +159,22 @@ export default function CustomizedAccordions() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          <div className="d-flex justify-content-between">
-                  <p>If you have any query, reach out to us on email <span style={{fontWeight:'bold'}}>(Achievematectae@gmail.com)</span></p>
-                  <Button className="button-style" label="Email"/>
-                </div>
+            <div className="d-flex justify-content-between">
+              <p>
+                If you have any query, reach out to us on email{" "}
+                <span style={{ fontWeight: "bold" }}>
+                  (Achievematectae@gmail.com)
+                </span>
+              </p>
+              <Button className="button-style" label="Email" />
+            </div>
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion
+      <Typography sx={{ fontWeight: 600, fontSize: `24px`, color: "#EC0707", paddingLeft: '40px' }}>
+        <LogoutIcon /> Logout
+      </Typography>
+      {/* <Accordion
         expanded={expanded === "panel4"}
         onChange={handleChange("panel4")}
       >
@@ -177,7 +193,7 @@ export default function CustomizedAccordions() {
             lacus ex, sit amet blandit leo lobortis eget.
           </Typography>
         </AccordionDetails>
-      </Accordion>
+      </Accordion> */}
     </div>
   );
 }
