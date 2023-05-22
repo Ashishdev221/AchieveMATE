@@ -14,8 +14,9 @@ function HomePage() {
   //maintaining state for the three popovers
   const [showModal, setShowModal] = useState(false);
   const [userData, setUserData] = useState({});
-  const [achievements, setAchievements] = useState({});
+  const [achievements, setAchievements] = useState([]);
   const [leaderBoard, setLeaderBoard] = useState({});
+  const [achievementObject, setAchievmentObject] = useState({});
 
   const hideModalUpload = () => {
     setShowModal(false);
@@ -45,9 +46,25 @@ function HomePage() {
         const achievements = achievementsResponse.data;
         const leaderBoard = leaderBoardResponse.data;
 
-        setUserData({ name: userData.name, img: userData.img, branch: userData?.branch, class: userData?.class });
+        setUserData({
+          name: userData.name,
+          img: userData.img,
+          branch: userData?.branch,
+          class: userData?.class,
+        });
         setAchievements(achievements);
         setLeaderBoard(leaderBoard);
+        setAchievmentObject(
+          leaderBoard.achievements.find(
+            (item) => item.user.name === userData.name
+          )
+        );
+        console.log(
+          leaderBoard.achievements,
+          userData,
+          achievementObject,
+          "llll"
+        );
       } catch (error) {
         console.error(error);
         // Handle error here
@@ -58,15 +75,28 @@ function HomePage() {
     fetchUserDataAndAchievements();
   }, [userInformation]);
 
+  console.log("99999", achievements);
+
+  const newArray = achievements
+    .filter((item) => item.status === "accepted")
+    .map((item) => item);
+
+  // const count = leaderBoard.achievements.find((item)=>item.user.name===userData.name)
+
+  // console.log(leaderBoard,userData,count,'llll')
+
   if (userInformation && userInformation.role === "student") {
     return (
       <>
         <div className="home_page">
           <HeaderWhite showModalUpload={showModalUpload} />
-          <div className="container">
+          <div className="container" style={{ marginTop: "100px" }}>
             <div className="row">
               <div className="col-3">
-                <Profile userData={userData} count={leaderBoard.achievements} />
+                <Profile
+                  userData={userData}
+                  achievementCount={achievementObject.count}
+                />
                 <Achievers
                   leaderBoardData={
                     leaderBoard.achievements === undefined
@@ -80,7 +110,7 @@ function HomePage() {
                       ? []
                       : leaderBoard.achievements
                   }
-                /> 
+                />
               </div>
               <div className="col-8">
                 <div className="home_page_banner flex-container">
@@ -121,8 +151,8 @@ function HomePage() {
                     Choose file
                   </button>
                 </div>
-                {achievements.length > 0 ? (
-                  achievements.map((achievement) => (
+                {newArray.length > 0 ? (
+                  newArray.map((achievement) => (
                     <Post
                       title={achievement.title}
                       university={achievement.university}
@@ -134,7 +164,7 @@ function HomePage() {
                     />
                   ))
                 ) : (
-                  <p style={{textAlign: "center"}}>No Posts Found</p>
+                  <p style={{ textAlign: "center" }}>No Posts Found</p>
                 )}
               </div>
             </div>

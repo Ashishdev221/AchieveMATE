@@ -3,14 +3,14 @@ import "./Profile.css";
 import { Icon } from "@iconify/react";
 import Button from "./Button";
 
-function Profile({userData}) {
-  console.log(userData)
+function Profile({userData,achievementCount}) {
+  console.log(userData,achievementCount)
   return (
     <div className="profile flex-container">
       <div className="profile_top">
         <img className="profile_img" src={userData.img} alt="profile" />
         <h3 className="profile_name">{userData.name}</h3>
-        <p className="profile_para">0 Achievements</p>
+        <p className="profile_para">{achievementCount} Achievments</p>
       </div>
       <div className="profile_bottom">
         <div className="flex-container">

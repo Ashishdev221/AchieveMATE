@@ -53,7 +53,7 @@ const addAchievement = asyncHandler(async (req, res) => {
 
 const getAchievements = asyncHandler(async (req, res) => {
   try {
-    const achievements = await Achievement.find({ status: "accepted" })
+    const achievements = await Achievement.find()
       .sort({ createdAt: -1 })
       .populate("user");
     res.status(200).json(achievements);
@@ -111,7 +111,7 @@ const getAchievementLeaderBoard = asyncHandler(async (req, res) => {
         },
       },
       {
-        $sort: { "user.enrollment": 1 },
+        $sort: { count: -1 },
       },
     ]);
 

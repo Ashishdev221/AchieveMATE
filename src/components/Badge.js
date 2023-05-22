@@ -3,9 +3,9 @@ import "./Badge.css";
 
 function Badge({ label }) {
   var backColor =
-    label === "Approved"
+    label === "accepted"
       ? "rgba(24, 243, 33, 0.3)"
-      : label === "Rejected"
+      : label === "rejected"
       ? " rgba(243, 24, 24, 0.3)"
       : "rgba(243, 142, 24, 0.3)";
   return (

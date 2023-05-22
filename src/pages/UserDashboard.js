@@ -11,7 +11,7 @@ function UserDashboard() {
   return (
     <div className="user_dashboard">
       <HeaderWhite />
-      <div className="contaier">
+      <div className="contaier" style={{marginTop:'100px'}}>
         <div className="row">
           <div className="col-8 mx-5">
           <MyDashboard />

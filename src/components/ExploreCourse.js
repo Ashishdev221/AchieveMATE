@@ -20,6 +20,7 @@ function ExploreCourse({leaderBoardData}) {
               name={item.user.name}
               image={item.user.img}
               badgeImage={index===0?"1-1@2x.png":index===1?"2-24@2x.png":"3-51@2x.png"}
+              index={index}
             />
           );
         })}
