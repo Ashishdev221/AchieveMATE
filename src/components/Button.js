@@ -4,7 +4,7 @@ import "./Button.css";
 function Button({ label, id, className, url,onClick }) {
   return (
     <div className={className ? className : "button"} id={id ? id : ""} onClick={onClick}>
-      <a href={url}>{label}</a>
+      <a className="button-link" href={url}>{label}</a>
     </div>
   );
 }

@@ -18,6 +18,11 @@ a {
   color: #070707;
 }
 
+.button-link:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
 .button2 {
   font-family: var(--font-roboto);
   line-height: 36px;

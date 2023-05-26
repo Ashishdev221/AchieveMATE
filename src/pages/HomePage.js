@@ -113,29 +113,31 @@ function HomePage() {
                 />
               </div>
               <div className="col-8">
-                <div className="home_page_banner flex-container">
-                  <div className="banner_left">
-                    <h1 className="banner_heading">
-                      Showcase your First Achievement and{" "}
-                      <span className="yellow_col">Earn Course Coins</span>
-                    </h1>
-                    <button
-                      type="button"
-                      class="btn btn-warning banner_button"
-                      onClick={showModalUpload}
-                    >
-                      Upload now
-                    </button>
-                    {/* <button
+                {achievementObject.count === 0 ? (
+                  <div className="home_page_banner flex-container">
+                    <div className="banner_left">
+                      <h1 className="banner_heading">
+                        Showcase your First Achievement and{" "}
+                        <span className="yellow_col">Earn Course Coins</span>
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn btn-warning banner_button"
+                        onClick={showModalUpload}
+                      >
+                        Upload now
+                      </button>
+                      {/* <button
                       type="button"
                       class="btn btn-outline-warning banner_button"
                     >
                       Explore Courses
                     </button> */}
+                    </div>
+                    <img className="banner_img" src="/mask-group1.svg" alt="" />
                   </div>
-                  <img className="banner_img" src="/mask-group1.svg" alt="" />
-                </div>
-                <div className="upload flex-container">
+                ):(
+                  <div className="upload flex-container">
                   <img
                     className="home_page_img"
                     // src="/passport-pic-2@2x.png"
@@ -151,6 +153,9 @@ function HomePage() {
                     Choose file
                   </button>
                 </div>
+                )}
+
+                
                 {newArray.length > 0 ? (
                   newArray.map((achievement) => (
                     <Post
