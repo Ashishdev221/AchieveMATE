@@ -6,16 +6,18 @@ import { Icon } from "@iconify/react";
 import ShareIcon from "@mui/icons-material/Share";
 import LeaderboardCard from "./LeaderboardCard";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
+import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 function Post(props) {
+  console.log(props.leaderBoard, ";;;;;;;;;;;");
   return (
     <div className="post">
       <div className="post_info">
         <LeaderboardCard
-          count={props.user.achievement_count}
+          count={props.leaderBoard.count}
           name={props.user.name}
           image={props.user.img}
           icon={<MoreHorizIcon fontSize="large" />}
+          time={props.time}
         />
         <h3 className="post_title">{props.title}</h3>
         <div
@@ -28,7 +30,7 @@ function Post(props) {
           </div>
           <div className="flex-container">
             <Icon icon="ph:certificate-fill" width="20" height="20" />
-            <p>{props.certificateNo}</p>
+            <p>{props.count}</p>
           </div>
           <div className="flex-container">
             <Icon icon="mdi:link-box-variant-outline" width="20" height="20" />
@@ -41,7 +43,7 @@ function Post(props) {
       <img
         className="post_img"
         src={props.img}
-        width={"100px"}
+        width={"400px"}
         height={"400px"}
         alt="posts"
       />
@@ -52,9 +54,7 @@ function Post(props) {
         <Button variant="outlined" startIcon={<ShareIcon />}>
           Share
         </Button>
-        <Button variant="contained">
-          Ask for help
-        </Button>
+        <Button variant="contained">Ask for help</Button>
         <p className="post_des">{props.description}</p>
       </div>
     </div>

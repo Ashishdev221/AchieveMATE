@@ -75,11 +75,13 @@ function HomePage() {
     fetchUserDataAndAchievements();
   }, [userInformation]);
 
-  console.log("99999", achievements);
+  // console.log("99999", newArray);
 
   const newArray = achievements
     .filter((item) => item.status === "accepted")
     .map((item) => item);
+
+  console.log("99999", newArray, leaderBoard);
 
   // const count = leaderBoard.achievements.find((item)=>item.user.name===userData.name)
 
@@ -162,10 +164,14 @@ function HomePage() {
                       title={achievement.title}
                       university={achievement.university}
                       certificateNo={achievement.certificate_number}
+                      time={achievement.updatedAt}
                       link={achievement.certificate_link}
                       description={achievement.description}
                       img={achievement.img}
                       user={achievement.user}
+                      leaderBoard={leaderBoard.achievements.find(
+                        (item) => item.user.name === achievement.user.name
+                      )}
                     />
                   ))
                 ) : (
