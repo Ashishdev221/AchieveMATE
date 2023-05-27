@@ -11,13 +11,19 @@ function Achievers({ leaderBoardData }) {
         Achiever's <br /> Leaderboard
       </h3>
       <div>
-        {leaderBoardData.map((item,index) => {
+        {leaderBoardData.map((item, index) => {
           return (
             <LeaderboardCard
               count={item.count}
               name={item.user.name}
               image={item.user.img}
-              badgeImage={index===0?"1-1@2x.png":index===1?"2-24@2x.png":"3-51@2x.png"}
+              badgeImage={
+                index === 0
+                  ? "1-1@2x.png"
+                  : index === 1
+                  ? "2-24@2x.png"
+                  : "3-51@2x.png"
+              }
               index={index}
             />
           );

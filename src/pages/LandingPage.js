@@ -7,7 +7,7 @@ import CounterCard from "../components/CounterCard";
 import ContactUs from "../components/ContactUs";
 import Button from "../components/Button";
 import WhyAchieve from "../components/WhyAchieve";
-import TeamCard from "../components/TeamCard"
+import TeamImageCard from "../components/TeamImageCard"
 function LandingPage() {
   return (
     <div className="landing_page">
@@ -83,6 +83,16 @@ function LandingPage() {
       </div>
       <div>
         <ContactUs />
+      </div>
+      <div>
+      <h1 className="contact_us_head" style={{marginLeft:'130px'}}>Meet The Team</h1>
+        <div className="flex-container team_cards" style={{justifyContent:'space-around'}}>
+            <TeamImageCard firstName = "Sourabh" lastName = "Purbia"  img = "./passport-pic-2@2x.png"/>
+            <TeamImageCard firstName = "Ashish" lastName = "Dev" img = "./ashish2.png"/>
+            <TeamImageCard firstName = "Pankaj" lastName = "Kumawat" img = "./pankaj2.png"/>
+            <TeamImageCard firstName = "Kanhav" lastName = "Sukhwal" img = "./kanhav2.png"/>
+            <TeamImageCard firstName = "Kuldeep" lastName = "Katara" img = "./kuldeep.jpeg"/>
+            </div>
       </div>
       <div className="get_in_touch">
         <div className="get_in_touch_heading">Get in Touch</div>

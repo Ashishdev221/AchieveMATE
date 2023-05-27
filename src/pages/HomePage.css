@@ -1,10 +1,9 @@
 body {
   background-color: #f6f6f6;
   font-family: var(--font-roboto);
-
 }
 .home_page {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .home_page_banner {
@@ -64,10 +63,19 @@ body {
 }
 
 .home_header {
-    /* box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.15); */
+  /* box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.15); */
 }
 
 .home_header_logo {
-    height: 77px;
-    width: 283px;
+  height: 77px;
+  width: 283px;
+}
+
+.container,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+  max-width: 100%;
 }
