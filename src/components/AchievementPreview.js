@@ -5,41 +5,46 @@ import Profile from "./Profile";
 import ProfileCard from "./ProfileCard";
 import Link from "antd/es/typography/Link";
 
-const AchievementPreview = () => {
+const AchievementPreview = (props) => {
+  const handleClosePopupClick = (rowId) => {
+    props.handleClosePopup(rowId);
+  };
+  console.log('dddddd',props.viewedAchievement)
   return (
     <>
       <Modal
-        open={true}
+        open={props.openPopups[props.row] || false}
         width={1100}
         centered={true}
-        closeIcon={<Icon icon="mdi:close-box" color="#f90c0c" />}
+        closeIcon={<Icon onClick={() => handleClosePopupClick(props.row)} icon="mdi:close-box" color="#f90c0c" />}
         className="achivement-preview"
         footer={null}
       >
-        <Form layout="vertical">
+        <Form id={props.row} layout="vertical">
           <Row gutter={[32, 8]}>
             <Col span={12}>
               <div>
-                <img src="/Rectangle 47.png" />
+                <img src={props.viewedAchievement?.img} style={{width: '519px', height: '415px'}}/>
               </div>
               <div className="my-2">
                 <Form.Item label="Category of Achievements">
-                  <Input readOnly value={"Technical Achivement"} />
+                  <Input readOnly value={props.viewedAchievement?.category} />
                 </Form.Item>
                 <Form.Item label="Certificate Number">
-                  <Input readOnly value={"Thomso22/ADDESIGN/1245"} />
+                  <Input readOnly value={props.viewedAchievement?.certificate_number} />
                 </Form.Item>
               </div>
             </Col>
             <Col span={12}>
               <h4>Posted By</h4>
               <div>
-                <ProfileCard />
+                <ProfileCard user={props.viewedAchievement?.user}/>
               </div>
               <div className="my-2">
                 <Button
                   size="small"
                   style={{ backgroundColor: "#3D0EA933", color: "#3C10A5" }}
+                  href={props.viewedAchievement?.certificate_link}
                 >
                   Certificate Link
                 </Button>
@@ -48,17 +53,17 @@ const AchievementPreview = () => {
                 <Form.Item label="Title of the Achievement">
                   <Input
                     readOnly
-                    value={"Certificate of Ad Design Winner at IITR"}
+                    value={props.viewedAchievement?.title}
                   />
                 </Form.Item>
                 <Form.Item label="Certifying Authority">
-                  <Input readOnly value={"IIT Roorkee"} />
+                  <Input readOnly value={props.viewedAchievement?.certifying_authority} />
                 </Form.Item>
                 <Form.Item label="Date of Issue">
-                  <Input readOnly value={"15th March, 2023"} />
+                  <Input readOnly value={props.viewedAchievement?.certificate_issue_date} />
                 </Form.Item>
                 <Form.Item label="Description">
-                  <Input readOnly value={"Winner Winner chicken dinner"} />
+                  <Input readOnly value={props.viewedAchievement?.description} />
                 </Form.Item>
               </div>
             </Col>

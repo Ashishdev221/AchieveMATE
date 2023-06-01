@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -7,8 +7,24 @@ import CounterCard from "../components/CounterCard";
 import ContactUs from "../components/ContactUs";
 import Button from "../components/Button";
 import WhyAchieve from "../components/WhyAchieve";
-import TeamImageCard from "../components/TeamImageCard";
+import TeamImageCard from "../components/TeamImageCard"
+import axios from "axios";
 function LandingPage() {
+  const [counter, setCounter] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:5000/api/achievements/count');
+        setCounter(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+  console.log(counter)
   return (
     <div className="landing_page">
       <div className="hero_section">
@@ -77,13 +93,9 @@ function LandingPage() {
       </div>
       <div className="about">
         <div className="counter flex-container">
-          <CounterCard image={"/vector2.svg"} title={"Achievers"} count={"8"} />
-          <CounterCard
-            image={"/achievement.svg"}
-            title={"Achievements"}
-            count={"26"}
-          />
-          <CounterCard image={"/courses.svg"} title={"Courses"} count={"0"} />
+          <CounterCard image={'/vector2.svg'} title={'Achievers'} count={counter.userCount} />
+          <CounterCard image={'/achievement.svg'} title={'Achievements'} count={counter.achievementCount} />
+          <CounterCard image={'/courses.svg'} title={'Courses'} count={'0'} />
         </div>
         <div className="about_info flex-container">
           <div className="about_left">
@@ -112,41 +124,6 @@ function LandingPage() {
       <div>
         <ContactUs />
       </div>
-      <div>
-        <h1 className="contact_us_head" style={{ marginLeft: "130px" }}>
-          Meet The Team
-        </h1>
-        <div
-          className="flex-container team_cards"
-          style={{ justifyContent: "space-around" }}
-        >
-          <TeamImageCard
-            firstName="Sourabh"
-            lastName="Purbia"
-            img="./passport-pic-2@2x.png"
-          />
-          <TeamImageCard
-            firstName="Ashish"
-            lastName="Dev"
-            img="./ashish2.png"
-          />
-          <TeamImageCard
-            firstName="Pankaj"
-            lastName="Kumawat"
-            img="./pankaj2.png"
-          />
-          <TeamImageCard
-            firstName="Kanhav"
-            lastName="Sukhwal"
-            img="./kanhav2.png"
-          />
-          <TeamImageCard
-            firstName="Kuldeep"
-            lastName="Katara"
-            img="./kuldeep.jpeg"
-          />
-        </div>
-      </div>
       <div className="get_in_touch">
         <div className="get_in_touch_heading">Get in Touch</div>
         <div className="flex-container get_in_touch_container">
@@ -171,6 +148,17 @@ function LandingPage() {
           </div>
         </div>
       </div>
+
+      <div id="team" style={{ marginTop: '70px' }}>
+        <h1 className="contact_us_head" style={{ marginLeft: '130px' }}>Meet The Team</h1>
+        <div className="flex-container team_cards" style={{ justifyContent: 'space-around' }}>
+          <TeamImageCard firstName="Sourabh" lastName="Purbia" img="./1.png" url='https://www.linkedin.com/in/sourabhpurbia/'/>
+          <TeamImageCard firstName="Ashish" lastName="Dev" img="./2.png" url='https://www.linkedin.com/in/ashish-dev-091b651a3/'/>
+          <TeamImageCard firstName="Pankaj" lastName="Kumawat" img="./4.png" url='https://www.linkedin.com/in/pankaj-kumawat/'/>
+          <TeamImageCard firstName="Kanhav" lastName="Sukhwal" img="./3.png" url='https://www.linkedin.com/in/kanhav-sukhwal-2b6ab11b6/'/>
+          <TeamImageCard firstName="Kuldeep" lastName="Katara" img="./5.png" url='https://www.linkedin.com/in/kuldeep-katara-694072252/'/>
+        </div>
+      </div>
       {/* <div className="meet_the_team">
           <h3 className="team_heading">Meet the Team</h3>
           <hr className="hr_login" />
@@ -183,7 +171,7 @@ function LandingPage() {
           </div>
         </div> */}
 
-      <Footer />
+      <Footer first="Join the community" second="of Achievers" button="Join as a Student" link="/signup"/>
     </div>
   );
 }

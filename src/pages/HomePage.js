@@ -8,6 +8,7 @@ import ExploreCourse from "../components/ExploreCourse";
 import axios from "axios";
 import UploadModal from "../components/UploadModal";
 import UserContext from "../contexts/UserContext";
+import Footer from "../components/Footer";
 
 function HomePage() {
   const { userInformation } = useContext(UserContext);
@@ -191,6 +192,7 @@ function HomePage() {
               </div>
             </div>
           </div>
+          <Footer first='Refer your friend' second='and earn course coins' button='Refer Now'/>
         </div>
         <div>
           <UploadModal

@@ -27,7 +27,7 @@ function TeacherDashboard() {
             </div>
           </div>
         </div>
-        <Footer />
+        <Footer first='Thank You Teachers' second='for your time' third='and efforts'/>
       </div>
     );
   }

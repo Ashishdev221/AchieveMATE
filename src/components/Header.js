@@ -18,7 +18,7 @@ function Header() {
 
           <ul class="nav nav-pills align-items-center">
             <li class="nav-item">
-              <a href="#" class="nav-link link-light" aria-current="page">
+              <a href="#team" class="nav-link link-light" aria-current="page">
                 Team
               </a>
             </li>

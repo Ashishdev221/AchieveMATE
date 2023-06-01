@@ -73,9 +73,9 @@ export default function Dashboard() {
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-        <LeaderboardCard name="Mrs. Kalpana Jain" image="./kalpana.png" category="Assistant Professor" branch="Computer Science and Engineering"/>
-        <h5>Category Allotment</h5>
-        <input type="text" name="" id="" value="Internship and Work Achievement" disabled/>
+          <LeaderboardCard name="Mrs. Kalpana Jain" image="./kalpana.png" category="Assistant Professor" branch="Computer Science and Engineering" />
+          <h5>Category Allotment</h5>
+          <input type="text" name="" id="" value="Internship and Work Achievement" disabled />
           {/* <PendingRequest /> */}
           {/* Item One */}
         </TabPanel>

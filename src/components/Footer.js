@@ -2,7 +2,7 @@ import React from "react";
 import "./Footer.css";
 import Button from "./Button";
 
-function Footer() {
+function Footer(props) {
   return (
     <div className="footer">
       <div className="footer_top flex-container">
@@ -27,9 +27,11 @@ function Footer() {
         </div>
         <div className="join_us">
           <h4 className="footer_heading join_community">
-            Join the community <br /> of Achievers
+            {props.first} <br /> {props.second} <br /> {props.third}
           </h4>
-          <Button label="Join as a Student" url="/signup"/>
+          {props.button ? (
+            <Button label={props.button} url={props.link} />
+          ) : null}
         </div>
       </div>
       <hr className="text-light" />

@@ -2,19 +2,22 @@
   /* background-color: white; */
   color: #000000;
   padding-right: 16px;
+  position: relative;
 }
 
 .team_img {
-  height: 64px;
-  width: 92px;
+  height: 108px;
+  width: 96px;
   border-radius: 8px 8px 0 0;
 
 }
 
 .team_name {
-  background-color: #f8f8f8;
+  top: 72%;
+  left: 25px;
+  color: #f8f8f8;
+  position: absolute;
   text-align: center;
-  font-family: var(--font-roboto);
   font-weight: 700;
   font-size: 12px;
   line-height: 16px;

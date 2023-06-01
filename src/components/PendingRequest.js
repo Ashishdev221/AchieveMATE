@@ -25,6 +25,7 @@ import "./PendingRequest.css";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
 import axios from "axios";
+import AchievementPreview from "./AchievementPreview";
 function createData(name, calories, fat) {
   return {
     name,
@@ -335,6 +336,14 @@ export default function TeacherTable() {
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const [achievements, setAchievements] = useState([]);
+  const [openPopups, setOpenPopups] = useState({});
+  const [viewedAchievement, setViewedAchievement] = useState(null);
+  const handleClosePopup = (rowId) => {
+    setOpenPopups((prevOpenPopups) => ({
+      ...prevOpenPopups,
+      [rowId]: false,
+    }));
+  };
 
   useEffect(() => {
     console.log("inside use effect");
@@ -488,7 +497,7 @@ export default function TeacherTable() {
         <Table
           sx={{ minWidth: 750 }}
           aria-labelledby="tableTitle"
-          // size={dense ? 'small' : 'medium'}
+        // size={dense ? 'small' : 'medium'}
         >
           <EnhancedTableHead
             numSelected={selected.length}
@@ -537,9 +546,21 @@ export default function TeacherTable() {
                       type="button"
                       class="btn btn-outline-dark btn-sm"
                       style={{ margin: "3px" }}
+                      onClick={() => {
+                        setOpenPopups((prevOpenPopups) => ({
+                          ...prevOpenPopups,
+                          [row.id]: true,
+                        }));
+
+                        // Additional functionality or state updates here
+                        // For example, you can set the viewed achievement based on the row.id
+                        const viewedAchievement = achievements.find((achievement) => achievement._id === row.id);
+                        setViewedAchievement(viewedAchievement);
+                      }}
                     >
                       View
                     </button>
+                    <AchievementPreview viewedAchievement={viewedAchievement} openPopups={openPopups} row={row.id} handleClosePopup={handleClosePopup} />
                     <button
                       type="button"
                       class="btn btn-warning btn-sm"

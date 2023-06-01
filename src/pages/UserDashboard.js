@@ -23,7 +23,7 @@ function UserDashboard() {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer first='Refer your friend' second='and earn course coins' button='Refer Now'/>
     </div>
   );
 }

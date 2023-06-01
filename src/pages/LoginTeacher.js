@@ -55,11 +55,11 @@ const LoginTeacher = () => {
           <h3 className="team_heading">Meet the Team</h3>
           <hr className="hr_login" />
           <div className="flex-container team_cards">
-            <TeamCard firstName = "Sourabh" lastName = "Purbia"  img = "./passport-pic-2@2x.png"/>
-            <TeamCard firstName = "Ashish" lastName = "Dev" img = "./ashish2.png"/>
-            <TeamCard firstName = "Pankaj" lastName = "Kumawat" img = "./pankaj2.png"/>
-            <TeamCard firstName = "Kanhav" lastName = "Sukhwal" img = "./kanhav2.png"/>
-            <TeamCard firstName = "Kuldeep" lastName = "Katara" img = "./kuldeep.jpeg"/>
+          <TeamCard firstName="Sourabh" lastName="Purbia" img="./1.png" url='https://www.linkedin.com/in/sourabhpurbia/'/>
+            <TeamCard firstName="Ashish" lastName="Dev" img="./2.png" url='https://www.linkedin.com/in/ashish-dev-091b651a3/'/>
+            <TeamCard firstName="Pankaj" lastName="Kumawat" img="./4.png" url='https://www.linkedin.com/in/pankaj-kumawat/'/>
+            <TeamCard firstName="Kanhav" lastName="Sukhwal" img="./3.png" url='https://www.linkedin.com/in/kanhav-sukhwal-2b6ab11b6/'/>
+            <TeamCard firstName="Kuldeep" lastName="Katara" img="./5.png" url='https://www.linkedin.com/in/kuldeep-katara-694072252/'/>
           </div>
         </div>
       </div>
