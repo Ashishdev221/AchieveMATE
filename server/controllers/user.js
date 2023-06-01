@@ -5,21 +5,50 @@ const asyncHandler = require("express-async-handler");
 const registerUser = asyncHandler(async (req, res) => {
   try {
     const userExist = await User.findOne({ enrollment: req.body.enrollment });
-    if (userExist)
+    if (userExist) {
+      if (!Object.keys(userExist).includes("password")) {
+        Object.keys(req.body).forEach((key) => {
+          if (req.body[key]) {
+            userExist[key] = req.body[key];
+          }
+        });
+        await userExist.save();
+
+        return res.status(201).send({
+          id: userExist._id,
+          name: userExist.name,
+          enrollment: userExist.enrollment,
+          img: userExist.img,
+          message: "User created successfully",
+        });
+      } else {
+        return res
+          .status(409)
+          .send({ message: "User with given enrollment already exists!" });
+      }
+    } else {
+      return res.status(409).send({ message: "User Not Allowed" });
+    }
+  } catch (error) {
+    console.log(error)
+    return res.status(500).send({ message: "Internal Server Error" });
+  }
+});
+
+const searchUser = asyncHandler(async (req, res) => {
+  try {
+    console.log(req.params.enrollment);
+    const userExist = await User.findOne({ enrollment: req.params.enrollment });
+    console.log(userExist);
+    if (userExist?.password) {
       return res
         .status(409)
         .send({ message: "User with given enrollment already Exist!" });
-
-    const newUser = await new User({
-      ...req.body,
-    }).save();
-    return res.status(201).send({
-      id: newUser._id,
-      name: newUser.name,
-      enrollment: newUser.enrollment,
-      img: newUser.img,
-      message: "User created successfully",
-    });
+    } else if (userExist) {
+      return res.status(200).send({ email: userExist.email });
+    } else {
+      return res.status(409).send("You are not allowed");
+    }
   } catch (error) {
     return res.status(500).send({ message: "Internal Server Error" });
   }
@@ -72,4 +101,4 @@ const getUserInfo = asyncHandler(async (req, res) => {
   res.status(200).send(userInfo);
 });
 
-module.exports = { registerUser, authUser, getUserInfo };
+module.exports = { registerUser, authUser, getUserInfo, searchUser };

@@ -1,4 +1,3 @@
-// UserProvider.js
 import React, { useState, useEffect } from "react";
 import UserContext from "./UserContext";
 
@@ -9,7 +8,6 @@ const UserProvider = ({ children }) => {
     // Retrieve user data from local storage on component mount
     const storedUser = JSON.parse(localStorage.getItem('userInformation'));
     if (storedUser) {
-      // console.log("&&&&",storedUser)
       setUserInformation((storedUser));
     }
   }, []);

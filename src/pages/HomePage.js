@@ -97,7 +97,7 @@ function HomePage() {
               <div className="col-3">
                 <Profile
                   userData={userData}
-                  achievementCount={achievementObject.count}
+                  achievementCount={achievementObject?.count}
                 />
                 <Achievers
                   leaderBoardData={
@@ -115,7 +115,7 @@ function HomePage() {
                 />
               </div>
               <div className="col-8">
-                {achievementObject.count === 0 ? (
+                {achievementObject?.count === 0 ? (
                   <div className="home_page_banner flex-container">
                     <div className="banner_left">
                       <h1 className="banner_heading">

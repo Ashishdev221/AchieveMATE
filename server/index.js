@@ -1,14 +1,14 @@
-const express = require('express');
+const express = require("express");
 const connection = require("./config/db");
-const userRoutes = require("./routes_student/user")
-const achievementsRoutes = require("./routes_student/achievement")
-const teacherRoutes = require("./routes_student/teacher")
+const userRoutes = require("./routes_student/user");
+const achievementsRoutes = require("./routes_student/achievement");
+const teacherRoutes = require("./routes_student/teacher");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
-const User = require("./models/user")
-const Achievement = require("./models/achievement")
+const User = require("./models/user");
+const Achievement = require("./models/achievement");
 const app = express();
-const cors = require('cors'); // Import the CORS middleware
+const cors = require("cors"); // Import the CORS middleware
 
 dotenv.config();
 app.use(cors());

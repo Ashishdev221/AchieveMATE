@@ -24,6 +24,7 @@ function App() {
           <Route path="/teacher-dashboard" element={[<TeacherDashboard />]} />
           <Route path="/user-dashboard" element={[<UserDashboard />]} />
           <Route path="/achieve-preview" element={[<AchievementPreview />]} />
+          {/* <Route path="/achieve-preview" element={[< />]} /> */}
         </Routes>
       </div>
     </Router>
