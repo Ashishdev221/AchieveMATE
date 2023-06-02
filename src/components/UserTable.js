@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 import PropTypes from "prop-types";
 import { alpha } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -23,6 +23,7 @@ import { visuallyHidden } from "@mui/utils";
 import "./Table.css";
 import axios from "axios";
 import Badge from "./Badge";
+import UserContext from "../contexts/UserContext";
 
 function createData(name, calories, fat) {
   return {
@@ -233,6 +234,9 @@ export default function TeacherTable() {
   //   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [achievements, setAchievements] = useState([]);
+  const { userInformation } = useContext(UserContext);
+
+  console.log(userInformation,'user')
 
   useEffect(() => {
     console.log("inside use effect");
@@ -256,7 +260,7 @@ export default function TeacherTable() {
   console.log("inside pending", achievements);
 
   const newArray = achievements
-    .filter((item) => item.user.name === "Kuldeep Katara")
+    .filter((item) => item.user.name === userInformation.name)
     .map((item) => item);
 
   console.log("in analytics", newArray);

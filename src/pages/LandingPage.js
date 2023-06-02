@@ -7,12 +7,12 @@ import CounterCard from "../components/CounterCard";
 import ContactUs from "../components/ContactUs";
 import Button from "../components/Button";
 import WhyAchieve from "../components/WhyAchieve";
-import TeamImageCard from "../components/TeamImageCard"
+import TeamImageCard from "../components/TeamImageCard";
 function LandingPage() {
   return (
     <div className="landing_page">
       <div className="hero_section">
-      <Header />
+        <Header />
         {/* <div className="header flex-container">
           <Link to="/">
             <img
@@ -36,13 +36,37 @@ function LandingPage() {
         <div className="flex-container hero_section_main">
           <div className="hero_section_left">
             <h1 className="hero_section_heading">
-              Join the community <br /> of <span className="yellow_col">Achievers</span>.
+              Join the community <br /> of{" "}
+              <span className="yellow_col">Achievers</span>.
             </h1>
             <p className="hero_section_para">
               An Achievement sharing portal for College of <br /> Technology and
               Engineering students.
             </p>
-            <Button label="Join as a Student" className="hero_button button" url="/signup"/>
+            <div
+              className="flex-container"
+              style={{ justifyContent: "space-around" }}
+            >
+              <Button
+                label="Join as a Student"
+                className="hero_button button"
+                url="/signup"
+              />
+              <Button
+                label=" Login In"
+                className="hero_button button"
+                url="/login"
+                style={{textWrap:false}}
+              />
+              {/* <button
+                type="button"
+                class="btn btn-outline-warning banner_button"
+                url="/login"
+                style={{width:'fit-content',height:'fit-content'}}
+              >
+              
+              </button> */}
+            </div>
           </div>
           <img
             className="hero_img"
@@ -53,9 +77,13 @@ function LandingPage() {
       </div>
       <div className="about">
         <div className="counter flex-container">
-          <CounterCard image={'/vector2.svg'} title={'Achievers'} count={'8'}/>
-          <CounterCard image={'/achievement.svg'} title={'Achievements'} count={'26'}/>
-          <CounterCard image={'/courses.svg'} title={'Courses'} count={'0'}/>
+          <CounterCard image={"/vector2.svg"} title={"Achievers"} count={"8"} />
+          <CounterCard
+            image={"/achievement.svg"}
+            title={"Achievements"}
+            count={"26"}
+          />
+          <CounterCard image={"/courses.svg"} title={"Courses"} count={"0"} />
         </div>
         <div className="about_info flex-container">
           <div className="about_left">
@@ -85,14 +113,39 @@ function LandingPage() {
         <ContactUs />
       </div>
       <div>
-      <h1 className="contact_us_head" style={{marginLeft:'130px'}}>Meet The Team</h1>
-        <div className="flex-container team_cards" style={{justifyContent:'space-around'}}>
-            <TeamImageCard firstName = "Sourabh" lastName = "Purbia"  img = "./passport-pic-2@2x.png"/>
-            <TeamImageCard firstName = "Ashish" lastName = "Dev" img = "./ashish2.png"/>
-            <TeamImageCard firstName = "Pankaj" lastName = "Kumawat" img = "./pankaj2.png"/>
-            <TeamImageCard firstName = "Kanhav" lastName = "Sukhwal" img = "./kanhav2.png"/>
-            <TeamImageCard firstName = "Kuldeep" lastName = "Katara" img = "./kuldeep.jpeg"/>
-            </div>
+        <h1 className="contact_us_head" style={{ marginLeft: "130px" }}>
+          Meet The Team
+        </h1>
+        <div
+          className="flex-container team_cards"
+          style={{ justifyContent: "space-around" }}
+        >
+          <TeamImageCard
+            firstName="Sourabh"
+            lastName="Purbia"
+            img="./passport-pic-2@2x.png"
+          />
+          <TeamImageCard
+            firstName="Ashish"
+            lastName="Dev"
+            img="./ashish2.png"
+          />
+          <TeamImageCard
+            firstName="Pankaj"
+            lastName="Kumawat"
+            img="./pankaj2.png"
+          />
+          <TeamImageCard
+            firstName="Kanhav"
+            lastName="Sukhwal"
+            img="./kanhav2.png"
+          />
+          <TeamImageCard
+            firstName="Kuldeep"
+            lastName="Katara"
+            img="./kuldeep.jpeg"
+          />
+        </div>
       </div>
       <div className="get_in_touch">
         <div className="get_in_touch_heading">Get in Touch</div>
@@ -129,7 +182,7 @@ function LandingPage() {
             <TeamCard />
           </div>
         </div> */}
-     
+
       <Footer />
     </div>
   );

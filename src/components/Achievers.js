@@ -3,8 +3,13 @@ import "./Achievers.css";
 import Button from "./Button";
 import LeaderboardCard from "./LeaderboardCard";
 
-function Achievers({ leaderBoardData }) {
-  console.log("inside achievement", leaderBoardData);
+function Achievers({userData, leaderBoardData }) {
+  console.log("inside achievement",userData, leaderBoardData,'ll');
+  let top5Users = [];
+  for(var i=0;i<5;i++)
+  {
+    top5Users.push(leaderBoardData[i])
+  }
   return (
     <div className="achievers">
       <h3 className="achievers_heading">
@@ -12,6 +17,8 @@ function Achievers({ leaderBoardData }) {
       </h3>
       <div>
         {leaderBoardData.map((item, index) => {
+         if (index <= 4 || item.user.name === userData.name) {
+          console.log(item, userData.name);
           return (
             <LeaderboardCard
               count={item.count}
@@ -25,16 +32,17 @@ function Achievers({ leaderBoardData }) {
                   : "3-51@2x.png"
               }
               index={index}
+              className={
+                item.user.name !== userData.name
+                  ? "leaderboardCard container flex-container"
+                  : "leaderboardCard container flex-container current_user"
+              }
             />
           );
+        }
         })}
-
-        {/* <LeaderboardCard />
-            <LeaderboardCard />
-            <LeaderboardCard />
-            <LeaderboardCard /> */}
       </div>
-      <Button label="Show all" className="button achievers_btn" />
+      {/* <Button label="Show all" className="button achievers_btn" /> */}
     </div>
   );
 }

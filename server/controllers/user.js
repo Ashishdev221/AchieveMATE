@@ -95,6 +95,7 @@ const getUserInfo = asyncHandler(async (req, res) => {
     img: user.img,
     branch: user.branch,
     class: user.class,
+    email:user.email,
     achievement_count: user.achievement_count,
   };
 

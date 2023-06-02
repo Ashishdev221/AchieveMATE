@@ -14,3 +14,9 @@
     align-items: center;
     margin-bottom: 10px;
 }
+
+.current_user{
+  background-color:#37169A;
+  color:white
+}
+

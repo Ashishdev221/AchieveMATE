@@ -20,7 +20,8 @@ const achievementSchema = new mongoose.Schema(
       type: String, 
       enum: ['accepted', 'rejected', 'pending'], 
       default: 'pending' 
-    }
+    },
+    likes: { type: Number, default: 0 }
   },
   { timestamps: true }
 );

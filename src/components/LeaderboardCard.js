@@ -31,7 +31,7 @@ function LeaderboardCard(props) {
   console.log(output);
 
   return (
-    <div className="leaderboardCard container flex-container">
+    <div className={props.className}>
       <img
         className="home_page_img"
         src={props.image ? props.image : "/passport-pic-2@2x.png"}
@@ -40,7 +40,7 @@ function LeaderboardCard(props) {
 
       <div
         className="leaderboardCard_info container"
-        style={{ width: "fit-content", marginLeft: "0px" }}
+        style={{ width: "fit-content", marginLeft: "0px"}}
       >
         <h4 className="leaderboardCard_heading">{props.name}</h4>
         {props.name !== "Mrs. Kalpana Jain" && (

@@ -17,10 +17,18 @@ function HomePage() {
   const [achievements, setAchievements] = useState([]);
   const [leaderBoard, setLeaderBoard] = useState({});
   const [achievementObject, setAchievmentObject] = useState({});
+  const [isLikeButtonClicked,setIsLikeButtonClicked] = useState(0);
+  let top5users = []
 
   const hideModalUpload = () => {
     setShowModal(false);
   };
+
+  let likeButtonFunction = ()=>{
+    console.log('inside function')
+    let newLikeCount = isLikeButtonClicked + 1;
+    setIsLikeButtonClicked(newLikeCount)
+  }
 
   const showModalUpload = () => {
     setShowModal(true);
@@ -73,7 +81,7 @@ function HomePage() {
     };
 
     fetchUserDataAndAchievements();
-  }, [userInformation]);
+  }, [userInformation,isLikeButtonClicked]);
 
   // console.log("99999", newArray);
 
@@ -83,9 +91,7 @@ function HomePage() {
 
   console.log("99999", newArray, leaderBoard);
 
-  // const count = leaderBoard.achievements.find((item)=>item.user.name===userData.name)
-
-  // console.log(leaderBoard,userData,count,'llll')
+  console.log('datatatta',top5users)
 
   if (userInformation && userInformation.role === "student") {
     return (
@@ -97,9 +103,10 @@ function HomePage() {
               <div className="col-3">
                 <Profile
                   userData={userData}
-                  achievementCount={achievementObject?.count}
+                  achievementCount={achievementObject? achievementObject.count:0}
                 />
                 <Achievers
+                  userData={userData}
                   leaderBoardData={
                     leaderBoard.achievements === undefined
                       ? []
@@ -107,6 +114,7 @@ function HomePage() {
                   }
                 />
                 <ExploreCourse
+                 userData={userData}
                   leaderBoardData={
                     leaderBoard.achievements === undefined
                       ? []
@@ -115,7 +123,7 @@ function HomePage() {
                 />
               </div>
               <div className="col-8">
-                {achievementObject?.count === 0 ? (
+                {(!achievementObject)? (
                   <div className="home_page_banner flex-container">
                     <div className="banner_left">
                       <h1 className="banner_heading">
@@ -156,11 +164,12 @@ function HomePage() {
                   </button>
                 </div>
                 )}
-
+                {console.log(newArray,'new')}
                 
                 {newArray.length > 0 ? (
                   newArray.map((achievement) => (
                     <Post
+                      id={achievement._id}
                       title={achievement.title}
                       university={achievement.university}
                       certificateNo={achievement.certificate_number}
@@ -172,6 +181,8 @@ function HomePage() {
                       leaderBoard={leaderBoard.achievements.find(
                         (item) => item.user.name === achievement.user.name
                       )}
+                      likeFunction = {likeButtonFunction}
+                      likes={achievement.likes}
                     />
                   ))
                 ) : (

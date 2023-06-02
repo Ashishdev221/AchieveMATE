@@ -10,7 +10,7 @@ function Profile({userData,achievementCount}) {
       <div className="profile_top">
         <img className="profile_img" src={userData.img} alt="profile" />
         <h3 className="profile_name">{userData.name}</h3>
-        <p className="profile_para">{achievementCount} Achievments</p>
+        <p className="profile_para">{achievementCount} Achievements</p>
       </div>
       <div className="profile_bottom">
         <div className="flex-container">
