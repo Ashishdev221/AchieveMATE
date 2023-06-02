@@ -6,13 +6,13 @@ const ProfileCard = (props) => {
     <Row>
       <Col span={6}>
         <div>
-          <img src={props.user.img} height={100}/>
+          <img src={props.user?.img} height={100}/>
         </div>
       </Col>
       <Col justify={"center"}>
-        <h5>{props.user.name}</h5>
-        <p style={{margin: "0px"}}>{props.user.class}</p>
-        <p style={{margin: "0px"}}>{props.user.branch}</p>
+        <h5>{props.user?.name}</h5>
+        <p style={{margin: "0px"}}>{props.user?.class}</p>
+        <p style={{margin: "0px"}}>{props.user?.branch}</p>
       </Col>
     </Row>
   );

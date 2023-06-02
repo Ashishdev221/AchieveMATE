@@ -24,30 +24,8 @@ import "./Table.css";
 import axios from "axios";
 import Badge from "./Badge";
 import UserContext from "../contexts/UserContext";
+import AchievementPreview from "./AchievementPreview";
 
-function createData(name, calories, fat) {
-  return {
-    name,
-    calories,
-    fat,
-  };
-}
-
-const rows = [
-  createData("A", 305),
-  createData("L", 452),
-  createData("H", 262),
-  createData("D", 159),
-  createData("E", 356),
-  createData("J", 408),
-  createData("W", 237),
-  createData("T", 375),
-  createData("U", 518),
-  createData("I", 392),
-  createData("Y", 318),
-  createData("N", 360),
-  createData("M", 437),
-];
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -236,6 +214,15 @@ export default function TeacherTable() {
   const [achievements, setAchievements] = useState([]);
   const { userInformation } = useContext(UserContext);
 
+  const [openPopups, setOpenPopups] = useState({});
+  const [viewedAchievement, setViewedAchievement] = useState(null);
+  const handleClosePopup = (rowId) => {
+    setOpenPopups((prevOpenPopups) => ({
+      ...prevOpenPopups,
+      [rowId]: false,
+    }));
+  };
+
   console.log(userInformation,'user')
 
   useEffect(() => {
@@ -261,7 +248,16 @@ export default function TeacherTable() {
 
   const newArray = achievements
     .filter((item) => item.user.name === userInformation.name)
-    .map((item) => item);
+    .map((item) => ({
+      name: item.user.name,
+      title: item.title,
+      id: item._id,
+      category: item.category,
+      branch: item.user.branch,
+      class: item.user.class,
+      count: item.user.achievement_count,
+      status: item.status
+    }));
 
   console.log("in analytics", newArray);
 
@@ -280,12 +276,12 @@ export default function TeacherTable() {
     setSelected([]);
   };
 
-  const handleClick = (event, name) => {
-    const selectedIndex = selected.indexOf(name);
+  const handleClick = (event, id) => {
+    const selectedIndex = selected.indexOf(id);
     let newSelected = [];
 
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
+      newSelected = newSelected.concat(selected, id);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -345,26 +341,27 @@ export default function TeacherTable() {
             orderBy={orderBy}
             onSelectAllClick={handleSelectAllClick}
             onRequestSort={handleRequestSort}
-            rowCount={rows.length}
+            rowCount={newArray.length}
           />
           <TableBody>
             {visibleRows.map((row, index) => {
               const isItemSelected = isSelected(row.id);
               const labelId = `enhanced-table-checkbox-${index}`;
-
+              console.log('sdfasdfsadfasdf',row.id)
               return (
                 <TableRow
                   hover
-                  onClick={(event) => handleClick(event, row.id)}
+                  
                   role="checkbox"
                   aria-checked={isItemSelected}
                   tabIndex={-1}
-                  key={row.name}
+                  key={row.id}
                   selected={isItemSelected}
                   sx={{ cursor: "pointer" }}
                 >
                   <TableCell padding="checkbox">
                     <Checkbox
+                      onClick={(event) => handleClick(event, row.id)}
                       color="primary"
                       checked={isItemSelected}
                       inputProps={{
@@ -388,12 +385,24 @@ export default function TeacherTable() {
                       style={{ margin: "5px" }}
                       type="button"
                       class="btn btn-warning btn-sm"
+                      onClick={() => {
+                        setOpenPopups((prevOpenPopups) => ({
+                          ...prevOpenPopups,
+                          [row.id]: true,
+                        }));
+                        console.log('aaaaaaaaaaaaaaaaaaaaaa',newArray, row.id)
+                        // Additional functionality or state updates here
+                        // For example, you can set the viewed achievement based on the row.id
+                        const viewedAchievement = achievements.find((achievement) => achievement._id === row.id);
+                        setViewedAchievement(viewedAchievement);
+                      }}
                     >
                       View
                     </button>
-                    <button type="button" class="btn btn-outline-dark btn-sm">
+                    <AchievementPreview viewedAchievement={viewedAchievement} openPopups={openPopups} row={row.id} handleClosePopup={handleClosePopup} />
+                    {/* <button type="button" class="btn btn-outline-dark btn-sm">
                       Share
-                    </button>
+                    </button> */}
                   </TableCell>
                 </TableRow>
               );
