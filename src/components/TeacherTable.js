@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import PropTypes from "prop-types";
 import { alpha } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -22,6 +22,8 @@ import FilterListIcon from "@mui/icons-material/FilterList";
 import { visuallyHidden } from "@mui/utils";
 import "./Table.css";
 import axios from "axios";
+import UserAllAchievementPreview from "./UserAllAchievementPreview";
+import UserContext from "../contexts/UserContext";
 import { Button, Form, Input, Modal, Upload, Select, DatePicker } from "antd";
 
 function createData(name, calories, fat) {
@@ -247,6 +249,16 @@ export default function TeacherTable() {
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [achievements, setAchievements] = useState([]);
 
+  //new pop up
+  const [openPopups, setOpenPopups] = useState({});
+  const [viewedAchievement, setViewedAchievement] = useState(null);
+  const handleClosePopup = (rowId) => {
+    setOpenPopups((prevOpenPopups) => ({
+      ...prevOpenPopups,
+      [rowId]: false,
+    }));
+  };
+
   useEffect(() => {
     console.log("inside use effect");
     const fetchUserDataAndAchievements = async () => {
@@ -270,13 +282,18 @@ export default function TeacherTable() {
 
   const [filteredArray, setFilteredArray] = useState([]);
   const [newArray, setNewArray] = useState([]);
+  const { userInformation } = useContext(UserContext);
 
   const [isFilterApplied, setFilterApplied] = useState(false);
 
   useEffect(() => {
     setNewArray(
       achievements
-        .filter((item) => item.status === "accepted")
+        .filter(
+          (item) =>
+            item.status === "accepted" &&
+            item.category === userInformation.category
+        )
         .map((item) => ({
           name: item.user.name,
           title: item.title,
@@ -284,6 +301,7 @@ export default function TeacherTable() {
           category: item.category,
           branch: item.user.branch,
           class: item.user.class,
+          count: item.user.achievement_count,
         }))
     );
     // const newArray = achievements
@@ -360,16 +378,14 @@ export default function TeacherTable() {
 
   console.log(filteredArray, "line 298");
 
-  
-
   const handleYearChange = (selectedItems) => {
     const newFilteredArray = newArray.filter((item) =>
       selectedItems.includes(item.class)
     );
     setFilteredArray(newFilteredArray);
     setFilterApplied(!isFilterApplied);
-    if(selectedItems.length===0) setFilteredArray(newArray)
-    console.log("Selected items:", selectedItems, newFilteredArray,newArray);
+    if (selectedItems.length === 0) setFilteredArray(newArray);
+    console.log("Selected items:", selectedItems, newFilteredArray, newArray);
   };
 
   const handleCategoryChange = (selectedItems) => {
@@ -378,8 +394,8 @@ export default function TeacherTable() {
     );
     setFilteredArray(newFilteredArray);
     setFilterApplied(!isFilterApplied);
-    if(selectedItems.length===0) setFilteredArray(newArray)
-    console.log("Selected items:", selectedItems, newFilteredArray,newArray);
+    if (selectedItems.length === 0) setFilteredArray(newArray);
+    console.log("Selected items:", selectedItems, newFilteredArray, newArray);
   };
 
   const handleBranchChange = (selectedItems) => {
@@ -388,8 +404,8 @@ export default function TeacherTable() {
     );
     setFilteredArray(newFilteredArray);
     setFilterApplied(!isFilterApplied);
-    if(selectedItems.length===0) setFilteredArray(newArray)
-    console.log("Selected items:", selectedItems, newFilteredArray,newArray);
+    if (selectedItems.length === 0) setFilteredArray(newArray);
+    console.log("Selected items:", selectedItems, newFilteredArray, newArray);
   };
 
   const visibleRows = React.useMemo(
@@ -491,12 +507,36 @@ export default function TeacherTable() {
                   >
                     {row.name}
                   </TableCell>
-                  <TableCell align="right">{10}</TableCell>
+                  <TableCell align="right">{row.count}</TableCell>
                   <TableCell align="right">
-                    <button type="button" class="btn btn-outline-dark btn-sm">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm"
+                      onClick={() => {
+                        setOpenPopups((prevOpenPopups) => ({
+                          ...prevOpenPopups,
+                          [row.id]: true,
+                        }));
+
+                        // Additional functionality or state updates here
+                        // For example, you can set the viewed achievement based on the row.id
+                        const viewedAchievement = achievements.find(
+                          (achievement) => achievement._id === row.id
+                        );
+                        setViewedAchievement(viewedAchievement);
+                      }}
+                    >
                       View
                     </button>
                   </TableCell>
+                  <UserAllAchievementPreview
+                      viewedAchievement={viewedAchievement}
+                      openPopups={openPopups}
+                      row={row.id}
+                      handleClosePopup={handleClosePopup}
+                      achievements={achievements}
+                      teacherCateory={userInformation.category}
+                    />
                 </TableRow>
               );
             })}

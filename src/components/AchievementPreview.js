@@ -68,7 +68,7 @@ const AchievementPreview = (props) => {
               </div>
             </Col>
           </Row>
-          <Row justify={"center"}>
+          {/* <Row justify={"center"}>
             <Button
               size="medium"
               style={{ backgroundColor: "#FFBA28" }}
@@ -83,7 +83,7 @@ const AchievementPreview = (props) => {
             >
               <span style={{ paddingLeft: "10px" }}>Reject</span>
             </Button>
-          </Row>
+          </Row> */}
         </Form>
       </Modal>
     </>

@@ -22,6 +22,8 @@ function Post(props) {
     }
   }
 
+  console.log(props.user.email,props.user,'line 25')
+
   function redirectToEmail() {
     window.location.href = `mailto:${props.user.email}`;
   }

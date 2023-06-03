@@ -1,0 +1,25 @@
+.profile_container {
+  width: 1000px;
+  height: "fit-content";
+  background: #fff8e9;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.achievement_counter {
+  width: 'fit-content';
+  height: 52px;
+  background: #3d0ea9;
+  border-radius: 8px;
+  justify-content: center;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.46px;
+  color: white;
+}

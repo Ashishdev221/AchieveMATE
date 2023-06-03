@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import PropTypes from "prop-types";
 import { alpha } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -20,6 +20,7 @@ import Switch from "@mui/material/Switch";
 import DeleteIcon from "@mui/icons-material/Delete";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import { visuallyHidden } from "@mui/utils";
+import UserContext from "../contexts/UserContext";
 import "./Table.css";
 import "./PendingRequest.css";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
@@ -245,8 +246,15 @@ export default function TeacherTable() {
 
   console.log("inside pending", achievements);
 
+  const { userInformation } = useContext(UserContext);
+
+  console.log(userInformation, "line 371", achievements);
+
   const newArray = achievements
-    .filter((item) => item.status === "pending")
+    .filter(
+      (item) =>
+        item.status === "pending" && item.category === userInformation.category
+    )
     .map((item) => {
       return {
         name: item.user.name,
@@ -376,7 +384,7 @@ export default function TeacherTable() {
         <Table
           sx={{ minWidth: 750 }}
           aria-labelledby="tableTitle"
-        // size={dense ? 'small' : 'medium'}
+          // size={dense ? 'small' : 'medium'}
         >
           <EnhancedTableHead
             numSelected={selected.length}
@@ -433,13 +441,20 @@ export default function TeacherTable() {
 
                         // Additional functionality or state updates here
                         // For example, you can set the viewed achievement based on the row.id
-                        const viewedAchievement = achievements.find((achievement) => achievement._id === row.id);
+                        const viewedAchievement = achievements.find(
+                          (achievement) => achievement._id === row.id
+                        );
                         setViewedAchievement(viewedAchievement);
                       }}
                     >
                       View
                     </button>
-                    <AchievementPreview viewedAchievement={viewedAchievement} openPopups={openPopups} row={row.id} handleClosePopup={handleClosePopup} />
+                    <AchievementPreview
+                      viewedAchievement={viewedAchievement}
+                      openPopups={openPopups}
+                      row={row.id}
+                      handleClosePopup={handleClosePopup}
+                    />
                     <button
                       type="button"
                       class="btn btn-warning btn-sm"
