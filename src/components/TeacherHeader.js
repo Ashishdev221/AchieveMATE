@@ -5,7 +5,7 @@ import Button from "../components/Button";
 function TeacherHeader() {
   return (
     <div>
-        <div class="home_header container">
+        <div class="home_header container" style={{backgroundColor:'white'}}>
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
           <a
             href="/"

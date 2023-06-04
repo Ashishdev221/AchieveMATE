@@ -291,8 +291,7 @@ export default function TeacherTable() {
       achievements
         .filter(
           (item) =>
-            item.status === "accepted" &&
-            item.category === userInformation.category
+            item.status === "accepted" 
         )
         .map((item) => ({
           name: item.user.name,
