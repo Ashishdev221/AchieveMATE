@@ -321,7 +321,7 @@ export default function TeacherTable() {
         page * rowsPerPage,
         page * rowsPerPage + rowsPerPage
       ),
-    [order, orderBy, page, rowsPerPage]
+    [order, orderBy, page, rowsPerPage,achievements]
   );
 
   console.log(visibleRows, "vvvvv");

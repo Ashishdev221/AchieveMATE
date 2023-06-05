@@ -85,12 +85,11 @@ const headCells = [
     id: "fat",
     numeric: true,
     disablePadding: false,
-    label: (
+    label:
       // <button type="button" class="btn btn-warning">
       //   Export
       // </button>
-      ''
-    ),
+      "",
   },
 ];
 
@@ -253,6 +252,12 @@ export default function TeacherTable() {
   //new pop up
   const [openPopups, setOpenPopups] = useState({});
   const [viewedAchievement, setViewedAchievement] = useState(null);
+
+  const [filteredArray, setFilteredArray] = useState([]);
+  const [newArray, setNewArray] = useState([]);
+  const { userInformation } = useContext(UserContext);
+
+  const [isFilterApplied, setFilterApplied] = useState(false);
   const handleClosePopup = (rowId) => {
     setOpenPopups((prevOpenPopups) => ({
       ...prevOpenPopups,
@@ -270,66 +275,82 @@ export default function TeacherTable() {
 
         const achievements = achievementsResponse.data;
         setAchievements(achievements);
+        const filteredItems = achievements.filter(
+          (item) => item.status === "accepted"
+        );
+
+        const uniqueNames = Array.from(
+          new Set(filteredItems.map((item) => item.user.name))
+        );
+
+        const newArray = uniqueNames.map((name) => {
+          const item = filteredItems.find((item) => item.user.name === name);
+          return {
+            name: item.user.name,
+            title: item.title,
+            id: item._id,
+            category: item.category,
+            branch: item.user.branch,
+            class: item.user.class,
+            count: item.user.achievement_count,
+          };
+        });
+        setNewArray(newArray);
+        setFilteredArray(newArray);
       } catch (error) {
         console.error(error);
         // Handle error here
       }
     };
-
     fetchUserDataAndAchievements();
   }, []);
 
   console.log("inside pending", achievements);
 
-  const [filteredArray, setFilteredArray] = useState([]);
-  const [newArray, setNewArray] = useState([]);
-  const { userInformation } = useContext(UserContext);
-
-  const [isFilterApplied, setFilterApplied] = useState(false);
-
   // useEffect(()=>{setRowsPerPage(10)},[])
-  useEffect(() => {
-    
-    setNewArray((prevArray) => {
-      const filteredItems = achievements.filter(
-        (item) => item.status === "accepted"
-      );
-    
-      const uniqueNames = Array.from(
-        new Set(filteredItems.map((item) => item.user.name))
-      );
-    
-      const newArray = uniqueNames.map((name) => {
-        const item = filteredItems.find((item) => item.user.name === name);
-        return {
-          name: item.user.name,
-          title: item.title,
-          id: item._id,
-          category: item.category,
-          branch: item.user.branch,
-          class: item.user.class,
-          count: item.user.achievement_count,
-        };
-      });
-    
-      return newArray;
-    });
-    
-    // const newArray = achievements
-    //   .filter((item) => item.status === "accepted")
-    //   .map((item) => ({
-    //     name: item.user.name,
-    //     title: item.title,
-    //     id: item._id,
-    //     category: item.category,
-    //     branch: item.user.branch,
-    //     class: item.user.class,
-    //   }));
+  // useEffect(() => {
+  //   if (achievements.length) {
+  //     setNewArray((prevArray) => {
+  //       const filteredItems = achievements.filter(
+  //         (item) => item.status === "accepted"
+  //       );
 
-    console.log(newArray);
+  //       const uniqueNames = Array.from(
+  //         new Set(filteredItems.map((item) => item.user.name))
+  //       );
 
-    setFilteredArray(newArray);
-  }, [achievements]);
+  //       const newArray = uniqueNames.map((name) => {
+  //         const item = filteredItems.find((item) => item.user.name === name);
+  //         return {
+  //           name: item.user.name,
+  //           title: item.title,
+  //           id: item._id,
+  //           category: item.category,
+  //           branch: item.user.branch,
+  //           class: item.user.class,
+  //           count: item.user.achievement_count,
+  //         };
+  //       });
+
+  //       return newArray;
+  //     });
+
+  //     // const newArray = achievements
+  //     //   .filter((item) => item.status === "accepted")
+  //     //   .map((item) => ({
+  //     //     name: item.user.name,
+  //     //     title: item.title,
+  //     //     id: item._id,
+  //     //     category: item.category,
+  //     //     branch: item.user.branch,
+  //     //     class: item.user.class,
+  //     //   }));
+
+  //     console.log(newArray);
+
+  //     setFilteredArray(newArray);
+  //   }
+  // }, [achievements]);
 
   console.log("in analytics", filteredArray, filteredArray);
 
@@ -399,15 +420,15 @@ export default function TeacherTable() {
     console.log("Selected items:", selectedItems, newFilteredArray, newArray);
   };
 
-  const handleCategoryChange = (selectedItems) => {
-    const newFilteredArray = newArray.filter((item) =>
-      selectedItems.includes(item.category)
-    );
-    setFilteredArray(newFilteredArray);
-    setFilterApplied(!isFilterApplied);
-    if (selectedItems.length === 0) setFilteredArray(newArray);
-    console.log("Selected items:", selectedItems, newFilteredArray, newArray);
-  };
+  // const handleCategoryChange = (selectedItems) => {
+  //   const newFilteredArray = newArray.filter((item) =>
+  //     selectedItems.includes(item.category)
+  //   );
+  //   setFilteredArray(newFilteredArray);
+  //   setFilterApplied(!isFilterApplied);
+  //   if (selectedItems.length === 0) setFilteredArray(newArray);
+  //   console.log("Selected items:", selectedItems, newFilteredArray, newArray);
+  // };
 
   const handleBranchChange = (selectedItems) => {
     const newFilteredArray = newArray.filter((item) =>
@@ -426,7 +447,7 @@ export default function TeacherTable() {
         page * rowsPerPage,
         page * rowsPerPage + rowsPerPage
       ),
-    [order, orderBy, page, rowsPerPage, isFilterApplied]
+    [order, orderBy, page, rowsPerPage, isFilterApplied, achievements]
   );
 
   return (
@@ -435,7 +456,7 @@ export default function TeacherTable() {
       <div
         className="flex-container"
         style={{
-          justifyContent: "space-between",
+          // justifyContent: "space-around",
           width: "60rem",
           backgroundColor: "white",
           padding: "10px",
@@ -461,7 +482,7 @@ export default function TeacherTable() {
             <Option value={item}>{item}</Option>
           ))}
         </Select>
-        <Select
+        {/* <Select
           mode="multiple"
           style={{ width: "300px", height: "fit-content" }}
           placeholder="Filter By Category"
@@ -470,7 +491,7 @@ export default function TeacherTable() {
           {achievementOptions.map((item) => (
             <Option value={item}>{item}</Option>
           ))}
-        </Select>
+        </Select> */}
       </div>
       <TableContainer>
         <Table
@@ -483,7 +504,7 @@ export default function TeacherTable() {
             order={order}
             orderBy={orderBy}
             onSelectAllClick={handleSelectAllClick}
-            onRequestSort={()=>{}}
+            onRequestSort={() => {}}
             rowCount={rows.length}
           />
           <TableBody>
@@ -544,13 +565,13 @@ export default function TeacherTable() {
                     </button>
                   </TableCell>
                   <UserAllAchievementPreview
-                      viewedAchievement={viewedAchievement}
-                      openPopups={openPopups}
-                      row={row.id}
-                      handleClosePopup={handleClosePopup}
-                      achievements={achievements}
-                      teacherCateory={userInformation.category}
-                    />
+                    viewedAchievement={viewedAchievement}
+                    openPopups={openPopups}
+                    row={row.id}
+                    handleClosePopup={handleClosePopup}
+                    achievements={achievements}
+                    teacherCateory={userInformation.category}
+                  />
                 </TableRow>
               );
             })}

@@ -15,6 +15,7 @@ const userSchema = new mongoose.Schema(
     branch: { type: String, default: "CSE" },
     class: { type: String, default: "BTECH 4th Year" },
     achievement_count: { type: Number, default: 0 },
+    phone: { type: String, unique: true },
   },
   { timestamps: true }
 );

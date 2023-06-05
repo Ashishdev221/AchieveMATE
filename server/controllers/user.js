@@ -74,6 +74,8 @@ const authUser = asyncHandler(async (req, res) => {
       class: user.class,
       branch: user.branch,
       img: user.img,
+      phone: user.phone,
+      email: user.email,
       message: "user logged in",
     });
   }
