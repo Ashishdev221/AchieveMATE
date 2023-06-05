@@ -10,14 +10,8 @@ function DeptLeaderboard() {
         <h3 className='dept_heading'>Department <br /> Leaderboard</h3>
         <div>
         <DeptLeaderboardCard />
-        <DeptLeaderboardCard />
-        <DeptLeaderboardCard />
-        <DeptLeaderboardCard />
-        <DeptLeaderboardCard />
-        <DeptLeaderboardCard />
-            
         </div>
-        <Button label="Show all" className="button dept_btn"/>
+        {/* <Button label="Show all" className="button dept_btn"/> */}
     </div>
   )
 }

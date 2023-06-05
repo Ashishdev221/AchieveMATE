@@ -64,12 +64,12 @@ function LandingPage() {
               style={{ justifyContent: "space-around" }}
             >
               <Button
-                label="Join as a Student"
+                label="Join as Student"
                 className="hero_button button"
                 url="/signup"
               />
               <Button
-                label=" Login In"
+                label=" Login as Student"
                 className="hero_button button"
                 url="/login"
                 style={{textWrap:false}}

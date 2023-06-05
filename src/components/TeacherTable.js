@@ -79,16 +79,17 @@ const headCells = [
     id: "calories",
     numeric: true,
     disablePadding: false,
-    label: "Acheivements",
+    label: "Branch",
   },
   {
     id: "fat",
     numeric: true,
     disablePadding: false,
     label: (
-      <button type="button" class="btn btn-warning">
-        Export
-      </button>
+      // <button type="button" class="btn btn-warning">
+      //   Export
+      // </button>
+      ''
     ),
   },
 ];
@@ -152,18 +153,18 @@ function EnhancedTableHead(props) {
               sortDirection={orderBy === headCell.id ? order : false}
             >
               <TableSortLabel
-                active={orderBy === headCell.id}
+                active={false}
                 direction={orderBy === headCell.id ? order : "asc"}
                 onClick={createSortHandler(headCell.id)}
               >
                 {headCell.label}
-                {orderBy === headCell.id ? (
+                {/* {orderBy === headCell.id ? (
                   <Box component="span" sx={visuallyHidden}>
                     {order === "desc"
                       ? "sorted descending"
                       : "sorted ascending"}
                   </Box>
-                ) : null}
+                ) : null} */}
               </TableSortLabel>
             </TableCell>
           ))}
@@ -286,14 +287,21 @@ export default function TeacherTable() {
 
   const [isFilterApplied, setFilterApplied] = useState(false);
 
+  // useEffect(()=>{setRowsPerPage(10)},[])
   useEffect(() => {
-    setNewArray(
-      achievements
-        .filter(
-          (item) =>
-            item.status === "accepted" 
-        )
-        .map((item) => ({
+    
+    setNewArray((prevArray) => {
+      const filteredItems = achievements.filter(
+        (item) => item.status === "accepted"
+      );
+    
+      const uniqueNames = Array.from(
+        new Set(filteredItems.map((item) => item.user.name))
+      );
+    
+      const newArray = uniqueNames.map((name) => {
+        const item = filteredItems.find((item) => item.user.name === name);
+        return {
           name: item.user.name,
           title: item.title,
           id: item._id,
@@ -301,8 +309,12 @@ export default function TeacherTable() {
           branch: item.user.branch,
           class: item.user.class,
           count: item.user.achievement_count,
-        }))
-    );
+        };
+      });
+    
+      return newArray;
+    });
+    
     // const newArray = achievements
     //   .filter((item) => item.status === "accepted")
     //   .map((item) => ({
@@ -470,7 +482,7 @@ export default function TeacherTable() {
             order={order}
             orderBy={orderBy}
             onSelectAllClick={handleSelectAllClick}
-            onRequestSort={handleRequestSort}
+            onRequestSort={()=>{}}
             rowCount={rows.length}
           />
           <TableBody>
@@ -503,10 +515,12 @@ export default function TeacherTable() {
                     id={labelId}
                     scope="row"
                     padding="none"
+                    // sx={{width:'40%'}}
                   >
                     {row.name}
                   </TableCell>
-                  <TableCell align="right">{row.count}</TableCell>
+                  <TableCell align="right">{row.branch}</TableCell>
+                  {/* <TableCell align="right">{row.title}</TableCell> */}
                   <TableCell align="right">
                     <button
                       type="button"

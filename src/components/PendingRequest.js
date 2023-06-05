@@ -250,6 +250,8 @@ export default function TeacherTable() {
 
   console.log(userInformation, "line 371", achievements);
 
+
+
   const newArray = achievements
     .filter(
       (item) =>
@@ -428,6 +430,7 @@ export default function TeacherTable() {
                     {row.name}
                   </TableCell>
                   <TableCell align="right">{row.title}</TableCell>
+                  
                   <TableCell align="right">
                     <button
                       type="button"
