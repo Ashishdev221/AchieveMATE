@@ -77,6 +77,11 @@ const updateAchievementStatus = asyncHandler(async (req, res) => {
     }
 
     achievement.status = status;
+    if (status === "accepted") {
+      const user = await User.findById(achievement.user);
+      user.achievement_count += 1;
+      await user.save();
+    }
     await achievement.save();
 
     return res.json(achievement);
@@ -89,27 +94,26 @@ const updateAchievementStatus = asyncHandler(async (req, res) => {
 const updatelikeCount = asyncHandler(async (req, res) => {
   try {
     const achievementId = req.params.id;
-    
+
     // Find the achievement by its ID
     const achievement = await Achievement.findById(achievementId);
 
     if (!achievement) {
-      return res.status(404).json({ message: 'Achievement not found' });
+      return res.status(404).json({ message: "Achievement not found" });
     }
-    
+
     // Increment the like count
     achievement.likes++;
-    
+
     // Save the updated achievement
     await achievement.save();
 
-    return res.json({ message: 'Achievement liked successfully', achievement });
+    return res.json({ message: "Achievement liked successfully", achievement });
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ message: 'Internal server error' });
+    return res.status(500).json({ message: "Internal server error" });
   }
 });
-
 
 const getAchievementLeaderBoard = asyncHandler(async (req, res) => {
   try {
@@ -153,16 +157,15 @@ const getAchievementLeaderBoard = asyncHandler(async (req, res) => {
 });
 
 const getCount = asyncHandler(async (req, res) => {
-  try{
+  try {
     const userCount = await User.countDocuments();
     const achievementCount = await Achievement.countDocuments();
-    res.status(200).json({userCount, achievementCount});
+    res.status(200).json({ userCount, achievementCount });
+  } catch (err) {
+    console.error("Error fetching data count:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
-  catch (err) {
-    console.error('Error fetching data count:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-})
+});
 module.exports = {
   addAchievement,
   getAchievements,
