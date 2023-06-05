@@ -104,11 +104,14 @@ const SignUpPage = () => {
   return (
     <>
       <div className="loginpage flex-container">
-        <div className="leftside d-flex flex-column justify-content-center" style={{ height: "100vh" }}>
+        <div
+          className="leftside d-flex flex-column justify-content-center"
+          style={{ height: "100vh" }}
+        >
           <div className="leftside_info">
             <h1 className="leftside_heading">
-              It's Your <span className="yellow_col">Achievement</span>,<br></br>{" "}
-              Showcase it.
+              It's Your <span className="yellow_col">Achievement</span>,
+              <br></br> Showcase it.
             </h1>
             <p className="leftside_para">
               Be proud of your achievements! Login now and start sharing your
@@ -119,11 +122,36 @@ const SignUpPage = () => {
             <h3 className="team_heading">Meet the Team</h3>
             <hr className="hr_login" />
             <div className="flex-container team_cards">
-              <TeamCard firstName="Sourabh" lastName="Purbia" img="./1.png" url='https://www.linkedin.com/in/sourabhpurbia/' />
-              <TeamCard firstName="Ashish" lastName="Dev" img="./2.png" url='https://www.linkedin.com/in/ashish-dev-091b651a3/' />
-              <TeamCard firstName="Pankaj" lastName="Kumawat" img="./4.png" url='https://www.linkedin.com/in/pankaj-kumawat/' />
-              <TeamCard firstName="Kanhav" lastName="Sukhwal" img="./3.png" url='https://www.linkedin.com/in/kanhav-sukhwal-2b6ab11b6/' />
-              <TeamCard firstName="Kuldeep" lastName="Katara" img="./5.png" url='https://www.linkedin.com/in/kuldeep-katara-694072252/' />
+              <TeamCard
+                firstName="Sourabh"
+                lastName="Purbia"
+                img="./1.png"
+                url="https://www.linkedin.com/in/sourabhpurbia/"
+              />
+              <TeamCard
+                firstName="Ashish"
+                lastName="Dev"
+                img="./2.png"
+                url="https://www.linkedin.com/in/ashish-dev-091b651a3/"
+              />
+              <TeamCard
+                firstName="Pankaj"
+                lastName="Kumawat"
+                img="./4.png"
+                url="https://www.linkedin.com/in/pankaj-kumawat/"
+              />
+              <TeamCard
+                firstName="Kanhav"
+                lastName="Sukhwal"
+                img="./3.png"
+                url="https://www.linkedin.com/in/kanhav-sukhwal-2b6ab11b6/"
+              />
+              <TeamCard
+                firstName="Kuldeep"
+                lastName="Katara"
+                img="./5.png"
+                url="https://www.linkedin.com/in/kuldeep-katara-694072252/"
+              />
             </div>
           </div>
         </div>
@@ -138,7 +166,7 @@ const SignUpPage = () => {
               name="student_login"
               // layout="inline"
               onFinish={onFinish}
-            // initialValues={}
+              // initialValues={}
             >
               <Form.Item
                 name="name"
@@ -164,7 +192,7 @@ const SignUpPage = () => {
                   },
                   {
                     pattern: /^20\d{2}\/CTAE\/\d{1,3}$/,
-                    message: 'Enrollment number must be in correct format',
+                    message: "Enrollment number must be in correct format",
                   },
                 ]}
               >
@@ -180,6 +208,11 @@ const SignUpPage = () => {
                   {
                     required: true,
                     message: "Please input your password!",
+                  },
+                  {
+                    pattern: /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/,
+                    message:
+                      "Password must be in correct format.",
                   },
                 ]}
               >
@@ -229,7 +262,7 @@ const SignUpPage = () => {
                         : Promise.reject(new Error("Should accept agreement")),
                   },
                 ]}
-              // {...tailFormItemLayout}
+                // {...tailFormItemLayout}
               >
                 <Checkbox>
                   I have read the <a href="">agreement</a>
@@ -254,16 +287,14 @@ const SignUpPage = () => {
           </div>
         </div>
       </div>
-      {
-        showModal && (
-          <OtpModal
-            showModal={showModal}
-            userEmail={userEmail}
-            otp={otp}
-            handleSignUp={create_user}
-          />
-        )
-      }
+      {showModal && (
+        <OtpModal
+          showModal={showModal}
+          userEmail={userEmail}
+          otp={otp}
+          handleSignUp={create_user}
+        />
+      )}
     </>
   );
 };

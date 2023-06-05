@@ -57,7 +57,9 @@ export default function MyDashboard() {
       <Box sx={{ width: "100%" }}>
         <div class="d-flex p-2">
           <div className=" p-2">
+          <a href="/home-page">
             <img src="/backBtn.svg" width={"20px"} height={"20px"} />
+          </a>
           </div>
           <h3 className="mx-4">My Dashboard</h3>
         </div>

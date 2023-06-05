@@ -81,6 +81,10 @@ const LoginPage = () => {
                   required: true,
                   message: "Please input your Enrollment number!",
                 },
+                {
+                    pattern: /^20\d{2}\/CTAE\/\d{1,3}$/,
+                    message: "Enrollment number must be in correct format",
+                  },
               ]}
             >
               <Input

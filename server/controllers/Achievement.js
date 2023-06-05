@@ -159,11 +159,12 @@ const getAchievementLeaderBoard = asyncHandler(async (req, res) => {
 const getCount = asyncHandler(async (req, res) => {
   try {
     const userCount = await User.countDocuments();
-    const achievementCount = await Achievement.countDocuments();
-    res.status(200).json({ userCount, achievementCount });
-  } catch (err) {
-    console.error("Error fetching data count:", error);
-    res.status(500).json({ error: "Internal server error" });
+    const achievementCount = await Achievement.countDocuments({ status: 'accepted' });
+    res.status(200).json({userCount, achievementCount});
+  }
+  catch (err) {
+    console.error('Error fetching data count:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 module.exports = {

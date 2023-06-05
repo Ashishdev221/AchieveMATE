@@ -22,7 +22,7 @@ const authUser = asyncHandler(async (req, res) => {
       email: teacher.email,
       designation: teacher.designation,
       category: teacher.category,
-
+      img: teacher.img,
       message: "user logged in",
     });
   }

@@ -1,0 +1,23 @@
+.leaderboardCard_heading {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  
+  .leaderboardCard_para {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+  }
+  
+  .leaderboardCard {
+      align-items: center;
+      margin-bottom: 10px;
+  }
+  
+  .current_user{
+    background-color:#37169A;
+    color:white
+  }
+  
+  

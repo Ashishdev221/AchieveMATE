@@ -21,6 +21,14 @@ const teacherSchema = new mongoose.Schema({
   },
   category: {
     type: String
+  },
+  img: {
+    type: String,
+    default:
+        "https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png"
+  },
+  department: {
+    type: String
   }
 });
 

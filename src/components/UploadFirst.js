@@ -102,7 +102,7 @@ const UploadFirst = ({ hideModalUpload, setCurrentOpen, setFile, setUploadData }
         </Form.Item>
         <Form.Item
           name="Authority"
-          label="Certifying Autority"
+          label="Certifying Authority"
           rules={[
             {
               required: true,
