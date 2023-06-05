@@ -55,8 +55,10 @@ const UploadThird = ({ hideModalUpload, setCurrentOpen, file, uploadData }) => {
         .then((response) => {
           console.log(response.data);
           hideModalUpload();
+          // alert('Achievement uploaded successfully')
         })
         .catch((error) => {
+          alert('Achievement not uploaded')
           console.error(error);
         });
     }
