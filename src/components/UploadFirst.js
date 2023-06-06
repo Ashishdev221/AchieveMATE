@@ -117,7 +117,7 @@ const UploadFirst = ({ hideModalUpload, setCurrentOpen, setFile, setUploadData }
         </Form.Item>
         <Form.Item
           name="Category"
-          label="Category of your Achiement"
+          label="Category of your Achievement"
           rules={[
             {
               required: true,

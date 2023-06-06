@@ -415,8 +415,9 @@ export default function TeacherTable() {
     );
     setFilteredArray(newFilteredArray);
     setFilterApplied(!isFilterApplied);
+    console.log("Selected items 11111:", selectedItems, newFilteredArray, newArray);
     if (selectedItems.length === 0) setFilteredArray(newArray);
-    console.log("Selected items:", selectedItems, newFilteredArray, newArray);
+   
   };
 
   const visibleRows = React.useMemo(

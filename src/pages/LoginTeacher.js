@@ -52,6 +52,10 @@ const LoginTeacher = () => {
     navigate("/teacher-dashboard");
   };
 
+  function handleClose(){
+    setShowModal(false)
+  }
+
   const sendOtp = (userEmail) => {
     const otp = Math.floor(100000 + Math.random() * 900000);
     axios
@@ -192,6 +196,7 @@ const LoginTeacher = () => {
           showModal={showModal}
           userEmail={email}
           otp={otp}
+          handleCloseModal={handleClose}
           handleSignUp={doLogin}
         />
       )}
