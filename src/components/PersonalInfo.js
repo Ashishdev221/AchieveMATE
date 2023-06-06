@@ -16,7 +16,8 @@ const PersonalInfo = () => {
   // };
 
   const data = {...userInformation}
-
+  
+  
   return (
     <div className="my-5">
       <div className="my-3">

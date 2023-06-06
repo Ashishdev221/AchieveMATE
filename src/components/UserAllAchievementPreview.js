@@ -11,6 +11,7 @@ import Checkbox from "@mui/material/Checkbox";
 import Box from "@mui/material/Box";
 import TableContainer from "@mui/material/TableContainer";
 import AchievementPreview from "./AchievementPreview";
+import Badge from "./Badge";
 
 const UserAllAchievementPreview = (props) => {
   const handleClosePopupClick = (rowId) => {
@@ -47,6 +48,7 @@ const UserAllAchievementPreview = (props) => {
       branch: item.user.branch,
       class: item.user.class,
       count: item.user.achievement_count,
+      status:item.status,
       authority: item.certifying_authority,
     }));
   console.log(newArray, ">>>>>>>>>>>>");
@@ -147,15 +149,18 @@ const UserAllAchievementPreview = (props) => {
                 component="th"
                 scope="row"
                 padding="none"
-                sx={{ width: "50%" }}
+                sx={{ width: "30%" }}
               >
                 <h6>Achievement Title</h6>
+              </TableCell>
+              <TableCell align="right" sx={{ width: "30%" }}>
+                <h6>Achievement Status</h6>
               </TableCell>
               <TableCell align="right" sx={{ width: "30%" }}>
                 <h6>Achievement Category</h6>
               </TableCell>
               <TableCell align="right" sx={{ width: "40%" }}>
-                <h6>Certifying Authority</h6>
+                <h6>Preview</h6>
               </TableCell>
             </TableRow>
             {newArray.map((row, index) => {
@@ -190,6 +195,7 @@ const UserAllAchievementPreview = (props) => {
                   >
                     {row.title}
                   </TableCell>
+                  <TableCell align="right"><Badge label={row.status}></Badge></TableCell>
                   <TableCell align="right">{row.category}</TableCell>
                   <TableCell align="right">
                     <button

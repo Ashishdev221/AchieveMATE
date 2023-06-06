@@ -94,26 +94,21 @@ const headCells = [
 ];
 
 const yearFilterOptions = [
-  "BTECH 1st Year",
-  "BTECH 2nd Year",
-  "BTECH 3rd Year",
-  "BTECH 4th Year",
+  "B.Tech 1st Year",
+  "B.Tech 2nd Year",
+  "B.Tech 3rd Year",
+  "B.Tech 4th Year",
 ];
 
-const branchFilterOptions = ["CSE", "ECE", "ME", "CE"];
-
-const achievementOptions = [
-  "Academic Achievements",
-  "Internship and Work Achievements",
-  "Global Achievement",
-  "Entrepreneurship and Innovation Achievements",
-  "Research and Publication Achievements",
-  "Social Impact Achievements",
-  "Health and Wellness Achievements",
-  "Creative Arts Achievements",
-  "Music and Dance Achievements",
-  "Literature Achievements",
-  "Athletics and Sports Achievements",
+const branchFilterOptions = [
+  "Computer Science and Engineering",
+  "Electronics and Communication Engineering",
+  "Artificial Intelligence and Data Science Engineering",
+  "Electrical Engineering",
+  "Civil Engineering",
+  "Agriculture Engineering",
+  "Mechanical Engineering",
+  "Mining Engineering",
 ];
 
 function EnhancedTableHead(props) {
@@ -147,7 +142,7 @@ function EnhancedTableHead(props) {
           {headCells.map((headCell) => (
             <TableCell
               key={headCell.id}
-              align={headCell.numeric ? "right" : "left"}
+              align={headCell.numeric ? "center" : "left"}
               padding={headCell.disablePadding ? "none" : "normal"}
               sortDirection={orderBy === headCell.id ? order : false}
             >
@@ -436,9 +431,13 @@ export default function TeacherTable() {
     );
     setFilteredArray(newFilteredArray);
     setFilterApplied(!isFilterApplied);
-    console.log("Selected items 11111:", selectedItems, newFilteredArray, newArray);
+    console.log(
+      "Selected items 11111:",
+      selectedItems,
+      newFilteredArray,
+      newArray
+    );
     if (selectedItems.length === 0) setFilteredArray(newArray);
-   
   };
 
   const visibleRows = React.useMemo(
@@ -541,7 +540,7 @@ export default function TeacherTable() {
                   >
                     {row.name}
                   </TableCell>
-                  <TableCell align="right">{row.branch}</TableCell>
+                  <TableCell align="center">{row.branch}</TableCell>
                   {/* <TableCell align="right">{row.title}</TableCell> */}
                   <TableCell align="right">
                     <button

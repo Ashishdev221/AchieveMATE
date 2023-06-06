@@ -18,7 +18,11 @@ const registerUser = asyncHandler(async (req, res) => {
           id: userExist._id,
           name: userExist.name,
           enrollment: userExist.enrollment,
+          class: userExist.class,
+          branch: userExist.branch,
           img: userExist.img,
+          phone: userExist.phone,
+          email: userExist.email,
           message: "User created successfully",
         });
       } else {

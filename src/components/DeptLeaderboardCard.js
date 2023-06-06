@@ -26,7 +26,16 @@ function DeptLeaderboardCard() {
   }, []);
 
   useEffect(() => {
-    const branches = ["CSE", "ME", "ECE", "EE", "CE"];
+    const branches = [
+      "Computer Science and Engineering",
+      "Electronics and Communication Engineering",
+      "Artificial Intelligence and Data Science Engineering",
+      "Electrical Engineering",
+      "Civil Engineering",
+      "Agriculture Engineering",
+      "Mechanical Engineering",
+      "Mining Engineering",
+    ];
 
     const branchCount = {};
 
@@ -54,19 +63,19 @@ function DeptLeaderboardCard() {
   }, [achievements]);
   console.log(achievements, departmentLeaderBoard, "in leaderboard");
 
-  function getFullBranchName(name) {
-    if (name === "CSE") {
-      return "Computer Science And Engineering";
-    } else if (name === "ECE") {
-      return "Electronics and Communication Engineering";
-    } else if (name === "ME") {
-      return "Mechanical Engineering";
-    } else if (name === "CE") {
-      return "Civil Engineering";
-    } else if (name === "EE") {
-      return "Electrical Engineering";
-    }
-  }
+  // function getFullBranchName(name) {
+  //   if (name === "CSE") {
+  //     return "Computer Science And Engineering";
+  //   } else if (name === "ECE") {
+  //     return "Electronics and Communication Engineering";
+  //   } else if (name === "ME") {
+  //     return "Mechanical Engineering";
+  //   } else if (name === "CE") {
+  //     return "Civil Engineering";
+  //   } else if (name === "EE") {
+  //     return "Electrical Engineering";
+  //   }
+  // }
 
   return (
     <div>
@@ -87,7 +96,7 @@ function DeptLeaderboardCard() {
 
             <div className="leaderboardCard_info container">
               <h4 className="leaderboardCard_heading">
-                {getFullBranchName(branch)}
+                {branch}
               </h4>
               <p className="leaderboardCard_para">{count} Achievements</p>
             </div>

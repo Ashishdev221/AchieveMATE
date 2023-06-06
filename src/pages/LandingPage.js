@@ -95,7 +95,7 @@ function LandingPage() {
         <div className="counter flex-container">
           <CounterCard image={'/vector2.svg'} title={'Achievers'} count={counter.userCount} />
           <CounterCard image={'/achievement.svg'} title={'Achievements'} count={counter.achievementCount} />
-          <CounterCard image={'/courses.svg'} title={'Courses'} count={'0'} />
+          <CounterCard image={'/courses.svg'} title={'Courses'} count={'5'} />
         </div>
         <div className="about_info flex-container">
           <div className="about_left">
